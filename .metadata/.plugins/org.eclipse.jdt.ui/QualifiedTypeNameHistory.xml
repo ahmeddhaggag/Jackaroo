@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="model.card.standard.Ace"/>
+<fullyQualifiedTypeName name="model.card.standard.King"/>
+<fullyQualifiedTypeName name="model.card.standard.Queen"/>
+<fullyQualifiedTypeName name="model.card.standard.Jack"/>
+<fullyQualifiedTypeName name="model.card.wild.Burner"/>
+<fullyQualifiedTypeName name="model.card.wild.Saver"/>
+<fullyQualifiedTypeName name="model.card.standard.Standard"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="model.card.Card"/>
+</qualifiedTypeNameHistroy>
