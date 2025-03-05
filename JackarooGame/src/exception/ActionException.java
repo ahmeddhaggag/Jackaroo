@@ -5,7 +5,6 @@ public abstract class ActionException extends GameException {
 	}
 	public ActionException(String message ){
 		super(message);
-		;
-		
+				
 	}
 }

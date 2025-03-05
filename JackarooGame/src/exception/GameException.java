@@ -1,5 +1,11 @@
 package exception;
 
-public class GameException {
+abstract public class GameException {
+	public GameException(){
+		
+	}
+	public GameException(String message){
+		System.out.println(message); 
+	}
 
 }
