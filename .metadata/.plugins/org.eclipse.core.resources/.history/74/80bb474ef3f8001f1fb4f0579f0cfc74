@@ -1,0 +1,30 @@
+package model.player;
+
+import java.util.ArrayList;
+
+public class Player {
+	private String name;
+	private Colour colour;
+	private ArrayList<Card> hand;
+	private Card selectedCard;
+	private final ArrayList<Marble> selectedMarbles;
+	
+	public String getName() {
+		return name;
+	}
+	public Colour getColour() {
+		return colour;
+	}
+	public ArrayList<Card> getHand() {
+		return hand;
+	}
+	public void setHand(ArrayList<Card> hand) {
+		this.hand = hand;
+	}
+	
+	public Card getSelectedCard() {
+		return selectedCard;
+	}
+	
+
+}

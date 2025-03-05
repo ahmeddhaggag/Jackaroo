@@ -1,5 +1,10 @@
 package model.card.wild;
 
-public abstract class Wild {
+import model.card.Card;
+
+public abstract class Wild extends Card {
+	Wild(String name, String description, BoardManager boardManager, GameManager gameManager){
+		super(name,description, boardManager, gameManager);
+	}
 
 }
