@@ -1,6 +1,7 @@
 package model.card;
 
 import engine.GameManager;
+import engine.board.BoardManager;
 
 public abstract class Card {
 

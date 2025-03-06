@@ -2,6 +2,7 @@ package model.player;
 
 import java.util.ArrayList;
 
+import model.Colour;
 import model.card.Card;
 
 public class Player {
@@ -12,6 +13,7 @@ public class Player {
 	private final ArrayList<Marble> marbles;
 	private Card selectedCard;
 	private final ArrayList<Marble> selectedMarbles;
+	
 	
 	
 	public Player(String name, Colour colour){

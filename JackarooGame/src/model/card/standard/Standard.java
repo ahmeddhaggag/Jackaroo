@@ -1,6 +1,8 @@
 
 package model.card.standard;
 
+import engine.GameManager;
+import engine.board.BoardManager;
 import model.card.Card;
 
 public class Standard extends Card {
