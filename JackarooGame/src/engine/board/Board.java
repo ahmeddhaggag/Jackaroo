@@ -24,6 +24,7 @@ public class Board {
 		safeZones.add(new SafeZone(colourOrder.get(1)));
 		safeZones.add(new SafeZone(colourOrder.get(2)));
 		safeZones.add(new SafeZone(colourOrder.get(3)));
+
 	}
 
 
@@ -33,8 +34,7 @@ public class Board {
 		
 		while(true){
 			index = rand.nextInt(99) + 1;
-			if(track.get(index).isTrap){
-				track.get(index).setCellType(TRAP);
+			if(track.get(index).isTrap()){
 				track.get(index).setTrap(true);
 				break;
 			}

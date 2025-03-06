@@ -1,5 +1,26 @@
 package engine.board;
+import java.util.ArrayList;
 
-public class SafeZone {
+import model.Colour;
 
+
+
+public class SafeZone{
+	private final Colour colour;
+	private final ArrayList<Cell> cells;
+
+
+	public SafeZone(Colour colour){
+		this.colour= colour;
+		this.cells=new ArrayList<>(4);
+		for(int i=0;i<4;i++){
+			this.cells.add(new Cell(CellType.SafeZone));
+		}
+	}
+	public Colour getColour() {
+		return colour;
+	}
+	public ArrayList<Cell> getCells() {
+		return cells;
+	}
 }

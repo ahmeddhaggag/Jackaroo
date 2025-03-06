@@ -2,11 +2,14 @@ package model.card;
 
 import java.util.ArrayList;
 
+import engine.GameManager;
+import engine.board.BoardManager;
 import model.card.standard.Ace;
 import model.card.standard.Jack;
 import model.card.standard.King;
 import model.card.standard.Queen;
 import model.card.standard.Standard;
+import model.card.standard.Suit;
 import model.card.wild.Burner;
 import model.card.wild.Saver;
 
@@ -32,7 +35,7 @@ public class Deck {
 				String name = row[2].trim();
 				String description = row[3].trim();
 				int rank = row[4].trim().isEmpty() ? -1 : Integer.parseInt(row[4].trim());
-				String suit = row[5].trim().isEmpty() ? null : row[5].trim();
+				Suit suit = row[5].trim().isEmpty() ? null : Suit.valueOf(row[5].trim());
 
 				Card card;
 				switch (name.toLowerCase()) {
@@ -55,7 +58,7 @@ public class Deck {
 					card = new Saver(name, description, boardManager, gameManager);
 					break;
 				default:
-					card = new Standard(name, description, suit, boardManager, gameManager);
+					card = new Standard(name, description, rank, suit, boardManager, gameManager);
 					break;
 				}
 
@@ -72,7 +75,7 @@ public class Deck {
 			}
 		}
 	}
-	 n 
+	
 	public static ArrayList<Card> drawCards() {
         Collections.shuffle(cardsPool);
         ArrayList<Card> drawnCards = new ArrayList<>();
