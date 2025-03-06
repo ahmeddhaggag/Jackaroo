@@ -41,7 +41,7 @@ public class Deck {
 
 				Card card;
 				switch (code) {
-				case 1:
+				case 0:
 					card = new Ace(name, description, suit, boardManager, gameManager);
 					break;
 				case 13:
