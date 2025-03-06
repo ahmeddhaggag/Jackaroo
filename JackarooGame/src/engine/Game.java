@@ -31,7 +31,7 @@ public class Game implements GameManager{
 		Deck.drawCards();
 		this.currentPlayerIndex=0;
 		this.turn=0;
-		this.firePit=new ArrayList<>();
+		this.firePit=new ArrayList<>(); 
 		
 	}
 	
