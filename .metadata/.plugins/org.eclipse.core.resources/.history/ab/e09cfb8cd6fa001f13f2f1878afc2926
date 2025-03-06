@@ -38,7 +38,7 @@ public class Game implements GameManager{
 
 	}
 	
-	public ArrayList<Player> getPlayers(){
+	public ArrayList<Player> getPlayer(){
 		return players;
 	}
 	
