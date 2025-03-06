@@ -3,13 +3,44 @@ import java.util.*;
 import engine.GameManager;
 import model.player.Colour;
 
+import java.util.ArrayList;
+import java.util.Random;
+
+import engine.GameManager;
+import model.Colour;
+
 public class Board {
-	GameManager gameManager;
-	ArrayList<Cell> track;
-	ArrayList<SafeZone> safeZones;
-	int splitDistance;
+	private final GameManager gameManager;
+	private final ArrayList<Cell> track;
+	private final ArrayList<SafeZone> safeZones;
+	private int splitDistance;
+
+
 	public Board(ArrayList<Colour> colourOrder, GameManager gameManager){
-		 
+		this.gameManager = gameManager;
+		this.track = new ArrayList<Cell>();
+		this.safeZones = new ArrayList<SafeZone>(4);
+		safeZones.add(new SafeZone(colourOrder.get(0)));
+		safeZones.add(new SafeZone(colourOrder.get(1)));
+		safeZones.add(new SafeZone(colourOrder.get(2)));
+		safeZones.add(new SafeZone(colourOrder.get(3)));
+	}
+
+
+	public void assignTrapCell(){
+		Random rand = new Random();
+		int index;
+		
+		while(true){
+			index = rand.nextInt(99) + 1;
+			if(track.get(index).isTrap){
+				track.get(index).setCellType(TRAP);
+				track.get(index).setTrap(true);
+				break;
+			}
+			
+		}
+
 	}
 	public int getSplitDistance() {
 		return splitDistance;

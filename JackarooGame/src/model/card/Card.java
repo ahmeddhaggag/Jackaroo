@@ -1,5 +1,7 @@
 package model.card;
 
+import engine.GameManager;
+
 public abstract class Card {
 
 	private String name;

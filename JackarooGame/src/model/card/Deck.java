@@ -26,13 +26,12 @@ public class Deck {
 
 			while ((line = reader.readLine()) != null) {
 				String[] row = line.split(",");
-				if (row.length < 6) continue; // Ensure valid data
 
 				int code = Integer.parseInt(row[0].trim());
 				int frequency = Integer.parseInt(row[1].trim());
 				String name = row[2].trim();
 				String description = row[3].trim();
-				int rank = row[4].trim().isEmpty() ? -1 : Integer.parseInt(row[4].trim()); // Handle wild cards
+				int rank = row[4].trim().isEmpty() ? -1 : Integer.parseInt(row[4].trim());
 				String suit = row[5].trim().isEmpty() ? null : row[5].trim();
 
 				Card card;
@@ -73,7 +72,7 @@ public class Deck {
 			}
 		}
 	}
-	
+	 n 
 	public static ArrayList<Card> drawCards() {
         Collections.shuffle(cardsPool);
         ArrayList<Card> drawnCards = new ArrayList<>();
@@ -81,7 +80,7 @@ public class Deck {
             drawnCards.add(cardsPool.remove(0));
         }
         return drawnCards;
-    }
+    } 
 	
 	
 }

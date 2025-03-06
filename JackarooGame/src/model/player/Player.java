@@ -21,8 +21,7 @@ public class Player {
 		selectedMarbles = new ArrayList<>();
 		marbles = new ArrayList<>();
 		for(int i =0; i<4; i++){
-			marbles.add(new Marble(colour));
-			
+			marbles.add(new Marble(colour));	
 		}
 		selectedCard = null;
 	}
