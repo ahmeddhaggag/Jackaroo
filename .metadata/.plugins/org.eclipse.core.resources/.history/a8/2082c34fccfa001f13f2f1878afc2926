@@ -1,0 +1,5 @@
+package engine;
+
+public enum CellType {
+	NORMAL,SAFE,BASE,ENTRY,SafeZone
+}

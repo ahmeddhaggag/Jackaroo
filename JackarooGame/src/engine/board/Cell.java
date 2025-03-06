@@ -6,7 +6,7 @@ public class Cell {
 	private boolean trap;
 	
 	public Cell(CellType cellType){
-		this.cellType=cellType;
+		this.cellType= cellType;
 		this.marble=null;
 		this.trap=false;
 	}

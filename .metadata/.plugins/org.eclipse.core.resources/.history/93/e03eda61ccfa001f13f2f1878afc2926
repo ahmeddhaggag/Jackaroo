@@ -2,7 +2,6 @@ package engine;
 import java.util.ArrayList;
 
 import engine.board.Cell;
-import engine.board.CellType;
 import model.Colour;
 
 public class SafeZone{

@@ -1,10 +1,8 @@
-package engine;
+package engine.board;
 import java.util.ArrayList;
 
 import engine.board.Cell;
-import engine.board.CellType;
-import model.Colour;
-
+import model.player.Colour;
 public class SafeZone{
 		 private final Colour colour;
 		 private final ArrayList<Cell> cells;
@@ -12,7 +10,7 @@ public class SafeZone{
 			 this.colour=colour;
 			 this.cells=new ArrayList<>();
 			 for(int i=0;i<4;i++){
-				 this.cells.add(new Cell(CellType.SafeZone));
+				 this.cells.add(new Cell(engine.board.SafeZone));
 				 
 			 }
 		 }
