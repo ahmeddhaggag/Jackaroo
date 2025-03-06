@@ -11,33 +11,22 @@ public class Board {
 	private final ArrayList<Cell> track;
 	private final ArrayList<SafeZone> safeZones;
 	private int splitDistance;
-
-
+	
+	
 	public Board(ArrayList<Colour> colourOrder, GameManager gameManager){
-		this.gameManager = gameManager;
-		this.track = new ArrayList<Cell>();
-		this.safeZones = new ArrayList<SafeZone>(4);
-		safeZones.add(new SafeZone(colourOrder.get(0)));
-		safeZones.add(new SafeZone(colourOrder.get(1)));
-		safeZones.add(new SafeZone(colourOrder.get(2)));
-		safeZones.add(new SafeZone(colourOrder.get(3)));
+		 this.gameManager = gameManager;
+		 this.track = new ArrayList<Cell>();
+		 this.safeZones = new ArrayList<SafeZone>(4);
+		 safeZones.add(new SafeZone(colourOrder.get(0)));
+		 safeZones.add(new SafeZone(colourOrder.get(1)));
+		 safeZones.add(new SafeZone(colourOrder.get(2)));
+		 safeZones.add(new SafeZone(colourOrder.get(3)));
 	}
-
-
+	
+	
 	public void assignTrapCell(){
 		Random rand = new Random();
-		int index;
-		
-		while(true){
-			index = rand.nextInt(99) + 1;
-			if(track.get(index).isTrap){
-				track.get(index).setCellType(TRAP);
-				track.get(index).setTrap(true);
-				break;
-			}
-			
-		}
-
+		int cell = rand.nextInt(99) + 1;
 	}
 	public int getSplitDistance() {
 		return splitDistance;
