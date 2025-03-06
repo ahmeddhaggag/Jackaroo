@@ -10,7 +10,6 @@ import model.card.standard.Four;
 import model.card.standard.Jack;
 import model.card.standard.King;
 import model.card.standard.Queen;
-import model.card.standard.Seven;
 import model.card.standard.Standard;
 import model.card.standard.Suit;
 import model.card.standard.Ten;
@@ -22,7 +21,7 @@ import java.util.*;
 
 public class Deck {
 	private static final String CARDS_FILE = "Cards.csv";
-	private static ArrayList<Card> cardsPool = new ArrayList<>(102);
+	private static ArrayList<Card> cardsPool = new ArrayList<>();
 
 	public static void loadCardPool(BoardManager boardManager, GameManager gameManager) throws IOException {
 		BufferedReader reader = null;
@@ -66,9 +65,6 @@ public class Deck {
 				case 5: 
 					card = new Five(name, description, suit, boardManager, gameManager);
 					break;
-				case 7: 
-					card = new Seven(name, description, suit, boardManager, gameManager);
-					break;
 				case 10: 
 					card = new Ten(name, description, suit, boardManager, gameManager);
 					break;
@@ -85,7 +81,9 @@ public class Deck {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			if (reader != null) {
 				reader.close();
+			}
 		}
 	}
 	

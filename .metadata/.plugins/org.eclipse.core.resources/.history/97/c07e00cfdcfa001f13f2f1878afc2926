@@ -22,7 +22,7 @@ import java.util.*;
 
 public class Deck {
 	private static final String CARDS_FILE = "Cards.csv";
-	private static ArrayList<Card> cardsPool = new ArrayList<>(102);
+	private static ArrayList<Card> cardsPool = new ArrayList<>();
 
 	public static void loadCardPool(BoardManager boardManager, GameManager gameManager) throws IOException {
 		BufferedReader reader = null;
@@ -85,7 +85,9 @@ public class Deck {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			if (reader != null) {
 				reader.close();
+			}
 		}
 	}
 	

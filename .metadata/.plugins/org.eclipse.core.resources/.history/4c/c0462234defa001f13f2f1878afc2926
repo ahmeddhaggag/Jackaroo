@@ -86,6 +86,7 @@ public class Deck {
 			e.printStackTrace();
 		} finally {
 				reader.close();
+			
 		}
 	}
 	
