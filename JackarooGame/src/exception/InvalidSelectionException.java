@@ -5,7 +5,7 @@ abstract public class InvalidSelectionException extends GameException {
 		super();
 	}
 	public InvalidSelectionException(String message){
-		super(message);
+		super(message); 
 	}
 
 }

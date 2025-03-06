@@ -1,4 +1,7 @@
 package engine.board;
+import java.util.*;
+import engine.GameManager;
+import model.player.Colour;
 
 public class Board {
 	GameManager gameManager;
