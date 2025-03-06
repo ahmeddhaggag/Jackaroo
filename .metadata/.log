@@ -887,3 +887,9 @@ Caused by: java.lang.IllegalArgumentException: Index out of bounds
 
 !ENTRY org.eclipse.launchbar.core 2 0 2025-03-06 23:07:27.864
 !MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.jface.text 2 0 2025-03-06 23:37:26.914
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2025-03-06 23:37:26.930
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

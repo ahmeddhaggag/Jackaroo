@@ -5,8 +5,8 @@ import engine.board.BoardManager;
 
 public abstract class Card {
 
-	private String name;
-	private String description;
+	private final String name;
+	private final String description;
 	protected BoardManager boardManager;
 	protected GameManager gameManager;
 	
@@ -16,5 +16,15 @@ public abstract class Card {
 		this.description = description;
 		this.boardManager = boardManager;
 		this.gameManager = gameManager;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public String getDescription() {
+		return description;
 	}
 }

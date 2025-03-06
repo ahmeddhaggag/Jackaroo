@@ -9,7 +9,7 @@ import java.util.Random;
 import engine.GameManager;
 import model.Colour;
 
-public class Board {
+public class Board implements BoardManager {
 	private final GameManager gameManager;
 	private final ArrayList<Cell> track;
 	private final ArrayList<SafeZone> safeZones;
@@ -41,7 +41,7 @@ public class Board {
 	}
 
 
-	public void assignTrapCell(){
+	private void assignTrapCell(){
 		Random rand = new Random();
 		int index;
 

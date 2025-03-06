@@ -19,9 +19,9 @@ public class Player {
 	public Player(String name, Colour colour){
 		this.name = name;
 		this.colour = colour;
-		hand = new ArrayList<>();
-		selectedMarbles = new ArrayList<>();
-		marbles = new ArrayList<>();
+		hand = new ArrayList<Card>(4);
+		selectedMarbles = new ArrayList<Marble>();
+		marbles = new ArrayList<Marble>();
 		for(int i =0; i<4; i++){
 			marbles.add(new Marble(colour));	
 		}

@@ -15,11 +15,18 @@ public class Standard extends Card {
 		this.rank = rank;
 		this.suit = suit;
 	}
+	public String getName(){
+		return super.getName();
+	}
+	
+	public String getDescription(){
+		return super.getDescription();
+	}
 	public int getRank() {
-		return rank;
+		return this.rank;
 	}
 	public Suit getSuit() {
-		return suit;
+		return this.suit;
 	}
 	
 }

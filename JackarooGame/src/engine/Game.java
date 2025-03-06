@@ -10,9 +10,9 @@ import model.player.Player;
 import model.Colour;
 
 public class Game implements GameManager{
-	private Board board;
-	private ArrayList<Player> players;
-	private ArrayList<Card> firePit;
+	private final Board board;
+	private final ArrayList<Player> players;
+	private final ArrayList<Card> firePit;
 	private int currentPlayerIndex;
 	private int turn;
 	public Game(String playerName) throws IOException{
@@ -28,15 +28,27 @@ public class Game implements GameManager{
 		players.add(new Player(playerName,colourOrder.get(0)));
 		for(int i=1;i<=3;i++)
 		{
-			String name="CPU"+i;
+			String name="CPU "+i;
 			players.add(new CPU(name,colourOrder.get(i),(BoardManager)this.board));
 		}
 		Deck.drawCards();
 		this.currentPlayerIndex=0;
 		this.turn=0;
 		this.firePit=new ArrayList<>(); 
-		
+
 	}
 	
+	public ArrayList<Player> getPlayer(){
+		return players;
+	}
+	
+	public Board getBoard() {
+		return board;
+	}
+	public ArrayList<Card> getFirePit() {
+		return firePit;
+	}
+	
+
 }
 

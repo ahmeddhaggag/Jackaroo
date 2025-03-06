@@ -25,8 +25,7 @@ public class Deck {
 		String line = "";
 		try {
 			reader = new BufferedReader(new FileReader(CARDS_FILE));
-			reader.readLine(); 
-
+		
 			while ((line = reader.readLine()) != null) {
 				String[] row = line.split(",");
 
@@ -78,7 +77,7 @@ public class Deck {
 	
 	public static ArrayList<Card> drawCards() {
         Collections.shuffle(cardsPool);
-        ArrayList<Card> drawnCards = new ArrayList<>();
+        ArrayList<Card> drawnCards = new ArrayList<>(4);
         for (int i = 0; i < 4 && !cardsPool.isEmpty(); i++) {
             drawnCards.add(cardsPool.remove(0));
         }
