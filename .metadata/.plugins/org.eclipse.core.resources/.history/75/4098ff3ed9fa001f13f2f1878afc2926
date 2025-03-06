@@ -22,7 +22,7 @@ public class Game implements GameManager{
 		colourOrder.add(Colour.GREEN);
 		colourOrder.add(Colour.YELLOW);
 		Collections.shuffle(colourOrder);
-		this.board=new Board(colourOrder,(GameManager)this);
+		this.board=new Board(colourOrder,this);
 		Deck.loadCardPool((BoardManager)this.board,(GameManager)this);
 		players=new ArrayList<>();
 		players.add(new Player(playerName,colourOrder.get(0)));

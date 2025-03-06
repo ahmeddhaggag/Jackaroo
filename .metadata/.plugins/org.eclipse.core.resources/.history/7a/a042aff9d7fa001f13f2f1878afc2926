@@ -5,14 +5,11 @@ import java.util.ArrayList;
 import engine.GameManager;
 import engine.board.BoardManager;
 import model.card.standard.Ace;
-import model.card.standard.Five;
-import model.card.standard.Four;
 import model.card.standard.Jack;
 import model.card.standard.King;
 import model.card.standard.Queen;
 import model.card.standard.Standard;
 import model.card.standard.Suit;
-import model.card.standard.Ten;
 import model.card.wild.Burner;
 import model.card.wild.Saver;
 
@@ -36,37 +33,28 @@ public class Deck {
 				int frequency = Integer.parseInt(row[1].trim());
 				String name = row[2].trim();
 				String description = row[3].trim();
-				int rank = Integer.parseInt(row[4].trim());
+				int rank = row[4].trim().isEmpty() ? -1 : Integer.parseInt(row[4].trim());
 				Suit suit = row[5].trim().isEmpty() ? null : Suit.valueOf(row[5].trim());
 
 				Card card;
-				switch (code) {
-				case 0:
+				switch (name.toLowerCase()) {
+				case "ace":
 					card = new Ace(name, description, suit, boardManager, gameManager);
 					break;
-				case 13:
+				case "king":
 					card = new King(name, description, suit, boardManager, gameManager);
 					break;
-				case 12:
+				case "queen":
 					card = new Queen(name, description, suit, boardManager, gameManager);
 					break;
-				case 11:
+				case "jack":
 					card = new Jack(name, description, suit, boardManager, gameManager);
 					break;
-				case 14:
+				case "burner":
 					card = new Burner(name, description, boardManager, gameManager);
 					break;
-				case 15:
+				case "saver":
 					card = new Saver(name, description, boardManager, gameManager);
-					break;
-				case 4: 
-					card = new Four(name, description, suit, boardManager, gameManager);
-					break;
-				case 5: 
-					card = new Five(name, description, suit, boardManager, gameManager);
-					break;
-				case 10: 
-					card = new Ten(name, description, suit, boardManager, gameManager);
 					break;
 				default:
 					card = new Standard(name, description, rank, suit, boardManager, gameManager);
