@@ -18,17 +18,17 @@ public class Board {
 
 	public Board(ArrayList<Colour> colourOrder, GameManager gameManager){
 		this.gameManager = gameManager;
-		this.track = new ArrayList<Cell>(100);
+		this.track = new ArrayList<Cell>();
 		this.safeZones = new ArrayList<SafeZone>(4);
-//		track.get(0).setCellType(CellType.BASE);
-//		track.get(25).setCellType(CellType.BASE);
-//		track.get(50).setCellType(CellType.BASE);
-//		track.get(75).setCellType(CellType.BASE);
-//		
-//		track.get(23).setCellType(CellType.BASE);
-//		track.get(48).setCellType(CellType.BASE);
-//		track.get(73).setCellType(CellType.BASE);
-//		track.get(98).setCellType(CellType.BASE);
+		track.get(0).setCellType(CellType.BASE);
+		track.get(25).setCellType(CellType.BASE);
+		track.get(50).setCellType(CellType.BASE);
+		track.get(75).setCellType(CellType.BASE);
+		
+		track.get(23).setCellType(CellType.BASE);
+		track.get(48).setCellType(CellType.BASE);
+		track.get(73).setCellType(CellType.BASE);
+		track.get(98).setCellType(CellType.BASE);
 		splitDistance = 3;
 		safeZones.add(new SafeZone(colourOrder.get(0)));
 		safeZones.add(new SafeZone(colourOrder.get(1)));
