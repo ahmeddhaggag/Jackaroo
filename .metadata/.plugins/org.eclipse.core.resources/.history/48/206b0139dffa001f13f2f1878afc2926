@@ -73,12 +73,7 @@ public class Deck {
 					card = new Ten(name, description, suit, boardManager, gameManager);
 					break;
 				default:
-					if (rank != -1 && suit != null) {
-			            card = new Standard(name, description, rank, suit, boardManager, gameManager);
-			        } else {
-			            throw new IllegalArgumentException("Invalid card data: " + line);
-			        }
-			        
+					card = new Standard(name, description, rank, suit, boardManager, gameManager);
 					break;
 				}
 
