@@ -20,7 +20,7 @@ import java.io.*;
 import java.util.*;
 
 public class Deck {
-	private static final String CARDS_FILE = "Cards.csv";
+	private static final String CARDS_FILE = "../Cards.csv";
 	private static ArrayList<Card> cardsPool = new ArrayList<>();
 
 	public static void loadCardPool(BoardManager boardManager, GameManager gameManager) throws IOException {
@@ -36,7 +36,7 @@ public class Deck {
 				int frequency = Integer.parseInt(row[1].trim());
 				String name = row[2].trim();
 				String description = row[3].trim();
-				int rank = row[4].trim().isEmpty() ? -1 : Integer.parseInt(row[4].trim());
+				int rank = Integer.parseInt(row[4].trim());
 				Suit suit = row[5].trim().isEmpty() ? null : Suit.valueOf(row[5].trim());
 
 				Card card;
