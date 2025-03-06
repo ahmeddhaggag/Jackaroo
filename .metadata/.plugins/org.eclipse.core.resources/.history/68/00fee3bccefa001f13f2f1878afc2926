@@ -1,7 +1,7 @@
 package engine.board;
 import java.util.*;
 import engine.GameManager;
-import model.Colour;
+import model.player.Colour;
 
 import java.util.ArrayList;
 import java.util.Random;
