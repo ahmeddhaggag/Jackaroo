@@ -1,7 +1,6 @@
 package engine.board;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import engine.GameManager;
 import model.Colour;
@@ -16,17 +15,11 @@ public class Board {
 	public Board(ArrayList<Colour> colourOrder, GameManager gameManager){
 		 this.gameManager = gameManager;
 		 this.track = new ArrayList<Cell>();
-		 this.safeZones = new ArrayList<SafeZone>(4);
+		 this.safeZones = new ArrayList<SafeZone>();
 		 safeZones.add(new SafeZone(colourOrder.get(0)));
 		 safeZones.add(new SafeZone(colourOrder.get(1)));
 		 safeZones.add(new SafeZone(colourOrder.get(2)));
 		 safeZones.add(new SafeZone(colourOrder.get(3)));
-	}
-	
-	
-	public void assignTrapCell(){
-		Random rand = new Random();
-		int cell = rand.nextInt(99) + 1;
 	}
 	public int getSplitDistance() {
 		return splitDistance;

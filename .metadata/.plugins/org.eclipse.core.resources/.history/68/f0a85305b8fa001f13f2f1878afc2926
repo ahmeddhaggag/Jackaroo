@@ -1,12 +1,5 @@
 package engine;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import engine.board.Board;
-import model.card.Card;
-import model.player.Player;
-
 public class Game {
 	Board board;
 	ArrayList<Player> players;
