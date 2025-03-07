@@ -11,8 +11,8 @@ import model.Colour;
 
 public class Game implements GameManager{
 	private final Board board;
-	private final ArrayList<Player> players;
-	private final ArrayList<Card> firePit;
+	private final ArrayList<Player> players = new ArrayList<Player>();
+	private final ArrayList<Card> firePit = new ArrayList<Card>();
 	private int currentPlayerIndex;
 	private int turn;
 	public Game(String playerName) throws IOException{
@@ -22,19 +22,22 @@ public class Game implements GameManager{
 		colourOrder.add(Colour.GREEN);
 		colourOrder.add(Colour.YELLOW);
 		Collections.shuffle(colourOrder);
-		this.board=new Board(colourOrder,(GameManager)this);
-		Deck.loadCardPool((BoardManager)this.board,(GameManager)this);
-		players=new ArrayList<>();
+		this.board=new Board(colourOrder,this);
+		Deck.loadCardPool(this.board,this);
+		
 		players.add(new Player(playerName,colourOrder.get(0)));
 		for(int i=1;i<=3;i++)
 		{
 			String name="CPU "+i;
-			players.add(new CPU(name,colourOrder.get(i),(BoardManager)this.board));
+			players.add(new CPU(name,colourOrder.get(i),this.board));
 		}
-		Deck.drawCards();
+//		for(int i =0; i<4; i++){
+//			players.get(i).setHand(Deck.drawCards());
+//		}
+		
 		this.currentPlayerIndex=0;
 		this.turn=0;
-		this.firePit=new ArrayList<>(); 
+		 
 
 	}
 	

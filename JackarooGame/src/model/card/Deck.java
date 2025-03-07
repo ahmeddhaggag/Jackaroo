@@ -29,7 +29,7 @@ public class Deck {
 		String line = "";
 		try {
 			reader = new BufferedReader(new FileReader(CARDS_FILE));
-		
+
 			while ((line = reader.readLine()) != null) {
 				String[] row = line.split(",");
 
@@ -37,50 +37,58 @@ public class Deck {
 				int frequency = Integer.parseInt(row[1].trim());
 				String name = row[2].trim();
 				String description = row[3].trim();
-				int rank = row[4].trim().isEmpty() ? -1 : Integer.parseInt(row[4].trim());
-				Suit suit = row[5].trim().isEmpty() ? null : Suit.valueOf(row[5].trim());
+				int rank = -1;
+				Suit suit = null;
+				if(row.length == 6){
+					rank =  Integer.parseInt(row[4].trim());
+					 suit =  Suit.valueOf(row[5].trim());
+				}
 
 				Card card;
 				switch (code) {
+				case 0:
+					card = new Standard(name, description, rank, suit, boardManager, gameManager);
+					break;
 				case 1:
 					card = new Ace(name, description, suit, boardManager, gameManager);
 					break;
-				case 13:
-					card = new King(name, description, suit, boardManager, gameManager);
+				case 4:
+					card = new Four(name, description, suit, boardManager, gameManager);
 					break;
-				case 12:
-					card = new Queen(name, description, suit, boardManager, gameManager);
+				case 5:
+					card = new Five(name, description, suit, boardManager, gameManager);
+					break;
+				case 7:
+					card = new Seven(name, description, suit, boardManager, gameManager);
+					break;
+				case 10:
+					card = new Ten(name, description, suit, boardManager, gameManager);
 					break;
 				case 11:
 					card = new Jack(name, description, suit, boardManager, gameManager);
 					break;
+				case 12:
+					card = new Queen(name, description, suit, boardManager, gameManager);
+					break;
+				case 13:
+					card = new King(name, description, suit, boardManager, gameManager);
+					break;
 				case 14:
 					card = new Burner(name, description, boardManager, gameManager);
+					System.out.println("Creating card: " + code + " -> " + name);
 					break;
 				case 15:
 					card = new Saver(name, description, boardManager, gameManager);
 					break;
-				case 4: 
-					card = new Four(name, description, suit, boardManager, gameManager);
-					break;
-				case 5: 
-					card = new Five(name, description, suit, boardManager, gameManager);
-					break;
-				case 7: 
-					card = new Seven(name, description, suit, boardManager, gameManager);
-					break;
-				case 10: 
-					card = new Ten(name, description, suit, boardManager, gameManager);
-					break;
 				default:
 					if (rank != -1 && suit != null) {
-			            card = new Standard(name, description, rank, suit, boardManager, gameManager);
-			        } else {
-			            throw new IllegalArgumentException("Invalid card data: " + line);
-			        }
-			        
+						card = new Standard(name, description, rank, suit, boardManager, gameManager);
+					} else {
+						throw new IllegalArgumentException("Invalid card data: " + line);
+					}
 					break;
 				}
+
 
 				for (int i = 0; i < frequency; i++) {
 					cardsPool.add(card);
@@ -90,19 +98,19 @@ public class Deck {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-				reader.close();
+			reader.close();
 		}
 	}
-	
+
 	public static ArrayList<Card> drawCards() {
-        Collections.shuffle(cardsPool);
-        ArrayList<Card> drawnCards = new ArrayList<>(4);
-        for (int i = 0; i < 4 && !cardsPool.isEmpty(); i++) {
-            drawnCards.add(cardsPool.remove(0));
-        }
-        return drawnCards;
-    } 
-	
-	
+		Collections.shuffle(cardsPool);
+		ArrayList<Card> drawnCards = new ArrayList<>(4);
+		for (int i = 0; i < 4 && !cardsPool.isEmpty(); i++) {
+			drawnCards.add(cardsPool.remove(0));
+		}
+		return drawnCards;
+	} 
+
+
 }
 
