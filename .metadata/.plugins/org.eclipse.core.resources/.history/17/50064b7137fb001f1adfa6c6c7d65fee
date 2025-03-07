@@ -76,6 +76,7 @@ public class Deck {
 						break;
 					case 14:
 						card = new Burner(name, description, boardManager, gameManager);
+						System.out.println("Creating card: " + code + " -> " + name);
 						break;
 					case 15:
 						card = new Saver(name, description, boardManager, gameManager);
