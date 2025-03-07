@@ -37,23 +37,23 @@ public class Deck {
 				int frequency = Integer.parseInt(row[1]);
 				String name = row[2];
 				String description = row[3];
-				int rank = -1;
-			    Suit suit = null;
+				Suit suit = (row.length > 5) ? Suit.valueOf(row[5]) : null;
+		        int rank = (row.length > 4) ? Integer.parseInt(row[4]) : -1;
 
 				for (int i = 0; i < frequency; i++) {
 					Card card = null;
 					switch (code) {
 					case 0:
-						rank = Integer.parseInt(row[4]);
-						suit = Suit.valueOf(row[5]);
+//						rank = Integer.parseInt(row[4]);
+//						suit = Suit.valueOf(row[5]);
 						card = new Standard(name, description, rank, suit, boardManager, gameManager);
 						break;
 					case 1:
-						suit = Suit.valueOf(row[5]);
+//						suit = Suit.valueOf(row[5]);
 						card = new Ace(name, description, suit, boardManager, gameManager);
 						break;
 					case 4:
-						suit = Suit.valueOf(row[5]);
+//						suit = Suit.valueOf(row[5]);
 						card = new Four(name, description, suit, boardManager, gameManager);
 						break;
 					case 5:

@@ -31,9 +31,9 @@ public class Game implements GameManager{
 			String name="CPU "+i;
 			players.add(new CPU(name,colourOrder.get(i),this.board));
 		}
-		for(int i =0; i<4; i++){
-			players.get(i).setHand(Deck.drawCards());
-		}
+//		for(int i =0; i<4; i++){
+//			players.get(i).setHand(Deck.drawCards());
+//		}
 		
 		this.currentPlayerIndex=0;
 		this.turn=0;

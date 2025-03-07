@@ -38,7 +38,7 @@ public class Deck {
 				String name = row[2];
 				String description = row[3];
 				int rank = -1;
-			    Suit suit = null;
+				Suit suit = null;
 
 				for (int i = 0; i < frequency; i++) {
 					Card card = null;
