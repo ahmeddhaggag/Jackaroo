@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="model.card.standard.Jack"/>
 <fullyQualifiedTypeName name="model.card.wild.Burner"/>
 <fullyQualifiedTypeName name="model.card.wild.Saver"/>
-<fullyQualifiedTypeName name="model.card.standard.Standard"/>
 <fullyQualifiedTypeName name="engine.board.SafeZone"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="model.card.Card"/>
@@ -17,11 +16,12 @@
 <fullyQualifiedTypeName name="model.Colour"/>
 <fullyQualifiedTypeName name="model.player.CPU"/>
 <fullyQualifiedTypeName name="engine.board.CellType"/>
-<fullyQualifiedTypeName name="engine.board.BoardManager"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="model.card.standard.Four"/>
 <fullyQualifiedTypeName name="model.card.standard.Five"/>
 <fullyQualifiedTypeName name="model.card.standard.Ten"/>
 <fullyQualifiedTypeName name="engine.GameManager"/>
 <fullyQualifiedTypeName name="model.card.standard.Seven"/>
+<fullyQualifiedTypeName name="model.card.standard.Standard"/>
+<fullyQualifiedTypeName name="engine.board.BoardManager"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

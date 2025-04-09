@@ -46,8 +46,8 @@ public class Board implements BoardManager {
 		int index;
 
 		while(true){
-			index = rand.nextInt(100);
-			if(!track.get(index).isTrap() && track.get(index).getCellType() == CellType.NORMAL){
+			index = rand.nextInt(99) + 1;
+			if(!track.get(index).isTrap()){
 				track.get(index).setTrap(true);
 				break;
 			}

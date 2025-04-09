@@ -43,11 +43,11 @@ public class Board implements BoardManager {
 
 	private void assignTrapCell(){
 		Random rand = new Random();
-		int index;
+		int index = -1;
 
 		while(true){
-			index = rand.nextInt(100);
-			if(!track.get(index).isTrap() && track.get(index).getCellType() == CellType.NORMAL){
+			index = rand.nextInt(99) + 1;
+			if(!track.get(index).isTrap()){
 				track.get(index).setTrap(true);
 				break;
 			}

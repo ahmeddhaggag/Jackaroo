@@ -1,9 +1,0 @@
-package model.card;
-
-import java.util.ArrayList;
-
-public class Deck {
-	static final String CARDS_FILE;
-	ArrayList<Card> cardsPool; 
-
-}

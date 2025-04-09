@@ -16,10 +16,6 @@ public class SafeZone{
 				 
 			 }
 		 }
-		 
-		 private boolean isFull(){
-			 
-		 }
 		public Colour getColour() {
 			return colour;
 		}
