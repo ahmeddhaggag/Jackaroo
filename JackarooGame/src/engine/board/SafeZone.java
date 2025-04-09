@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import model.Colour;
 
-
+import engine.board.*;
 
 public class SafeZone{
 	private final Colour colour;
@@ -14,8 +14,17 @@ public class SafeZone{
 		this.colour= colour;
 		this.cells=new ArrayList<>(4);
 		for(int i=0;i<4;i++){
-			this.cells.add(new Cell(CellType.SafeZone));
+			this.cells.add(new Cell(CellType.SAFE));
 		}
+	}
+	public boolean isFull(){
+		boolean flag = true;
+		for(int i =0; i<4; i++){
+			if(cells.get(i).getMarble() == null){
+				flag = false;
+			}
+		}
+		return flag;
 	}
 	public Colour getColour() {
 		return colour;
