@@ -2,9 +2,8 @@ package engine.board;
 
 import java.util.ArrayList;
 
-
 import exception.*;
-import model.player.*;
+import model.card.standard.Marble;
 
 public interface BoardManager {
 	int getSplitDistance();
