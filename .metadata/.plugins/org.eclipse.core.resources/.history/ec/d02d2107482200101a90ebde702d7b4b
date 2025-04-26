@@ -229,9 +229,9 @@ public class Board implements BoardManager {
 		}
 
 	}
-
-
-
+	
+	
+	
 	private void validateSwap(Marble marble_1, Marble marble_2) throws IllegalSwapException{
 		if(getPositionInPath(track, marble_1)== -1 && getPositionInPath(track, marble_2) == -1){
 			throw new IllegalSwapException("Two marbles are on the same track");
@@ -240,18 +240,19 @@ public class Board implements BoardManager {
 			throw new IllegalSwapException("Opponent marble is in base cell");
 		}
 	}
-
-
-
-
+	
+	
+	
+	
 	private void validateDestroy(int positionInPath) throws IllegalDestroyException{
 		if(positionInPath == -1){
 			throw new IllegalDestroyException("Marble not on path");
 		}else if(track.get(positionInPath).getMarble() != null){
+			
 			if(track.get(positionInPath).getCellType() == CellType.BASE && getBasePosition(track.get(positionInPath).getMarble().getColour()) == positionInPath){
-				throw new IllegalDestroyException("Marble is in its base cell");
-			}
+			throw new IllegalDestroyException("Marble is in its base cell");
 		}
+	}
 	}
 
 

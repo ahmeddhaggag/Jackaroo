@@ -23,5 +23,9 @@
 <fullyQualifiedTypeName name="model.card.standard.Seven"/>
 <fullyQualifiedTypeName name="model.card.standard.Standard"/>
 <fullyQualifiedTypeName name="engine.board.BoardManager"/>
+<fullyQualifiedTypeName name="model.card.standard.Marble"/>
+<fullyQualifiedTypeName name="model.player.Marble"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="engine.board.Cell"/>
+<fullyQualifiedTypeName name="exception.IllegalMovementException"/>
 </qualifiedTypeNameHistroy>
