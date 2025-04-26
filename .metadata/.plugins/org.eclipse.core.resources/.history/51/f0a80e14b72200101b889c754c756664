@@ -253,7 +253,7 @@ public class Board implements BoardManager {
 			}
 		}
 	}
-	
+
 
 
 
