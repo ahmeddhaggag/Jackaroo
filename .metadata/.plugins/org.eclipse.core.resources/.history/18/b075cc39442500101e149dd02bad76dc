@@ -14,25 +14,12 @@ public class King extends Standard{
 			 gameManager){
 		super(name, description, 13, suit, boardManager, gameManager);
 	}
-	
-	public boolean validateMarbleSize(ArrayList<Marble> marbles) {
-		int size = marbles.size();
-	    if(size == 1 || size == 0){
-	    	return true;
-	    }
-	    return false;
-	}
 	@Override
 	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
-		int size = marbles.size();
-		if(size == 0){
-		gameManager.fieldMarble();
-		}else if(size == 1){
-			boardManager.moveBy(marbles.get(0), 13, true);
-		}else{
-			throw new InvalidMarbleException("Incorrect number of marbles");
-		}
 		
+		for(Marble marble  : marbles){
+		gameManager.fieldMarble();
+		}
 		
 	}
 	

@@ -220,7 +220,7 @@ public class Board implements BoardManager {
 		Cell targetCell = fullPath.get(fullPath.size() - 1);
 		if(destroy){
 			for(int i =0; i<fullPath.size(); i++){
-				if(fullPath.get(i).getMarble() != null && fullPath.get(i).getMarble().getColour() != marble.getColour()){
+				if(fullPath.get(i).getMarble() != null){
 					fullPath.get(i).setMarble(null);
 				}
 			}

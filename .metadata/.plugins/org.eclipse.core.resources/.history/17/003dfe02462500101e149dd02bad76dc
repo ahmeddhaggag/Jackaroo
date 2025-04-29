@@ -218,6 +218,9 @@ public class Board implements BoardManager {
 	private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalDestroyException{
 		Cell currentCell = fullPath.get(0);
 		Cell targetCell = fullPath.get(fullPath.size() - 1);
+		if (!destroy && targetCell.getMarble() != null) {
+		    throw new IllegalDestroyException("Attempted illegal destruction: marble exists in destination, but destroy flag is false.");
+		}
 		if(destroy){
 			for(int i =0; i<fullPath.size(); i++){
 				if(fullPath.get(i).getMarble() != null && fullPath.get(i).getMarble().getColour() != marble.getColour()){

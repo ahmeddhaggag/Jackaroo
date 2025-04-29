@@ -17,8 +17,7 @@ public class Queen extends Standard {
 	
 	
 	public boolean validateMarbleSize(ArrayList<Marble> marbles) {
-		int size = marbles.size();
-	    if(size == 1 || size == 0){
+	    if(marbles.size() == 1 || marbles.size() == 0){
 	    	return true;
 	    }
 	    return false;
