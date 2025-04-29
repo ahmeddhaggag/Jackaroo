@@ -24,10 +24,10 @@
 <fullyQualifiedTypeName name="model.card.standard.Standard"/>
 <fullyQualifiedTypeName name="engine.board.BoardManager"/>
 <fullyQualifiedTypeName name="model.card.standard.Marble"/>
-<fullyQualifiedTypeName name="model.player.Marble"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="exception.IllegalMovementException"/>
 <fullyQualifiedTypeName name="engine.board.Cell"/>
 <fullyQualifiedTypeName name="exception.IllegalSwapException"/>
 <fullyQualifiedTypeName name="exception.IllegalDestroyException"/>
+<fullyQualifiedTypeName name="model.player.Marble"/>
 </qualifiedTypeNameHistroy>

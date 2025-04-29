@@ -2,6 +2,9 @@ package model.player;
 
 import java.util.ArrayList;
 
+import exception.GameException;
+import exception.InvalidCardException;
+import exception.InvalidMarbleException;
 import model.Colour;
 import model.card.Card;
 
@@ -13,6 +16,8 @@ public class Player {
 	private final ArrayList<Marble> marbles;
 	private Card selectedCard;
 	private final ArrayList<Marble> selectedMarbles;
+	private ArrayList<Marble> homeMarble;
+
 	
 	
 	
@@ -49,7 +54,57 @@ public class Player {
 		return selectedCard;
 	}
 	
+
+
 	
 	
+	
+	public void regainMarble(Marble marble){
+		if (marble!=null)
+			homeMarble.add(marble);
+	}
+	public void selectCard(Card card) throws InvalidCardException{
+		if ((card==null) || ! hand.contains(card)){
+			throw new InvalidCardException("card not in player's hand");
+		}
+	}
+	public void selectMarble(Marble marble) throws InvalidMarbleException{
+		if(selectedMarbles.size()>=2){
+			throw new InvalidMarbleException("cannot select more than two marbles");
+			
+		}
+		if(marble!=null)
+			selectedMarbles.add(marble);
+	}
+	public void deselectAll(){
+		selectedCard =null;
+		selectedMarbles.clear();
+		
+	}
+	public void play() throws GameException{
+		if(selectedCard == null)
+			throw new InvalidCardException("no card selected");
+	try{
+		if(!selectedCard.validateMarbleSize(selectedMarbles)){
+			throw new InvalidCardException("Invalid number of marbles for this card");
+		}
+		if(!selectedCard.validateMarbleColours(selectedMarbles)){
+			throw new InvalidCardException("Invalid number of marble colours for this card");
+		}
+	}
+	catch(Exception e){
+		throw new InvalidCardException("Validation failed :"+ e.getMessage());
+		}
+
+		
+}
+
+	public ArrayList<Marble> getHomeMarble() {
+		return homeMarble;
+	}
+
+	public void setHomeMarble(ArrayList<Marble> homeMarble) {
+		this.homeMarble = homeMarble;
+	}
 
 }

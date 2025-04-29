@@ -1,9 +1,16 @@
 
 package model.card.standard;
 
+import java.util.ArrayList;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
+
 import engine.GameManager;
 import engine.board.BoardManager;
+import exception.ActionException;
+import exception.InvalidMarbleException;
 import model.card.Card;
+import model.player.Marble;
 
 public class Standard extends Card {
       
@@ -27,6 +34,14 @@ public class Standard extends Card {
 	}
 	public Suit getSuit() {
 		return this.suit;
+	}
+	@Override
+	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
+		
+		for(Marble marble  : marbles){
+		boardManager.moveBy(marble, rank, false);
+		}
+		
 	}
 	
 }

@@ -2,7 +2,6 @@ package engine;
 import model.player.Marble;
 import exception.*;
 import model.Colour;
-import model.card.standard.Marble;
 
 public interface GameManager {
 
