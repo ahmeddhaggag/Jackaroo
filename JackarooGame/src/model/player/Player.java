@@ -99,8 +99,9 @@ public class Player {
 		
 }
 
-	public ArrayList<Marble> getHomeMarble() {
-		return homeMarble;
+	public Marble getOneMarble() {
+		if(homeMarble.isEmpty()) return null;
+		return homeMarble.get(0);
 	}
 
 	public void setHomeMarble(ArrayList<Marble> homeMarble) {

@@ -22,6 +22,7 @@ public class Burner extends Wild{
 			boardManager.sendToBase(marble);
 		}
 	}
+	
 
 
 }

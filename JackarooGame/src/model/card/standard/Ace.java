@@ -1,7 +1,12 @@
 package model.card.standard;
 
+import java.util.ArrayList;
+
 import engine.GameManager;
 import engine.board.BoardManager;
+import exception.ActionException;
+import exception.InvalidMarbleException;
+import model.player.Marble;
 
 public class Ace extends Standard{
 	
@@ -9,5 +14,15 @@ public class Ace extends Standard{
 			 gameManager){
 		super(name, description, 1, suit, boardManager, gameManager);
 	}
+	
+	@Override
+	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
+		
+		for(Marble marble  : marbles){
+		gameManager.fieldMarble();
+		}
+		
+	}
+	
 
 }

@@ -112,65 +112,170 @@ public class Board implements BoardManager {
 	}
 
 
-	private ArrayList<Cell> validateSteps(Marble marble, int steps) throws IllegalMovementException{
-		ArrayList<Cell> path = new ArrayList<Cell>();
-		int pos = -1;
-		int zone = -1;
-		int zoneStep = -1;
-		boolean flag = false;
-		if(getPositionInPath(track, marble) != -1){
-			pos = getPositionInPath(track, marble);
-			if(steps == 4){
-				for(int i =0; i<4; i++){
-					path.add(track.get(pos - i));
-				}
-			}
-			else if(steps == 5){
-				if(pos + steps > 99){
-					throw new IllegalMovementException();
-				}
-				for(int i =0; i<5; i++){
-					path.add(track.get(pos + i));
-				}
-			}else{
-				if(pos + steps > 99){
-					throw new IllegalMovementException();
-				}
-				for(int i =0; i<steps; i++){
-					if((track.get(pos + steps).getCellType() == CellType.ENTRY)){
-						flag = true;
-						zone = (pos + steps)/3;
-						zoneStep = i;
-						if(steps - zoneStep - 1 > 4){
-							throw new IllegalMovementException();
-						}
-					}
-					if(flag){
-						path.add(safeZones.get(zone).getCells().get(i - zoneStep));
-					}
-					else{
-						if(pos + i > 99){
-							path.add(track.get(pos + i - 100));
-						}else
-							path.add(track.get(pos + i));
-					}
-				}
-
-			}
-
-		}else if(getPositionInPath(getSafeZone(marble.getColour()), marble) != -1){
-			if(steps + pos >= 4){
-				throw new IllegalMovementException();
-			}else{
-				for(int i =0; i < steps; i++){
-					path.add(getSafeZone(marble.getColour()).get(i));
-				}
-			}
-		}
 
 
-		return path;
+
+//	private ArrayList<Cell> validateSteps(Marble marble, int steps) throws IllegalMovementException{
+//		ArrayList<Cell> path = new ArrayList<Cell>();
+//		int pos = getPositionInPath(track, marble);
+//		int zone = -1;
+//		int zoneStep = -1;
+//		boolean flag = false;
+//		if(pos != -1){
+//
+//			if(steps == -4){
+//				int k =0;
+//				for(int i =0; i<=4; i++){
+//					if(pos - i <0){
+//						k = 100;
+//					}
+//					path.add(track.get(pos - i + k));
+//				}
+//			}
+//			else if(steps == 5){
+//				if(pos + steps > 99){
+//					throw new IllegalMovementException("Steps out of track");
+//				}
+//				for(int i =0; i<=5; i++){
+//
+//					if((track.get(pos + i).getCellType() == CellType.ENTRY) && !flag && pos + i == getEntryPosition(marble.getColour())){
+//						flag = true;
+//						zoneStep = i;
+//						zone = (pos + zoneStep)/3;
+//						if(steps - zoneStep > 4){
+//							throw new IllegalMovementException("Steps out of safe zone coming from track");
+//						}
+//						continue;
+//					}
+//					if(flag){
+//						path.add(safeZones.get(zone).getCells().get(i - zoneStep - 1));
+//					}
+//					else{
+//						if(pos + i > 99){
+//							path.add(track.get(pos + i - 100));
+//						}else
+//							path.add(track.get(pos + i));
+//					}
+//				}
+//			}else{
+////				if(pos + steps > 99 && !(pos <= 98 && pos + steps <= 102) ){
+////					throw new IllegalMovementException("Steps out of trackk");
+////				}
+//				for(int i =0; i<=steps; i++){
+//					CellType cellType;
+//					try{
+//					 cellType = track.get(pos + i).getCellType();
+//					}catch(	Exception e){
+//						throw new IllegalMovementException("Steps out of trackkkkk");
+//					}
+//					if((cellType == CellType.ENTRY) && !flag && pos + i == getEntryPosition(marble.getColour())){
+//						flag = true;
+//						zoneStep = i;
+//						zone = (pos + zoneStep)/3;
+//						if(steps - zoneStep > 4){
+//							throw new IllegalMovementException("Steps out of safe zone coming from track");
+//						}
+//						continue;
+//					}
+//					if(flag){
+//						path.add(safeZones.get(zone).getCells().get(i - zoneStep - 1));
+//					}
+//					else{
+//						if(pos + i > 99){
+//							path.add(track.get(pos + i - 100));
+//						}else
+//							path.add(track.get(pos + i));
+//					}
+//				}
+//
+//			}
+//
+//		}else if(getPositionInPath(getSafeZone(marble.getColour()), marble) != -1){
+//			if(steps + pos >= 4){
+//				throw new IllegalMovementException("Steps out of safe zone");
+//			}else{
+//				for(int i =0; i < steps; i++){
+//					path.add(getSafeZone(marble.getColour()).get(i));
+//				}
+//			}
+//		}
+//		else{
+//			throw new IllegalMovementException("Neither in track nor safe zone");
+//		}
+//
+//
+//		return path;
+//	}
+	
+	
+	
+	
+	
+	private ArrayList<Cell> validateSteps(Marble marble, int steps) throws IllegalMovementException {
+	    ArrayList<Cell> path = new ArrayList<>();
+	    int pos = getPositionInPath(track, marble);
+	    boolean enteredSafeZone = false;
+	    int zoneStep = -1;
+	    int entryPosition = getEntryPosition(marble.getColour());
+
+	    if (pos != -1) { 
+
+	        if (steps == -4) {
+	            for (int i = 0; i <= 4; i++) {
+	                int index = (pos - i + track.size()) % track.size(); // wrap backwards
+	                path.add(track.get(index));
+	            }
+	        } else {
+	            for (int i = 0; i <= steps; i++) {
+	                int index = (pos + i) % track.size();
+	                Cell currentCell = track.get(index);
+
+	                if (currentCell.getCellType() == CellType.ENTRY && !enteredSafeZone && index == entryPosition) {
+
+	                    enteredSafeZone = true;
+	                    zoneStep = i;
+
+	                    int remainingSteps = steps - zoneStep;
+	                    ArrayList<Cell> safeZoneCells = getSafeZone(marble.getColour());
+
+	                    if (remainingSteps > safeZoneCells.size()) {
+	                        throw new IllegalMovementException("Steps out of safe zone coming from track");
+	                    }
+	                    path.add(currentCell);
+
+	                    continue; 
+	                }
+
+	                if (enteredSafeZone) {
+	                    int safeZoneIndex = i - zoneStep - 1;
+	                    path.add(getSafeZone(marble.getColour()).get(safeZoneIndex));
+	                } else {
+	                    path.add(currentCell);
+	                }
+	            }
+	        }
+
+	    } else {
+	        
+	        ArrayList<Cell> safeZoneCells = getSafeZone(marble.getColour());
+	        int posInSafeZone = getPositionInPath(safeZoneCells, marble);
+
+	        if (posInSafeZone == -1) {
+	            throw new IllegalMovementException("Neither in track nor safe zone");
+	        }
+
+	        if (posInSafeZone + steps >= safeZoneCells.size()) {
+	            throw new IllegalMovementException("Steps out of safe zone");
+	        }
+
+	        for (int i = 0; i <= steps; i++) {
+	            path.add(safeZoneCells.get(posInSafeZone + i));
+	        }
+	    }
+
+	    return path;
 	}
+
 
 
 
@@ -235,6 +340,9 @@ public class Board implements BoardManager {
 	private void validateSwap(Marble marble_1, Marble marble_2) throws IllegalSwapException{
 		if(getPositionInPath(track, marble_1)== -1 && getPositionInPath(track, marble_2) == -1){
 			throw new IllegalSwapException("Two marbles are on the same track");
+		}
+		if(getPositionInPath(track, marble_1) == getBasePosition(marble_1.getColour())){
+			throw new IllegalSwapException("Opponent marble is in base cell");
 		}
 		if(getPositionInPath(track, marble_2) == getBasePosition(marble_2.getColour())){
 			throw new IllegalSwapException("Opponent marble is in base cell");
