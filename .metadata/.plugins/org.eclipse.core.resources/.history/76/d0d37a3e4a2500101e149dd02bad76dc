@@ -8,8 +8,6 @@ import exception.ActionException;
 import exception.CannotFieldException;
 import exception.IllegalDestroyException;
 import exception.InvalidMarbleException;
-import model.Colour;
-import model.card.standard.Jack;
 import model.player.Marble;
 
 public class Burner extends Wild{
@@ -18,19 +16,6 @@ public class Burner extends Wild{
 		super(name,description,boardManager, gameManager);
 	}
 
-	
-	public boolean validateMarbleColours(ArrayList<Marble> marbles) {
-	    Colour playerColour = gameManager.getActivePlayerColour(); 
-	    for (Marble marble : marbles) {
-	        
-	        if (marble.getColour() == playerColour) {
-	            return false;
-	        }
-	    }
-	    return true;
-	}
-	
-	
 	@Override
 	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
 		for(Marble marble : marbles){

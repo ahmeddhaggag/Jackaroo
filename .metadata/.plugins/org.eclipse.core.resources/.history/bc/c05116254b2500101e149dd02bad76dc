@@ -29,7 +29,7 @@ public class Jack extends Standard{
 	public boolean validateMarbleColours(ArrayList<Marble> marbles) { 
 		int size = marbles.size();
 
-		if(size == 2 && marbles.get(0).getColour() != gameManager.getActivePlayerColour()){
+		if(size == 2){
 			return true;
 		}
 		else if(size ==1 && marbles.get(0).getColour() == gameManager.getActivePlayerColour()){
@@ -44,7 +44,7 @@ public class Jack extends Standard{
 		int size = marbles.size();
 		if(size ==2){
 			boardManager.swap(marbles.get(0), marbles.get(1));
-		}else if( size == 1){
+		}else if( size == 1 && marbles.get(0).getColour() == gameManager.getActivePlayerColour()){
 			boardManager.moveBy(marbles.get(0), 11, false);
 		}else{
 			throw new InvalidMarbleException("Incorrect number of marbles");

@@ -26,14 +26,8 @@ public class Ten extends Standard {
 	
 	@Override
 	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
-		int size = marbles.size();
-		if(size == 0){
 		gameManager.discardCard(gameManager.getNextPlayerColour());
-		}else if(size ==1 ){
-			boardManager.moveBy(marbles.get(0), 10, false);
-		}else{
-			throw new InvalidMarbleException("Incorrect number of marbles");
-		}
+		
 	}
 	
 

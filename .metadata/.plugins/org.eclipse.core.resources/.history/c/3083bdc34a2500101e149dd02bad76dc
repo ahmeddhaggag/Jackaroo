@@ -29,7 +29,7 @@ public class Jack extends Standard{
 	public boolean validateMarbleColours(ArrayList<Marble> marbles) { 
 		int size = marbles.size();
 
-		if(size == 2 && marbles.get(0).getColour() != gameManager.getActivePlayerColour()){
+		if(size == 2){
 			return true;
 		}
 		else if(size ==1 && marbles.get(0).getColour() == gameManager.getActivePlayerColour()){

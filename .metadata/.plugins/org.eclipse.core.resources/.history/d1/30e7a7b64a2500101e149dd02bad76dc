@@ -18,25 +18,19 @@ public class Jack extends Standard{
 
 
 	public boolean validateMarbleSize(ArrayList<Marble> marbles) {
-		int size = marbles.size();
-		if(size ==1 || size ==2 ){
-			return true;
-		}
-		return false;
+		int expectedSize = getExpectedMarbleCount(); 
+		return marbles.size() == expectedSize;
 	}
 
+	// helper 
+	private int getExpectedMarbleCount() {
+
+		return 2; // Default 
+	}
 
 	public boolean validateMarbleColours(ArrayList<Marble> marbles) { 
-		int size = marbles.size();
 
-		if(size == 2 && marbles.get(0).getColour() != gameManager.getActivePlayerColour()){
-			return true;
-		}
-		else if(size ==1 && marbles.get(0).getColour() == gameManager.getActivePlayerColour()){
-			return true;
-		}else{
-			return false;
-		}
+		return true;
 	}
 
 	@Override

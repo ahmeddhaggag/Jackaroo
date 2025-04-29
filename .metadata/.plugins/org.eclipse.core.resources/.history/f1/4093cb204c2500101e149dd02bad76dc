@@ -307,7 +307,8 @@ public class Board implements BoardManager {
 	}
 
 	// 12. Move with destruction option
-	public void moveBy(Marble marble, int steps, boolean destroy) throws IllegalMovementException, IllegalDestroyException {
+	public void moveBy(Marble marble, int steps, boolean destroy) 
+			throws IllegalMovementException, IllegalDestroyException {
 
 		ArrayList<Cell> path = validateSteps(marble, steps);
 		validatePath(marble, path, destroy);
