@@ -107,18 +107,25 @@ public class Game implements GameManager{
 			}
 		return res;
 	}
+	
+	
 	public void sendHome(Marble marble){//9
 		this.players.get(currentPlayerIndex).regainMarble(marble);
 	}
+	
+	
 	public void fieldMarble() throws CannotFieldException, IllegalDestroyException{//10
 		Marble m=this.players.get(currentPlayerIndex).getOneMarble();
-		if(m==null)
+		if(m==null){
 			throw new CannotFieldException();
+		}
 		else{
 			this.board.sendToBase(m);
 			this.players.get(currentPlayerIndex).getMarbles().remove(m);
 		}
 	}
+	
+	
 	public void discardCard(Colour colour) throws CannotDiscardException{//11
 		if(this.players.get(currentPlayerIndex).getHand().size()==0)
 			throw new CannotDiscardException();

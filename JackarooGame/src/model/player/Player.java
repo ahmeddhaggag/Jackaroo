@@ -16,7 +16,7 @@ public class Player {
 	private final ArrayList<Marble> marbles;
 	private Card selectedCard;
 	private final ArrayList<Marble> selectedMarbles;
-	private ArrayList<Marble> homeMarble;
+	private ArrayList<Marble> homeMarbles;
 
 	
 	
@@ -26,6 +26,7 @@ public class Player {
 		this.colour = colour;
 		hand = new ArrayList<Card>(4);
 		selectedMarbles = new ArrayList<Marble>();
+		this.homeMarbles = new ArrayList<>();
 		marbles = new ArrayList<Marble>();
 		for(int i =0; i<4; i++){
 			marbles.add(new Marble(colour));	
@@ -61,7 +62,7 @@ public class Player {
 	
 	public void regainMarble(Marble marble){
 		if (marble!=null)
-			homeMarble.add(marble);
+			homeMarbles.add(marble);
 	}
 	public void selectCard(Card card) throws InvalidCardException{
 		if ((card==null) || ! hand.contains(card)){
@@ -100,12 +101,12 @@ public class Player {
 }
 
 	public Marble getOneMarble() {
-		if(homeMarble.isEmpty()) return null;
-		return homeMarble.get(0);
+		if(homeMarbles.isEmpty()) return null;
+		return homeMarbles.get(0);
 	}
 
-	public void setHomeMarble(ArrayList<Marble> homeMarble) {
-		this.homeMarble = homeMarble;
+	public void setHomeMarble(ArrayList<Marble> homeMarbles) {
+		this.homeMarbles = homeMarbles;
 	}
 
 }

@@ -182,44 +182,43 @@ public class Board implements BoardManager {
 
 
 
-	private void validatePath(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalMovementException{
-		if (fullPath.isEmpty()) {
-		    throw new IllegalMovementException("Path cannot be empty");
-		}
+	private void validatePath(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalMovementException {
+	    if (fullPath.isEmpty()) {
+	        throw new IllegalMovementException("Path cannot be empty");
+	    }
 
-		if(destroy){
+	    if (!destroy) {
+	        int marbleCount = 0;
 
+	        for (Cell cell : fullPath) {
+	            Marble occupying = cell.getMarble();
+	            if (occupying == null) continue;
 
-		}else{
-			int marbleNo = 0;
+	            if (occupying.getColour() == marble.getColour()) {
+	                // throw new IllegalMovementException("Cannot bypass or destroy your own marble");
+	                continue;
+	            }
 
-			for(int i =0; i< fullPath.size(); i++){
-				if(fullPath.get(i).getMarble() != null){
-					if(marble.getColour() == fullPath.get(i).getMarble().getColour()){
-						throw new IllegalMovementException("Cannot bypass or destroy your own marble");
-					}else{
-						marbleNo++;
-						if(marbleNo > 1){
-							throw new IllegalMovementException("More than one marble in path");
-						}
-						if(fullPath.get(i).getCellType() == CellType.ENTRY && getPositionInPath(track, fullPath.get(i).getMarble()) == getEntryPosition(marble.getColour())){
-							throw new IllegalMovementException("Cannot enter safe zone with any marble stationed at safe zone entry");
-						}
-						if(fullPath.get(i).getCellType() == CellType.BASE && getPositionInPath(track, fullPath.get(i).getMarble()) == getBasePosition(marble.getColour())){
-							throw new IllegalMovementException("Cannot bypass any marble stationed in its base cell");
-						}
-						if(fullPath.get(i).getCellType() == CellType.SAFE && fullPath.get(i).getMarble() != null){
-							throw new IllegalMovementException("Safe zone cell that holds a marble is included in path");
-						}
-					}
+	            marbleCount++;
+	            if (marbleCount > 1) {
+	                throw new IllegalMovementException("More than one marble in path");
+	            }
 
+	            if (cell.getCellType() == CellType.ENTRY && getPositionInPath(track, occupying) == getEntryPosition(marble.getColour())) {
+	                throw new IllegalMovementException("Cannot enter safe zone with any marble stationed at safe zone entry");
+	            }
 
-				}
-			}
+	            if (cell.getCellType() == CellType.BASE && getPositionInPath(track, occupying) == getBasePosition(occupying.getColour())) {
+	                throw new IllegalMovementException("Cannot bypass any marble stationed in its base cell");
+	            }
 
-		}
-
+	            if (cell.getCellType() == CellType.SAFE) {
+	                throw new IllegalMovementException("Safe zone cell that holds a marble is included in path");
+	            }
+	        }
+	    }
 	}
+
 
 	private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalDestroyException{
 		Cell currentCell = fullPath.get(0);
@@ -290,9 +289,7 @@ public class Board implements BoardManager {
 	private void validateFielding(Cell occupiedBaseCell) throws CannotFieldException {
 		Colour currentPlayerColour = gameManager.getActivePlayerColour();
 
-		if (occupiedBaseCell != null && 
-				occupiedBaseCell.getMarble() != null && 
-				occupiedBaseCell.getMarble().getColour() == currentPlayerColour) {
+		if (occupiedBaseCell != null && occupiedBaseCell.getMarble() != null && occupiedBaseCell.getMarble().getColour() == currentPlayerColour) {
 			throw new CannotFieldException("Cannot field - a marble of the same color is already in the base cell");
 		}
 	}
