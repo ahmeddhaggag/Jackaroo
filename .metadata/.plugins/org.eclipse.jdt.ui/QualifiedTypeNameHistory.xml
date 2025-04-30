@@ -30,9 +30,9 @@
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction"/>
 <fullyQualifiedTypeName name="exception.CannotFieldException"/>
 <fullyQualifiedTypeName name="exception.ActionException"/>
-<fullyQualifiedTypeName name="exception.IllegalMovementException"/>
 <fullyQualifiedTypeName name="engine.board.CellType"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="exception.InvalidMarbleException"/>
 <fullyQualifiedTypeName name="exception.IllegalDestroyException"/>
+<fullyQualifiedTypeName name="exception.IllegalMovementException"/>
 </qualifiedTypeNameHistroy>
