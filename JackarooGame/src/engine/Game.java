@@ -95,7 +95,14 @@ public class Game implements GameManager{
 		}
 		if(turn==4){
 			turn=0;
-			
+			for(int i=0;i<=3;i++){
+				if(Deck.getPoolSize()<4){
+					Deck.refillPool(firePit);
+					firePit.clear();
+				}
+				this.players.get(i).setHand(Deck.drawCards());
+			}
+				
 		}
 	}
 	public Colour checkWin(){//8
