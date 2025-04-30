@@ -127,7 +127,7 @@ public class Board implements BoardManager {
 
 			if (steps == -4) {
 				for (int i = 0; i <= 4; i++) {
-					int index = (pos - i + track.size()) % track.size(); // wrap backwards
+					int index = (pos - i + track.size()) % track.size(); 
 					path.add(track.get(index));
 				}
 			} else {
@@ -135,7 +135,7 @@ public class Board implements BoardManager {
 					int index = (pos + i) % track.size();
 					Cell currentCell = track.get(index);
 
-					if (currentCell.getCellType() == CellType.ENTRY && !enteredSafeZone && index == entryPosition) {
+					if (currentCell.getCellType() == CellType.ENTRY && !enteredSafeZone && index == entryPosition && marble.getColour() == gameManager.getActivePlayerColour()) {
 
 						enteredSafeZone = true;
 						zoneStep = i;
@@ -183,53 +183,120 @@ public class Board implements BoardManager {
 
 
 
+
+
+
+
+
+	//	private void validatePath(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalMovementException {
+	//	    if (fullPath.isEmpty()) {
+	//	        throw new IllegalMovementException("Path cannot be empty");
+	//	    }
+	//
+	//	    int marbleCount = 0;
+	//	    boolean firstIteration = true;
+	//	    int c = 0;
+	//
+	//	    for (Cell cell : fullPath) {
+	//	        c++;
+	//	        if (firstIteration) {
+	//	            firstIteration = false;
+	//	            continue;
+	//	        }
+	//
+	//	        Marble occupying = cell.getMarble();
+	//	        if (occupying == null) continue;
+	//
+	//	       
+	//	        if (cell.getCellType() != CellType.ENTRY) {
+	//	            marbleCount++;
+	//	        }
+	//
+	//	        if (occupying.getColour() == gameManager.getActivePlayerColour() && !destroy) {
+	//	            throw new IllegalMovementException("Cannot bypass or destroy your own marble");
+	//	        }
+	//
+	//	        
+	//	        if (marbleCount > 1 && !destroy) {
+	//	            throw new IllegalMovementException("More than one marble blocking movement.");
+	//	        }
+	//
+	//	       
+	//	        if (cell.getCellType() == CellType.ENTRY && getPositionInPath(track, occupying) == getEntryPosition(occupying.getColour()) && !destroy) {
+	//	            
+	//	            
+	//	            if (c + 1 < fullPath.size() && fullPath.get(c + 1).getCellType() == CellType.SAFE) {
+	//	            	throw new IllegalMovementException("Cannot enter Safe Zone due to a marble stationed at Safe Zone entry.");
+	//	            } 
+	//	        }
+	//
+	//	        if (cell.getCellType() == CellType.BASE && getPositionInPath(track, occupying) == getBasePosition(occupying.getColour())) {
+	//	            throw new IllegalMovementException("Cannot bypass any marble stationed in its base cell.");
+	//	        }
+	//
+	//	        if (cell.getCellType() == CellType.SAFE) {
+	//	            throw new IllegalMovementException("Safe Zone cell that holds a marble is included in path.");
+	//	        }
+	//	    }
+	//	}
+
+
 	private void validatePath(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalMovementException {
 		if (fullPath.isEmpty()) {
 			throw new IllegalMovementException("Path cannot be empty");
 		}
+
+		int pathSize = fullPath.size();
 		int marbleCount = 0;
-		boolean firstIteration = true; 
-
-		for (Cell cell : fullPath) {
-
-			if(firstIteration){
-				firstIteration = false;
-				continue;
-			}
-
+		Cell targetCell = fullPath.get(pathSize - 1);
+		Marble targetOccupying = targetCell.getMarble();
+		for (int i = 1; i < pathSize ; i++) { 
+			Cell cell = fullPath.get(i);
 			Marble occupying = cell.getMarble();
+
 			if (occupying == null) continue;
 
-			marbleCount++;
+			if (cell.getCellType() != CellType.ENTRY) {
+				marbleCount++;
+			}
+
 			if (occupying.getColour() == gameManager.getActivePlayerColour() && !destroy) {
 				throw new IllegalMovementException("Cannot bypass or destroy your own marble");
-
 			}
-
 
 			if (marbleCount > 1 && !destroy) {
-				throw new IllegalMovementException("More than one marble in path");
+				throw new IllegalMovementException("More than one marble blocking movement.");
+			}
+			if (cell.getCellType() == CellType.ENTRY && getPositionInPath(track, occupying) == getEntryPosition(occupying.getColour()) ) {
+
+					throw new IllegalMovementException("Cannot bypass or destroy marble in its entry cell");
+				
 			}
 
-			if (cell.getCellType() == CellType.ENTRY && getPositionInPath(track, occupying) == getEntryPosition(occupying.getColour()) && !destroy ) {
-				throw new IllegalMovementException("Cannot enter safe zone with any marble stationed at safe zone entry");
+			if (cell.getCellType() == CellType.ENTRY  &&!destroy) {
+
+				if (i + 1 < pathSize && fullPath.get(i + 1).getCellType() == CellType.SAFE) {
+					throw new IllegalMovementException("Cannot enter Safe Zone due to a marble stationed at Safe Zone entry.");
+				}
 			}
 
 			if (cell.getCellType() == CellType.BASE && getPositionInPath(track, occupying) == getBasePosition(occupying.getColour())) {
-				throw new IllegalMovementException("Cannot bypass any marble stationed in its base cell");
+				throw new IllegalMovementException("Cannot bypass any marble stationed in its base cell.");
 			}
 
 			if (cell.getCellType() == CellType.SAFE) {
-				throw new IllegalMovementException("Safe zone cell that holds a marble is included in path");
+				throw new IllegalMovementException("Safe Zone cell that holds a marble is included in path.");
 			}
 		}
+
+
+
 
 	}
 
 
 
 
-	
 
 
 
