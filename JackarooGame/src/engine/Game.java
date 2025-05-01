@@ -79,7 +79,7 @@ public class Game implements GameManager{
 		return this.players.get(currentPlayerIndex).getHand().size()+turn == 4;
 	}
 	public  void playPlayerTurn() throws GameException{//6
-		if (canPlayTurn())
+		if (this.canPlayTurn())
 			this.players.get(currentPlayerIndex).play();
 	}
 	public void endPlayerTurn(){//7
@@ -123,25 +123,20 @@ public class Game implements GameManager{
 	
 	public void fieldMarble() throws CannotFieldException, IllegalDestroyException{//10
 		Marble m=this.players.get(currentPlayerIndex).getOneMarble();
-		if(m==null){
-			throw new CannotFieldException();
-		}
-		else{
-			this.board.sendToBase(m);
-			this.players.get(currentPlayerIndex).getMarbles().remove(m);
-		}
+		this.board.sendToBase(m);
+		this.players.get(currentPlayerIndex).getMarbles().remove(m);
 	}
 	
 	
 	public void discardCard(Colour colour) throws CannotDiscardException{//11
-		if(this.players.get(currentPlayerIndex).getHand().size()==0)
-			throw new CannotDiscardException();
-		else{
-		Random random=new Random();
 		Player p=null;
 		for(int i=0;i<=3;i++)
 			if(this.players.get(i).getColour()==colour)
 				p=this.players.get(i);
+		if(p.getHand().size()==0 || this.getActivePlayerColour()==colour)
+			throw new CannotDiscardException();
+		else{
+		Random random=new Random();
 		int x=random.nextInt(p.getHand().size());
 		this.firePit.add(p.getHand().get(x));
 		p.getHand().remove(x);
