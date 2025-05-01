@@ -325,71 +325,24 @@ public class Board implements BoardManager {
 
 
 
-//	private void validateSwap(Marble marble1, Marble marble2) throws IllegalSwapException {
-//	    // Check if both marbles are on track
-//		
-//		Marble activeMarble = marble1;
-//    	Marble otherMarble = marble2;
-//	    boolean marble1OnTrack = getPositionInPath(track, marble1) != -1;
-//	    boolean marble2OnTrack = getPositionInPath(track, marble2) != -1;
-//	    if(marble2.getColour() == gameManager.getActivePlayerColour()){
-//	     activeMarble = marble2;
-//	     otherMarble = marble1;	
-//	    		
-//	    }
-//	    if (!marble1OnTrack || !marble2OnTrack) {
-//	        throw new IllegalSwapException("Both marbles must be on track to swap");
-//	    }
-//	    
-//	    // Check if either marble is in its base cell
-//	    if (getPositionInPath(track, marble1) == getBasePosition(marble1.getColour())) {
-//	        throw new IllegalSwapException("Cannot swap marble in its base cell");
-//	    }
-//	    
-//	    if (getPositionInPath(track, marble2) == getBasePosition(marble2.getColour()) && track.get(getPositionInPath(track, marble1)).getCellType() == CellType.NORMAL) {
-//	        throw new IllegalSwapException("Cannot swap marble in its base cell");
-//	    }
-//	}
-	
-	
 	private void validateSwap(Marble marble1, Marble marble2) throws IllegalSwapException {
-	    
+	    // Check if both marbles are on track
 	    boolean marble1OnTrack = getPositionInPath(track, marble1) != -1;
 	    boolean marble2OnTrack = getPositionInPath(track, marble2) != -1;
-
+	    
 	    if (!marble1OnTrack || !marble2OnTrack) {
 	        throw new IllegalSwapException("Both marbles must be on track to swap");
 	    }
-
 	    
-	    Marble activeMarble = marble1;
-	    Marble otherMarble = marble2;
-
-	    if (marble2.getColour() == gameManager.getActivePlayerColour()) {
-	        activeMarble = marble2;
-	        otherMarble = marble1;
+	    // Check if either marble is in its base cell
+	    if (getPositionInPath(track, marble1) == getBasePosition(marble1.getColour())) {
+	        throw new IllegalSwapException("Cannot swap marble in its base cell");
 	    }
-
-	    int activePos = getPositionInPath(track, activeMarble);
-	    int otherPos = getPositionInPath(track, otherMarble);
-	    int activeBasePos = getBasePosition(activeMarble.getColour());
-
 	    
-	    if (otherPos == getBasePosition(otherMarble.getColour())) {
-	        throw new IllegalSwapException("Cannot swap: opponent's marble is in base cell");
-	    }
-
-	    
-	    if (activePos == activeBasePos && track.get(otherPos).getCellType() == CellType.NORMAL) {
-	        return; // valid
-	    }
-
-	    
-	    if (activePos == activeBasePos || otherPos == getBasePosition(otherMarble.getColour())) {
-	        throw new IllegalSwapException("Cannot swap marble in base cell");
+	    if (getPositionInPath(track, marble2) == getBasePosition(marble2.getColour()) && track.get(getPositionInPath(track, marble1)).getCellType() == CellType.NORMAL) {
+	        throw new IllegalSwapException("Cannot swap marble in its base cell");
 	    }
 	}
-
 
 
 

@@ -82,7 +82,29 @@ public class Game implements GameManager{
 		if (this.canPlayTurn())
 			this.players.get(currentPlayerIndex).play();
 	}
-
+//	public void endPlayerTurn(){//7
+//		if (canPlayTurn()){
+//		Card selected = this.players.get(currentPlayerIndex).getSelectedCard();
+//		this.players.get(currentPlayerIndex).getHand().remove(selected);
+//		this.firePit.add(selected);}
+//		this.deselectAll();
+//		currentPlayerIndex++;
+//		if(currentPlayerIndex==4){
+//			turn++;
+//			currentPlayerIndex=0;
+//		}
+//		if(turn==4){
+//			turn=0;
+//			for(int i=0;i<=3;i++){
+//				if(Deck.getPoolSize()<4){
+//					Deck.refillPool(firePit);
+//					firePit.clear();
+//				}
+//				this.players.get(i).setHand(Deck.drawCards());
+//			}
+//				
+//		}
+//	}
 	
 	public void endPlayerTurn() {
 	    if (canPlayTurn()) {
@@ -90,40 +112,29 @@ public class Game implements GameManager{
 	        this.players.get(currentPlayerIndex).getHand().remove(selected);
 	        this.firePit.add(selected);
 	    }
-
+	    
 	    this.deselectAll();
-
+	    
 	    currentPlayerIndex++;
 	    if (currentPlayerIndex == 4) {
 	        turn++;
 	        currentPlayerIndex = 0;
 	    }
-
+	    
 	    if (turn == 4) {
 	        turn = 0;
-
 	        
-	        if (Deck.getPoolSize() < 5) {
-	            
-	            System.out.println("Firepit size before refill: " + firePit.size());
-	            
-	           
-	            Deck.refillPool(firePit);
-
-	            
-	            System.out.println("Deck pool size after refill: " + Deck.getPoolSize());
-
-	            
-	            firePit.clear();
-	        }
-
-	        
+	        // Check if deck needs to be refilled with at least 5 cards
 	        for (int i = 0; i <= 3; i++) {
+	            if (Deck.getPoolSize() < 5) {
+	                // Refill the deck with firepit cards if necessary
+	                Deck.refillPool(firePit);
+	                firePit.clear();
+	            }
 	            this.players.get(i).setHand(Deck.drawCards());
 	        }
 	    }
 	}
-
 
 	public Colour checkWin(){//8
 		Colour res=null;

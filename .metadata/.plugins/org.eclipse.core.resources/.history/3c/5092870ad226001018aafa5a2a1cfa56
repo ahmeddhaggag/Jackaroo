@@ -353,7 +353,7 @@ public class Board implements BoardManager {
 	
 	
 	private void validateSwap(Marble marble1, Marble marble2) throws IllegalSwapException {
-	    
+	    // Check if both marbles are on track
 	    boolean marble1OnTrack = getPositionInPath(track, marble1) != -1;
 	    boolean marble2OnTrack = getPositionInPath(track, marble2) != -1;
 
@@ -361,7 +361,7 @@ public class Board implements BoardManager {
 	        throw new IllegalSwapException("Both marbles must be on track to swap");
 	    }
 
-	    
+	    // Identify which marble belongs to the active player
 	    Marble activeMarble = marble1;
 	    Marble otherMarble = marble2;
 
@@ -374,17 +374,17 @@ public class Board implements BoardManager {
 	    int otherPos = getPositionInPath(track, otherMarble);
 	    int activeBasePos = getBasePosition(activeMarble.getColour());
 
-	    
+	    // Disallow swap if the other marble (not the active player's) is in its base
 	    if (otherPos == getBasePosition(otherMarble.getColour())) {
 	        throw new IllegalSwapException("Cannot swap: opponent's marble is in base cell");
 	    }
 
-	    
+	    // Allow swap if active player’s marble is in base and other marble is in a normal cell
 	    if (activePos == activeBasePos && track.get(otherPos).getCellType() == CellType.NORMAL) {
 	        return; // valid
 	    }
 
-	    
+	    // Disallow swap if either marble is in base in other cases
 	    if (activePos == activeBasePos || otherPos == getBasePosition(otherMarble.getColour())) {
 	        throw new IllegalSwapException("Cannot swap marble in base cell");
 	    }

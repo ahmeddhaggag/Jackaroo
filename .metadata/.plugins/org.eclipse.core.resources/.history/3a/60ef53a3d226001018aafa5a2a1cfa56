@@ -82,7 +82,29 @@ public class Game implements GameManager{
 		if (this.canPlayTurn())
 			this.players.get(currentPlayerIndex).play();
 	}
-
+//	public void endPlayerTurn(){//7
+//		if (canPlayTurn()){
+//		Card selected = this.players.get(currentPlayerIndex).getSelectedCard();
+//		this.players.get(currentPlayerIndex).getHand().remove(selected);
+//		this.firePit.add(selected);}
+//		this.deselectAll();
+//		currentPlayerIndex++;
+//		if(currentPlayerIndex==4){
+//			turn++;
+//			currentPlayerIndex=0;
+//		}
+//		if(turn==4){
+//			turn=0;
+//			for(int i=0;i<=3;i++){
+//				if(Deck.getPoolSize()<4){
+//					Deck.refillPool(firePit);
+//					firePit.clear();
+//				}
+//				this.players.get(i).setHand(Deck.drawCards());
+//			}
+//				
+//		}
+//	}
 	
 	public void endPlayerTurn() {
 	    if (canPlayTurn()) {
@@ -102,22 +124,22 @@ public class Game implements GameManager{
 	    if (turn == 4) {
 	        turn = 0;
 
-	        
+	        // Ensure firepit has cards to refill the deck
 	        if (Deck.getPoolSize() < 5) {
-	            
+	            // Log the size of firePit to check how many cards it contains
 	            System.out.println("Firepit size before refill: " + firePit.size());
 	            
-	           
+	            // Refill the deck with the cards from the firePit
 	            Deck.refillPool(firePit);
 
-	            
+	            // Log after refill to verify deck size
 	            System.out.println("Deck pool size after refill: " + Deck.getPoolSize());
 
-	            
+	            // Clear the fire pit once the cards are moved to the deck
 	            firePit.clear();
 	        }
 
-	        
+	        // Deal new hands to all players
 	        for (int i = 0; i <= 3; i++) {
 	            this.players.get(i).setHand(Deck.drawCards());
 	        }
