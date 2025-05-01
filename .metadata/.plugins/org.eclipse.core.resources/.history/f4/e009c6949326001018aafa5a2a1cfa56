@@ -339,7 +339,7 @@ public class Board implements BoardManager {
 	        throw new IllegalSwapException("Cannot swap marble in its base cell");
 	    }
 	    
-	    if (getPositionInPath(track, marble2) == getBasePosition(marble2.getColour()) && track.get(getPositionInPath(track, marble1)).getCellType() == CellType.NORMAL) {
+	    if (getPositionInPath(track, marble2) == getBasePosition(marble2.getColour()) && getPositionInPath(track, marble1) != getBasePosition(marble1.getColour())) {
 	        throw new IllegalSwapException("Cannot swap marble in its base cell");
 	    }
 	}

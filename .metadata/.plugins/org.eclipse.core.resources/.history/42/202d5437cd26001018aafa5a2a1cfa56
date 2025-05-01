@@ -329,7 +329,7 @@ public class Board implements BoardManager {
 	    // Check if both marbles are on track
 	    boolean marble1OnTrack = getPositionInPath(track, marble1) != -1;
 	    boolean marble2OnTrack = getPositionInPath(track, marble2) != -1;
-	    
+	    Marble 
 	    if (!marble1OnTrack || !marble2OnTrack) {
 	        throw new IllegalSwapException("Both marbles must be on track to swap");
 	    }
