@@ -33,7 +33,7 @@ public class Game implements GameManager{
 		Collections.shuffle(colourOrder);
 		this.board=new Board(colourOrder,this);
 		Deck.loadCardPool(this.board,this);
-		
+
 		players.add(new Player(playerName,colourOrder.get(0)));
 		for(int i=1;i<=3;i++)
 		{
@@ -43,17 +43,17 @@ public class Game implements GameManager{
 		for(int i =0; i<4; i++){
 			players.get(i).setHand(Deck.drawCards());
 		}
-		
+
 		this.currentPlayerIndex=0;
 		this.turn=0;
-		 
+
 
 	}
-	
+
 	public ArrayList<Player> getPlayers(){
 		return players;
 	}
-	
+
 	public Board getBoard() {
 		return board;
 	}
@@ -83,46 +83,47 @@ public class Game implements GameManager{
 			this.players.get(currentPlayerIndex).play();
 	}
 
-	
+
 	public void endPlayerTurn() {
-	    if (canPlayTurn()) {
-	        Card selected = this.players.get(currentPlayerIndex).getSelectedCard();
-	        this.players.get(currentPlayerIndex).getHand().remove(selected);
-	        this.firePit.add(selected);
-	    }
+		if (canPlayTurn()) {
+			Card selected = this.players.get(currentPlayerIndex).getSelectedCard();
+			this.players.get(currentPlayerIndex).getHand().remove(selected);
+			this.firePit.add(selected);
+		}
 
-	    this.deselectAll();
+		this.deselectAll();
 
-	    currentPlayerIndex++;
-	    if (currentPlayerIndex == 4) {
-	        turn++;
-	        currentPlayerIndex = 0;
-	    }
+		currentPlayerIndex++;
+		if (currentPlayerIndex == 4) {
+			turn++;
+			currentPlayerIndex = 0;
+		}
 
-	    if (turn == 4) {
-	        turn = 0;
+		if (turn == 4) {
+			turn = 0;
 
-	        
-	        if (Deck.getPoolSize() < 5) {
-	            
-	            System.out.println("Firepit size before refill: " + firePit.size());
-	            
-	           
-	            Deck.refillPool(firePit);
+			// Ensure firepit has cards to refill the deck
+			if (Deck.getPoolSize() < 5) {
+				// Log the size of firePit to check how many cards it contains
+				System.out.println("Firepit size before refill: " + firePit.size());
 
-	            
-	            System.out.println("Deck pool size after refill: " + Deck.getPoolSize());
+				// Refill the deck with the cards from the firePit
+				Deck.refillPool(firePit);
 
-	            
-	            firePit.clear();
-	        }
+				// Log after refill to verify deck size
+				System.out.println("Deck pool size after refill: " + Deck.getPoolSize());
 
-	        
-	        for (int i = 0; i <= 3; i++) {
-	            this.players.get(i).setHand(Deck.drawCards());
-	        }
-	    }
+				// Clear the fire pit once the cards are moved to the deck
+				firePit.clear();
+			}
+
+			// Deal new hands to all players
+			for (int i = 0; i <= 3; i++) {
+				this.players.get(i).setHand(Deck.drawCards());
+			}
+		}
 	}
+
 
 
 	public Colour checkWin(){//8
@@ -134,32 +135,35 @@ public class Game implements GameManager{
 			}
 		return res;
 	}
-	
-	
+
+
 	public void sendHome(Marble marble){//9
-		this.players.get(currentPlayerIndex).regainMarble(marble);
+		Player owner = players.get(0); // <- you need this method
+		for (Player player : players) { // assumes you have a `List<Player> players`
+	        if (player.getColour().equals(marble.getColour())) {
+	            owner = player;
+	        }
+	    }
+	    owner.regainMarble(marble);
+	    
 	}
-	
-	
-//	public void fieldMarble() throws CannotFieldException, IllegalDestroyException{//10
-//		Marble m=this.players.get(currentPlayerIndex).getOneMarble();
-//		this.board.sendToBase(m);
-//		this.players.get(currentPlayerIndex).getMarbles().remove(m);
-//	}
-	
-	
+
+
+
+
+
 	public void fieldMarble() throws CannotFieldException, IllegalDestroyException {
-        Marble marble = players.get(currentPlayerIndex).getOneMarble();
+		Marble marble = players.get(currentPlayerIndex).getOneMarble();
 
-        if (marble == null) {
-            throw new CannotFieldException("No marbles available to field.");
-        }
+		if (marble == null) {
+			throw new CannotFieldException("No marbles available to field.");
+		}
 
-        board.sendToBase(marble); 
-       players.get(currentPlayerIndex).getMarbles().remove(marble); 
-    }
-	
-	
+		board.sendToBase(marble); 
+		players.get(currentPlayerIndex).getMarbles().remove(marble); 
+	}
+
+
 	public void discardCard(Colour colour) throws CannotDiscardException{//11
 		Player p=null;
 		for(int i=0;i<=3;i++)
@@ -168,10 +172,10 @@ public class Game implements GameManager{
 		if(p.getHand().size()==0 || this.getActivePlayerColour()==colour)
 			throw new CannotDiscardException();
 		else{
-		Random random=new Random();
-		int x=random.nextInt(p.getHand().size());
-		this.firePit.add(p.getHand().get(x));
-		p.getHand().remove(x);
+			Random random=new Random();
+			int x=random.nextInt(p.getHand().size());
+			this.firePit.add(p.getHand().get(x));
+			p.getHand().remove(x);
 		}
 	}
 	public void discardCard() throws CannotDiscardException{//12
