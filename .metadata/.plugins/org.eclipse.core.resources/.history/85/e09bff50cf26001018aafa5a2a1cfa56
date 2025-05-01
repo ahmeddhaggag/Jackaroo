@@ -74,6 +74,7 @@ public class Player {
 		        throw new InvalidMarbleException("Cannot select more than 2 marbles.");
 		    }
 		    if (selectedMarbles.contains(marble)) {
+		        //throw new InvalidMarbleException("This marble is already selected.");
 		    	return;
 		    }
 		    selectedMarbles.add(marble);
@@ -115,8 +116,8 @@ public class Player {
 
 
 	public Marble getOneMarble() {
-		if(marbles.isEmpty()) return null;
-		return marbles.get(0);
+		if(homeMarbles.isEmpty()) return null;
+		return homeMarbles.get(0);
 	}
 
 	public void setHomeMarble(ArrayList<Marble> homeMarbles) {

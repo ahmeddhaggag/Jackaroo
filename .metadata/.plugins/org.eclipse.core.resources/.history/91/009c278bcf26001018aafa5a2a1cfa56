@@ -24,9 +24,7 @@ public class King extends Standard{
 	}
 	@Override
 	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
-		
 		int size = marbles.size();
-		
 		if(size == 0){
 			gameManager.fieldMarble();
 		}else if(size == 1){
