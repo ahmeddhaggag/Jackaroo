@@ -533,7 +533,8 @@ private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) thro
 		validateFielding(baseCell);
 
 		// Then handle opponent marbles by destroying them
-		if (baseCell.getMarble() != null && !baseCell.getMarble().getColour().equals(marble.getColour())) {
+		if (baseCell.getMarble() != null && 
+				!baseCell.getMarble().getColour().equals(marble.getColour())) {
 			destroyMarble(baseCell.getMarble());
 		}
 
@@ -544,9 +545,6 @@ private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) thro
 		}
 		baseCell.setMarble(marble);
 	}
-	
-	
-	
 	
 	
 	

@@ -525,25 +525,55 @@ private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) thro
 
 
 	// 15. Send to base with destruction
+//	public void sendToBase(Marble marble) throws CannotFieldException, IllegalDestroyException {
+//		int basePos = getBasePosition(marble.getColour());
+//		Cell baseCell = track.get(basePos);
+//
+//		// First validate (will only throw for same-color marbles)
+//		validateFielding(baseCell);
+//
+//		// Then handle opponent marbles by destroying them
+//		if (baseCell.getMarble() != null && !baseCell.getMarble().getColour().equals(marble.getColour())) {
+//			destroyMarble(baseCell.getMarble());
+//		}
+//
+//		// Finally, move the marble to base
+//		Cell currentCell = findCellWithMarble(marble);
+//		if (currentCell != null) {
+//			currentCell.setMarble(null);
+//		}
+//		baseCell.setMarble(marble);
+//	}
+	
 	public void sendToBase(Marble marble) throws CannotFieldException, IllegalDestroyException {
-		int basePos = getBasePosition(marble.getColour());
-		Cell baseCell = track.get(basePos);
+	    int basePos = getBasePosition(marble.getColour());
+	    Cell baseCell = track.get(basePos);
 
-		// First validate (will only throw for same-color marbles)
-		validateFielding(baseCell);
+	    // Validate that the base cell can receive a marble
+	    validateFielding(baseCell);
 
-		// Then handle opponent marbles by destroying them
-		if (baseCell.getMarble() != null && !baseCell.getMarble().getColour().equals(marble.getColour())) {
-			destroyMarble(baseCell.getMarble());
-		}
+	    // Ensure the base cell contains a marble before attempting to destroy
+	    Marble existingMarble = baseCell.getMarble();
+	    if (existingMarble != null && !existingMarble.getColour().equals(marble.getColour())) {
+	        // Check if existing marble is part of the track before destroying
+	        if (findCellWithMarble(existingMarble) == null) {
+	            throw new IllegalDestroyException("Marble not on path");
+	        }
+	        destroyMarble(existingMarble);
+	    }
 
-		// Finally, move the marble to base
-		Cell currentCell = findCellWithMarble(marble);
-		if (currentCell != null) {
-			currentCell.setMarble(null);
-		}
-		baseCell.setMarble(marble);
+	    // Find the current location of the incoming marble
+	    Cell currentCell = findCellWithMarble(marble);
+	    if (currentCell != null) {
+	        currentCell.setMarble(null); // Remove from previous location
+	    } else {
+	        throw new IllegalDestroyException("Marble not on path");
+	    }
+
+	    // Set the new marble in the base cell
+	    baseCell.setMarble(marble);
 	}
+
 	
 	
 	

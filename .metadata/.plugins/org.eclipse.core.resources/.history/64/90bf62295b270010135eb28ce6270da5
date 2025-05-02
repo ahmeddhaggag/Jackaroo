@@ -106,7 +106,7 @@ public class Game implements GameManager{
 			turn = 0;
 
 			// Ensure firepit has cards to refill the deck
-			if (Deck.getPoolSize() < 4) {
+			if (Deck.getPoolSize() < 5) {
 				// Log the size of firePit to check how many cards it contains
 				System.out.println("Firepit size before refill: " + firePit.size());
 

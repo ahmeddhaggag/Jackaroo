@@ -548,9 +548,6 @@ private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) thro
 	
 	
 	
-	
-	
-	
 
 
 	// 16. Send to safe zone
