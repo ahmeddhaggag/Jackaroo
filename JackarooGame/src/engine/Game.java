@@ -75,9 +75,12 @@ public class Game implements GameManager{
 		else
 			throw new SplitOutOfRangeException();
 	}
-	public boolean canPlayTurn(){//5
-		return this.players.get(currentPlayerIndex).getHand().size()+turn == 4;
+	
+	public boolean canPlayTurn() {
+	    return this.players.get(currentPlayerIndex).getHand().size() >= turn;
 	}
+
+
 	public  void playPlayerTurn() throws GameException{//6
 		if (this.canPlayTurn())
 			this.players.get(currentPlayerIndex).play();
@@ -123,6 +126,11 @@ public class Game implements GameManager{
 			}
 		}
 	}
+	
+
+	
+
+
 
 
 

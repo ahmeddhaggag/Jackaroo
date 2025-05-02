@@ -124,6 +124,8 @@ public class Deck {
 			cardsPool.addAll(cards);
 			
 	}
+	
+
 	public static int getPoolSize(){
 		return cardsPool.size();
 	}

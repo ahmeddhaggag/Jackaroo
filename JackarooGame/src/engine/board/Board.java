@@ -301,32 +301,57 @@ public class Board implements BoardManager {
 
 
 
-	private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalDestroyException{
+//	private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalDestroyException{
+//
+//		Cell currentCell = fullPath.get(0);
+//		Cell targetCell = fullPath.get(fullPath.size() - 1);
+//		if(destroy){
+//			for(int i =0; i<fullPath.size(); i++){
+//				if(fullPath.get(i).getMarble() != null && fullPath.get(i).getMarble().getColour() != marble.getColour()){
+//					fullPath.get(i).setMarble(null);
+//				}
+//	//			destroyMarble(marble);
+//
+//			}
+//
+//		}
+//		currentCell.setMarble(null);
+//		targetCell.setMarble(null);
+//		if(targetCell.isTrap()){
+//		//	marble = null;
+//			targetCell.setTrap(false);
+//			assignTrapCell();
+//		}else{
+//			targetCell.setMarble(marble);
+//		}
+//
+//	}
 
+private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) throws IllegalDestroyException{
+    	
+    	Cell targetCell= fullPath.get(fullPath.size()-1);
 		Cell currentCell = fullPath.get(0);
-		Cell targetCell = fullPath.get(fullPath.size() - 1);
 		if(destroy){
-			for(int i =0; i<fullPath.size(); i++){
-				if(fullPath.get(i).getMarble() != null && fullPath.get(i).getMarble().getColour() != marble.getColour()){
+			for(int i =0; i<=fullPath.size()-1; i++){
+			if(fullPath.get(i).getMarble() != null && fullPath.get(i).getMarble().getColour() != marble.getColour()){
 					fullPath.get(i).setMarble(null);
 				}
-	//			destroyMarble(marble);
-
 			}
 
 		}
+		if(targetCell.getMarble()!=null){
+			validateDestroy(fullPath.size()-1);
+			destroyMarble(targetCell.getMarble());}
 		currentCell.setMarble(null);
-		targetCell.setMarble(null);
-		if(targetCell.isTrap()){
-		//	marble = null;
-			targetCell.setTrap(false);
+		fullPath.get(fullPath.size() - 1).setMarble(null);
+		if(fullPath.get(fullPath.size() - 1).isTrap()){
+			fullPath.get(fullPath.size() - 1).setTrap(false);
 			assignTrapCell();
 		}else{
-			targetCell.setMarble(marble);
+			fullPath.get(fullPath.size() - 1).setMarble(marble);
 		}
 
 	}
-
 
 
 
