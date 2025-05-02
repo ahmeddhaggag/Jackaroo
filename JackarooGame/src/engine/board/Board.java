@@ -394,14 +394,22 @@ public class Board implements BoardManager {
 
 
 
-	private void validateDestroy(int positionInPath) throws IllegalDestroyException{
-		if(positionInPath == -1){
-			throw new IllegalDestroyException("Marble not on path");
-		}else if(track.get(positionInPath).getMarble() != null){
-			if(track.get(positionInPath).getCellType() == CellType.BASE && getBasePosition(track.get(positionInPath).getMarble().getColour()) == positionInPath){
-				throw new IllegalDestroyException("Marble is in its base cell");
-			}
-		}
+	private void validateDestroy(int positionInPath) throws IllegalDestroyException {
+	    validateDestroy(positionInPath, false); // Default case
+	}
+
+	private void validateDestroy(int positionInPath, boolean isSendToBaseCase) 
+	    throws IllegalDestroyException {
+	    if(positionInPath == -1){
+	        throw new IllegalDestroyException("Marble not on path");
+	    } else if(track.get(positionInPath).getMarble() != null) {
+	        // Only check base position restriction if not in sendToBase case
+	        if(!isSendToBaseCase && 
+	           track.get(positionInPath).getCellType() == CellType.BASE && 
+	           getBasePosition(track.get(positionInPath).getMarble().getColour()) == positionInPath) {
+	            throw new IllegalDestroyException("Marble is in its base cell");
+	        }
+	    }
 	}
 
 
@@ -486,34 +494,28 @@ public class Board implements BoardManager {
 
 	// 14. Destroy marble
 	public void destroyMarble(Marble marble) throws IllegalDestroyException {
-	   
 	    if (marble == null) {
 	        throw new IllegalDestroyException("Marble cannot be null");
 	    }
 
-	    
 	    Cell currentCell = findCellWithMarble(marble);
 	    if (currentCell == null) {
 	        throw new IllegalDestroyException("Marble not found on board");
 	    }
 
-	    
 	    Colour currentPlayerColour = gameManager.getActivePlayerColour();
 	    if (!marble.getColour().equals(currentPlayerColour)) {
-	        
 	        int position;
 	        if (currentCell.getCellType() == CellType.NORMAL || currentCell.getCellType() == CellType.ENTRY) {
 	            position = getPositionInPath(track, marble);
 	        } else {
 	            position = getPositionInPath(getSafeZone(marble.getColour()), marble);
 	        }
+	        // Use the basic validation here
 	        validateDestroy(position);
 	    }
 
-	    
 	    currentCell.setMarble(null);
-	    
-	   
 	    gameManager.sendHome(marble);
 	}
 
@@ -522,16 +524,20 @@ public class Board implements BoardManager {
 	    int basePos = getBasePosition(marble.getColour());
 	    Cell baseCell = track.get(basePos);
 	    
-	    // First validate (will only throw for same-color marbles)
 	    validateFielding(baseCell);
 	    
-	    // Then handle opponent marbles by destroying them
 	    if (baseCell.getMarble() != null && 
 	        !baseCell.getMarble().getColour().equals(marble.getColour())) {
-	        destroyMarble(baseCell.getMarble());
+	        // Use the special case validation for sendToBase
+	        int position = getPositionInPath(track, baseCell.getMarble());
+	        validateDestroy(position, true); // true indicates this is a sendToBase case
+	        
+	        // Proceed with destruction
+	        Marble opponentMarble = baseCell.getMarble();
+	        baseCell.setMarble(null);
+	        gameManager.sendHome(opponentMarble);
 	    }
 	    
-	    // Finally, move the marble to base
 	    Cell currentCell = findCellWithMarble(marble);
 	    if (currentCell != null) {
 	        currentCell.setMarble(null);
