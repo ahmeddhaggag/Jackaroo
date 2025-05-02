@@ -105,20 +105,14 @@ public class Game implements GameManager{
 		if (turn == 4) {
 			turn = 0;
 
-
-			// Deal new hands to all players
 			for (int i = 0; i <= 3; i++) {
 				if (Deck.getPoolSize() < 4) {
-					// Log the size of firePit to check how many cards it contains
 					System.out.println("Firepit size before refill: " + firePit.size());
 
-					// Refill the deck with the cards from the firePit
 					Deck.refillPool(firePit);
 
-					// Log after refill to verify deck size
 					System.out.println("Deck pool size after refill: " + Deck.getPoolSize());
 
-					// Clear the fire pit once the cards are moved to the deck
 					firePit.clear();
 				}
 				this.players.get(i).setHand(Deck.drawCards());
@@ -144,9 +138,9 @@ public class Game implements GameManager{
 	}
 
 
-	public void sendHome(Marble marble){//9
-		Player owner = players.get(0); // <- you need this method
-		for (Player player : players) { // assumes you have a `List<Player> players`
+	public void sendHome(Marble marble){
+		Player owner = players.get(0); 
+		for (Player player : players) { 
 	        if (player.getColour().equals(marble.getColour())) {
 	            owner = player;
 	        }
@@ -171,7 +165,7 @@ public class Game implements GameManager{
 	}
 
 
-	public void discardCard(Colour colour) throws CannotDiscardException{//11
+	public void discardCard(Colour colour) throws CannotDiscardException{
 		Player p=null;
 		for(int i=0;i<=3;i++)
 			if(this.players.get(i).getColour()==colour)
