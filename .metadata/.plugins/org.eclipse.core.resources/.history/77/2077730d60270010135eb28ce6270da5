@@ -431,7 +431,9 @@ private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) thro
 		Colour currentPlayerColour = gameManager.getActivePlayerColour();
 
 		// Only throw exception if there's a marble of the SAME colour
-		if (occupiedBaseCell != null && occupiedBaseCell.getMarble() != null && occupiedBaseCell.getMarble().getColour().equals(currentPlayerColour)) {
+		if (occupiedBaseCell != null && 
+				occupiedBaseCell.getMarble() != null && 
+				occupiedBaseCell.getMarble().getColour().equals(currentPlayerColour)) {
 			throw new CannotFieldException("Base cell already contains your marble");
 		}
 		// Otherwise, do nothing (allow fielding)
@@ -543,7 +545,6 @@ private void move(Marble marble, ArrayList<Cell> fullPath, boolean destroy) thro
 		baseCell.setMarble(marble);
 	}
 	
-
 	
 	
 	

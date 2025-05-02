@@ -23,7 +23,9 @@ public class Five extends Standard {
 	@Override
 	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
 		
-		boardManager.moveBy(marbles.get(0), 5, false);
+		for(Marble marble  : marbles){
+		boardManager.moveBy(marble, 5, false);
+		}
 		
 	}
 	

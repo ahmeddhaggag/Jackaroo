@@ -17,9 +17,7 @@ public class Four extends Standard{
 	@Override
 	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
 		
-		for(Marble marble  : marbles){
-		boardManager.moveBy(marble, 4, false);
-		}
+		boardManager.moveBy(marbles.get(0), 4, false);
 		
 	}
 	
