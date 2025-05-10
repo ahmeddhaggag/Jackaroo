@@ -10,27 +10,22 @@ import model.player.Marble;
 
 public class Queen extends Standard {
 
-	public Queen(String name, String description, Suit suit, BoardManager boardManager, GameManager
-			 gameManager){
-		super(name, description, 12, suit, boardManager, gameManager);
-	}
-	
-	
-	public boolean validateMarbleSize(ArrayList<Marble> marbles) {
-		int size = marbles.size();
-	    if(size == 1 || size == 0){
-	    	return true;
-	    }
-	    return false;
-	}
+    public Queen(String name, String description, Suit suit, BoardManager boardManager, GameManager gameManager) {
+        super(name, description, 12, suit, boardManager, gameManager);
+    }
 
-	
-	
-	@Override
-	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
-		
-		gameManager.discardCard();
-		
-	}
-	
+    @Override
+    public boolean validateMarbleSize(ArrayList<Marble> marbles) {
+        return marbles.isEmpty() || super.validateMarbleSize(marbles);
+    }
+
+    @Override
+    public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
+        if (marbles.isEmpty()) 
+            this.gameManager.discardCard();
+        
+        else
+            super.act(marbles);
+    }
+
 }

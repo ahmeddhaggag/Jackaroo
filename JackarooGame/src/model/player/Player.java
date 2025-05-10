@@ -2,136 +2,103 @@ package model.player;
 
 import java.util.ArrayList;
 
-import exception.ActionException;
 import exception.GameException;
 import exception.InvalidCardException;
 import exception.InvalidMarbleException;
 import model.Colour;
 import model.card.Card;
 
+@SuppressWarnings("unused")
 public class Player {
-	
-	private final String name;
-	private final Colour colour;
-	private ArrayList<Card> hand;
-	private final ArrayList<Marble> marbles;
-	private Card selectedCard;
+    private final String name;
+    private final Colour colour;
+    private ArrayList<Card> hand;
+    private final ArrayList<Marble> marbles;
+    private Card selectedCard;
 	private final ArrayList<Marble> selectedMarbles;
-	private ArrayList<Marble> homeMarbles;
 
-	
-	
-	
-	public Player(String name, Colour colour){
-		this.name = name;
-		this.colour = colour;
-		hand = new ArrayList<Card>(4);
-		selectedMarbles = new ArrayList<Marble>();
-		this.homeMarbles = new ArrayList<>();
-		marbles = new ArrayList<Marble>();
-		for(int i =0; i<4; i++){
-			marbles.add(new Marble(colour));	
-		}
-		selectedCard = null;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public Colour getColour() {
-		return colour;
-	}
-	public ArrayList<Card> getHand() {
-		return hand;
-	}
-	public void setHand(ArrayList<Card> hand) {
-		this.hand = hand;
-	}
-	
-	public ArrayList<Marble> getMarbles() {
+    public Player(String name, Colour colour) {
+        this.name = name;
+        this.colour = colour;
+        this.hand = new ArrayList<>();
+        this.selectedMarbles = new ArrayList<>();
+        this.marbles = new ArrayList<>();
+        
+        for (int i = 0; i < 4; i++) {
+            this.marbles.add(new Marble(colour));
+        }
+        
+        //default value
+        this.selectedCard = null;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Colour getColour() {
+        return colour;
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
+    }
+    
+    public ArrayList<Marble> getMarbles() {
 		return marbles;
 	}
-	
-	public Card getSelectedCard() {
-		return selectedCard;
-	}
-	
-
-	
-	
-	
-	
-	
-	
-	 public void regainMarble(Marble marble) {
-	        if (marble != null && marble.getColour() == this.colour) {
-	            marbles.add(marble);
-	        }
-	    }
-
-	 public void selectMarble(Marble marble) throws InvalidMarbleException {
-		    if (selectedMarbles.size() >= 2) {
-		        throw new InvalidMarbleException("Cannot select more than 2 marbles.");
-		    }
-		    if (selectedMarbles.contains(marble)) {
-		    	return;
-		    }
-		    selectedMarbles.add(marble);
-		}
-	
-	 public void selectCard(Card card) throws InvalidCardException {
-	        if (!hand.contains(card)) {
-	            throw new InvalidCardException("Card not in player's hand.");
-	        }
-	        this.selectedCard = card;
-	    }
-	 
-	public void deselectAll(){
-		selectedCard =null;
-		selectedMarbles.clear();
-		
-	}
-	public void play() throws GameException {
-    if (selectedCard == null) {
-        throw new InvalidCardException("No card selected.");
-    }
-
-    if (!selectedCard.validateMarbleSize(selectedMarbles)) {
-        throw new InvalidMarbleException("Incorrect number of marbles for this card.");
-    }
-    if (!selectedCard.validateMarbleColours(selectedMarbles)) {
-        throw new InvalidMarbleException("Invalid marble colors for this card.");
-    }
-
-    try {
-        selectedCard.act(selectedMarbles);
-    } catch (ActionException | InvalidMarbleException e) {
-        throw new InvalidCardException("Card action failed: " + e.getMessage());
-    }
-
     
-    deselectAll();
-}
+    public Card getSelectedCard() {
+        return selectedCard;
+    }
+    
+    public void regainMarble(Marble marble) {
+        this.marbles.add(marble);
+    }
 
+    public Marble getOneMarble() {
+        if(marbles.isEmpty())
+            return null;
 
-	public Marble getOneMarble() {
-		if(marbles.isEmpty()) return null;
-		return marbles.get(0);
-	}
+        return this.marbles.get(0);
+    }
 
-	public void setHomeMarble(ArrayList<Marble> homeMarbles) {
-		this.homeMarbles = homeMarbles;
-	}
-	public void addCardToHand(Card card) {
-        if (hand.size() < 4) {
-            hand.add(card);
+    public void selectCard(Card card) throws InvalidCardException {
+        if (!this.hand.contains(card)) 
+            throw new InvalidCardException("Card not in hand.");
+        
+        this.selectedCard = card;
+    }
+
+    public void selectMarble(Marble marble) throws InvalidMarbleException {
+        if (!this.selectedMarbles.contains(marble)) {
+            if(this.selectedMarbles.size() > 1)
+                throw new InvalidMarbleException("Cannot select more than 2 marbles.");
+            
+            selectedMarbles.add(marble);
         }
     }
-	 public void removeSelectedCard() {
-	        if (selectedCard != null) {
-	            hand.remove(selectedCard);
-	            selectedCard = null;
-	        }
-	    }
+
+    public void deselectAll() {
+        this.selectedCard = null;
+        this.selectedMarbles.clear();
+    }
+
+    public void play() throws GameException {
+        if(selectedCard == null)
+            throw new InvalidCardException("Must select a card to play.");
+        
+        if(!this.selectedCard.validateMarbleSize(this.selectedMarbles))
+            throw new InvalidMarbleException("Invalid number of marbles selected for " + selectedCard.getName() + ".");
+        
+        if(!this.selectedCard.validateMarbleColours(this.selectedMarbles))
+            throw new InvalidMarbleException("Invalid marble colours selected for " + selectedCard.getName() + ".");
+        
+        this.selectedCard.act(this.selectedMarbles);
+    }
 
 }

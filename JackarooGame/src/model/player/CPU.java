@@ -9,8 +9,7 @@ import model.Colour;
 import model.card.Card;
 
 public class CPU extends Player {
-    
-    private final BoardManager boardManager;
+	private final BoardManager boardManager;
 
     public CPU(String name, Colour colour, BoardManager boardManager) {
         super(name, colour);
@@ -108,5 +107,5 @@ public class CPU extends Player {
         if (cards.size() == initialHandSize)
             this.selectCard(this.getHand().get(0));
     }
-
+    
 }

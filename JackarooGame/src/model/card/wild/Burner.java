@@ -5,39 +5,23 @@ import java.util.ArrayList;
 import engine.GameManager;
 import engine.board.BoardManager;
 import exception.ActionException;
-import exception.CannotFieldException;
-import exception.IllegalDestroyException;
 import exception.InvalidMarbleException;
-import model.Colour;
-import model.card.standard.Jack;
 import model.player.Marble;
 
-public class Burner extends Wild{
+public class Burner extends Wild {
 
-	public Burner(String name, String description, BoardManager boardManager, GameManager gameManager){
-		super(name,description,boardManager, gameManager);
-	}
+    public Burner(String name, String description, BoardManager boardManager, GameManager gameManager) {
+        super(name, description, boardManager, gameManager);
+    }
+    
+    @Override
+    public boolean validateMarbleColours(ArrayList<Marble> marbles) {
+        return !super.validateMarbleColours(marbles);
+    }
 
-	
-	public boolean validateMarbleColours(ArrayList<Marble> marbles) {
-	    Colour playerColour = gameManager.getActivePlayerColour(); 
-	    for (Marble marble : marbles) {
-	        
-	        if (marble.getColour() == playerColour) {
-	            return false;
-	        }
-	    }
-	    return true;
-	}
-	
-	
-	@Override
-	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
-		for(Marble marble : marbles){
-			boardManager.sendToBase(marble);
-		}
-	}
-	
-
-
+    @Override
+    public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
+        boardManager.destroyMarble(marbles.get(0));
+    }
+    
 }

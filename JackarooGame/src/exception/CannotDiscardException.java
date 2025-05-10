@@ -1,6 +1,7 @@
 package exception;
 
 public class CannotDiscardException extends ActionException {
+
     public CannotDiscardException() {
         super();
     }
@@ -8,4 +9,5 @@ public class CannotDiscardException extends ActionException {
     public CannotDiscardException(String message) {
         super(message);
     }
+
 }

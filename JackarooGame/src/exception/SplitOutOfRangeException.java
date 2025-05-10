@@ -1,6 +1,7 @@
 package exception;
 
 public class SplitOutOfRangeException extends InvalidSelectionException {
+
     public SplitOutOfRangeException() {
         super();
     }
@@ -8,4 +9,5 @@ public class SplitOutOfRangeException extends InvalidSelectionException {
     public SplitOutOfRangeException(String message) {
         super(message);
     }
+
 }

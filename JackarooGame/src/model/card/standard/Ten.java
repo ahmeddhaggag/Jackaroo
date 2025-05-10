@@ -9,32 +9,23 @@ import exception.InvalidMarbleException;
 import model.player.Marble;
 
 public class Ten extends Standard {
-	public Ten(String name, String description, Suit suit, BoardManager boardManager, GameManager
-			 gameManager){
-		super(name, description, 10, suit, boardManager, gameManager);
-	}
-	
-	
-	
-	
-	public boolean validateMarbleSize(ArrayList<Marble> marbles) {
-	    if(marbles.size() == 1 || marbles.size() == 0){
-	    	return true;
-	    }
-	    return false;
-	}
-	
-	@Override
-	public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
-		int size = marbles.size();
-		if(size == 0){
-		gameManager.discardCard(gameManager.getNextPlayerColour());
-		}else if(size ==1 ){
-			boardManager.moveBy(marbles.get(0), 10, false);
-		}else{
-			throw new InvalidMarbleException("Incorrect number of marbles");
-		}
-	}
-	
+
+    public Ten(String name, String description, Suit suit, BoardManager boardManager, GameManager gameManager) {
+        super(name, description, 10, suit, boardManager, gameManager);
+    }
+
+    @Override
+    public boolean validateMarbleSize(ArrayList<Marble> marbles) {
+        return marbles.isEmpty() || super.validateMarbleSize(marbles);
+    }
+
+    @Override
+    public void act(ArrayList<Marble> marbles) throws ActionException, InvalidMarbleException {
+        if(marbles.isEmpty())
+            gameManager.discardCard(gameManager.getNextPlayerColour());
+        
+        else
+            super.act(marbles);
+    }
 
 }
