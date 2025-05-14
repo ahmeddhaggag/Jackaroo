@@ -1,0 +1,48 @@
+package controller;
+
+
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+public class JackarooGUI extends Application {
+	
+	public static void main(String[] args){
+		launch();
+	}
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		// TODO Auto-generated method stub
+		Group root = new Group();
+		Scene scene = new Scene(root, Color.RED);
+		Image icon = new Image("JackarooIcon.png");
+		stage.getIcons().add(icon);
+		stage.setWidth(800);
+		stage.setHeight(600);
+		stage.setTitle("Jackaroo");
+		Text text = new Text();
+		text.setText("Hello!");
+		text.setX(50);
+		text.setY(50);
+		text.setFont(Font.font("Verdana",50));
+		text.setFill(Color.AQUAMARINE);
+		
+		Line line = new Line();
+		line.setStartX(100);
+		line.setStartY(100);
+		line.setEndX(200);
+		libe.setEndY(200);
+		
+		root.getChildren().add(text);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+}

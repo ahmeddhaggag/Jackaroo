@@ -3,10 +3,15 @@ package controller;
 
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 public class JackarooGUI extends Application {
 	
@@ -17,16 +22,19 @@ public class JackarooGUI extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		// TODO Auto-generated method stub
-		Group root = new Group();
-		Scene scene = new Scene(root, Color.BLACK);
+		Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Image icon = new Image("JackarooIcon.png");
 		stage.getIcons().add(icon);
-		stage.setWidth(800);
-		stage.setHeight(600);
+
 		stage.setTitle("Jackaroo");
+	
 		
 		stage.setScene(scene);
 		stage.show();
+		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
+
 	}
 
 }
