@@ -11,11 +11,8 @@ public class MainGameController {
 
 	@FXML
 	private Label nameLabel1;
-	@FXML
 	private Label nameLabel2;
-	@FXML
 	private Label nameLabel3;
-	@FXML
 	private Label nameLabel4;
 	Game game;
 	

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns="http://javafx.com/javafx/8.0.171"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="controller.MainGameController"
+          alignment="CENTER"
+          hgap="20" vgap="20"
+          prefHeight="400.0" prefWidth="600.0">
+   <children>
+      <Label fx:id="nameLabel1" text="Player" 
+             GridPane.rowIndex="0" GridPane.columnIndex="0"
+             prefWidth="100" prefHeight="50" />
+      <Label fx:id="nameLabel2" text="CPU1" 
+             GridPane.rowIndex="0" GridPane.columnIndex="1"
+             prefWidth="100" prefHeight="50" />
+      <Label fx:id="nameLabel3" text="CPU2" 
+             GridPane.rowIndex="1" GridPane.columnIndex="0"
+             prefWidth="100" prefHeight="50" />
+      <Label fx:id="nameLabel4" text="CPU3" 
+             GridPane.rowIndex="1" GridPane.columnIndex="1"
+             prefWidth="100" prefHeight="50" />
+   </children>
+</GridPane>

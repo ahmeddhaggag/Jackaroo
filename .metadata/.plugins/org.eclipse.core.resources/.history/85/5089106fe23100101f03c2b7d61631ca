@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainGameController">
+   <children>
+      <Label fx:id="nameLabel3" layoutX="257.0" layoutY="14.0" prefHeight="26.0" prefWidth="56.0" />
+      <Label fx:id="nameLabel4" layoutX="14.0" layoutY="176.0" prefHeight="32.0" prefWidth="45.0" />
+      <Label fx:id="nameLabel1" layoutX="269.0" layoutY="348.0" prefHeight="32.0" prefWidth="45.0" />
+      <Label fx:id="nameLabel2" layoutX="541.0" layoutY="183.0" prefHeight="26.0" prefWidth="45.0" />
+   </children>
+</AnchorPane>

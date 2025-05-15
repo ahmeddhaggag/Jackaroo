@@ -23,9 +23,9 @@ public class MainGameController {
 		game = new Game(username);
 		
 		displayName(nameLabel1, username);
-		displayName(nameLabel2, "CPU1");
-		displayName(nameLabel3, "CPU2");
-		displayName(nameLabel4, "CPU3");
+//		displayName(nameLabel2, "CPU1");
+//		displayName(nameLabel3, "CPU2");
+//		displayName(nameLabel4, "CPU3");
 	}
 	public void displayName(Label label, String username){
 		label.setText(username);

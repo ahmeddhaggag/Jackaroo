@@ -25,13 +25,13 @@ public class LoginController {
         String username = nameTextField.getText().trim();
 
         if (username.isEmpty()) {
-           
+            // Create and show an error alert dialog
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid Name");
             alert.setHeaderText(null);
             alert.setContentText("Name cannot be empty. Please enter a valid name.");
             alert.showAndWait();
-            return; 
+            return; // Exit the method so the scene switching doesn't occur
         }
         
         

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainGameController">
+   <children>
+      <!-- Top edge: nameLabel3 -->
+      <Label fx:id="nameLabel3" text=""
+             prefHeight="26.0" prefWidth="56.0"
+             AnchorPane.topAnchor="10.0"
+             AnchorPane.leftAnchor="272.0" />
+      
+      <!-- Right edge: nameLabel2 -->
+      <Label fx:id="nameLabel2" text=""
+             prefHeight="26.0" prefWidth="45.0"
+             AnchorPane.rightAnchor="10.0"
+             AnchorPane.topAnchor="187.0" />
+      
+      <!-- Bottom edge: nameLabel1 -->
+      <Label fx:id="nameLabel1" text=""
+             prefHeight="32.0" prefWidth="45.0"
+             AnchorPane.bottomAnchor="10.0"
+             AnchorPane.leftAnchor="277.5" />
+      
+      <!-- Left edge: nameLabel4 -->
+      <Label fx:id="nameLabel4" text=""
+             prefHeight="32.0" prefWidth="45.0"
+             AnchorPane.leftAnchor="10.0"
+             AnchorPane.topAnchor="184.0" />
+   </children>
+</AnchorPane>

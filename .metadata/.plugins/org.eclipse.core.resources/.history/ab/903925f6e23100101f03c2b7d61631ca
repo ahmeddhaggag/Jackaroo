@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainGameController">
+   <children>
+      <!-- Top label: centered horizontally, 10 px from top -->
+      <Label fx:id="nameLabelTop"
+             text="Player"
+             prefWidth="100" prefHeight="50"
+             AnchorPane.topAnchor="10.0"
+             AnchorPane.leftAnchor="250.0" />
+      
+      <!-- Bottom label: centered horizontally, 10 px from bottom -->
+      <Label fx:id="nameLabelBottom"
+             text="CPU1"
+             prefWidth="100" prefHeight="50"
+             AnchorPane.bottomAnchor="10.0"
+             AnchorPane.leftAnchor="250.0"/>
+      
+      <!-- Left label: centered vertically, 10 px from left -->
+      <Label fx:id="nameLabelLeft"
+             text="CPU2"
+             prefWidth="100" prefHeight="50"
+             AnchorPane.leftAnchor="10.0"
+             AnchorPane.topAnchor="175.0" />
+      
+      <!-- Right label: centered vertically, 10 px from right -->
+      <Label fx:id="nameLabelRight"
+             text="CPU3"
+             prefWidth="100" prefHeight="50"
+             AnchorPane.rightAnchor="10.0"
+             AnchorPane.topAnchor="175.0" />
+   </children>
+</AnchorPane>
