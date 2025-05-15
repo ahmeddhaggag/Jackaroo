@@ -1,0 +1,8 @@
+
+
+.root{
+	-fx-background-color: "black";
+}
+#titleLabel{
+	
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <Label text="Jackaroo Game" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    </top>
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <children>
+                <ImageView fx:id="gameBoard" fitWidth="400" fitHeight="400"/>
+                <VBox alignment="CENTER">
+                    <Label text="Player Info"/>
+                    <Label fx:id="playerTurn" text="Turn: Player 1"/>
+                </VBox>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="rollDiceButton" text="Roll Dice"/>
+            <Button fx:id="endTurnButton" text="End Turn"/>
+        </HBox>
+    </bottom>
+</BorderPane>

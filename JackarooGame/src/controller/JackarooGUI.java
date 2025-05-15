@@ -22,10 +22,10 @@ public class JackarooGUI extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		// TODO Auto-generated method stub
-		Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/LoginScene.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		Image icon = new Image("JackarooIcon.png");
+		scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
+		Image icon = new Image("/view/JackarooIcon.png");
 		stage.getIcons().add(icon);
 
 		stage.setTitle("Jackaroo");

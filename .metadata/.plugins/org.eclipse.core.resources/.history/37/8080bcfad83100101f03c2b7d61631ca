@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="your.package.MainGameController"
+            prefWidth="1000" prefHeight="700">
+    
+    <!-- Top: Game Header and Turn Information -->
+    <top>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #91c9f7; -fx-padding: 10;">
+            <Label text="Jackaroo: Strategic Board Game" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <!-- Current turn and next player info -->
+            <Label fx:id="currentTurnLabel" text="Current Turn: Player" style="-fx-font-size: 16px;" />
+            <Label fx:id="nextTurnLabel" text="Next Player: CPU1" style="-fx-font-size: 16px;" />
+        </HBox>
+    </top>
+    
+    <!-- Left: Player List / Info -->
+    <left>
+        <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 10;">
+            <Label text="Players" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <!-- A ListView to show each player's name, colour, cards remaining, etc. -->
+            <ListView fx:id="playerListView" prefWidth="180" prefHeight="300" />
+        </VBox>
+    </left>
+    
+    <!-- Center: Dynamic Game Board -->
+    <center>
+        <AnchorPane fx:id="gameBoardPane" style="-fx-background-color: #e8e8e8;" prefWidth="800" prefHeight="600">
+            <!-- The controller will dynamically add a GridPane (or Canvas) representing the 100 cells,
+                 Home Zones, Base Cells, Safe Zones, etc. -->
+        </AnchorPane>
+    </center>
+    
+    <!-- Right: Human Player's Hand and Fire Pit -->
+    <right>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+            <Label text="Your Hand" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <!-- Cards will be shown as buttons or images with card details -->
+            <HBox fx:id="handCardsBox" spacing="5" alignment="CENTER">
+                <!-- Dynamically generated nodes for each of the four cards -->
+            </HBox>
+            <Separator orientation="HORIZONTAL" prefWidth="150"/>
+            <Label text="Fire Pit" style="-fx-font-size: 16px;"/>
+            <!-- Shows the top card on the fire pit (deck remains hidden) -->
+            <Pane fx:id="firePitPane" style="-fx-background-color: gray;" prefWidth="100" prefHeight="100" />
+        </VBox>
+    </right>
+    
+    <!-- Bottom: Controls and Status Messages -->
+    <bottom>
+        <VBox spacing="5" style="-fx-padding: 10;">
+            <HBox alignment="CENTER" spacing="15">
+                <Button text="End Turn" onAction="#handleEndTurn" />
+                <Button text="Restart Game" onAction="#handleRestartGame" />
+                <!-- (Optional) You may include a hidden shortcut for key actions or instructions -->
+            </HBox>
+            <HBox alignment="CENTER">
+                <!-- This label can be used to display notifications (e.g., exceptions, invalid actions, trap events) -->
+                <Label fx:id="statusMessageLabel" text="" style="-fx-text-fill: red; -fx-font-size: 14px;" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
