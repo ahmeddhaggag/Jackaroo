@@ -3,7 +3,6 @@ package view;
 import engine.board.Cell;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polygon;
 
 /**
@@ -12,7 +11,7 @@ import javafx.scene.shape.Polygon;
  */
 public class CellView extends Pane {
     private Cell cell;         // Reference to the model cell
-    private Ellipse cellShape; // The custom shape representing the cell
+    private Polygon cellShape; // The custom shape representing the cell
 
     public CellView(Cell cell) {
         this.cell = cell;
@@ -20,7 +19,7 @@ public class CellView extends Pane {
         cellShape = createCellShape();
         getChildren().add(cellShape);
         // Set a preferred size (you may adjust as necessary)
-        setPrefSize(20, 20);
+        setPrefSize(40, 40);
         // Update the appearance based on the model cell
         updateView();
     }
@@ -29,16 +28,21 @@ public class CellView extends Pane {
      * Create a polygon shape representing the cell.
      * In this example, we create a trapezoid-like shape.
      */
-    private Ellipse createCellShape() {
-        // Create an ellipse to represent an oval.
-        // The constructor parameters are:
-        // centerX, centerY, radiusX (half the width) and radiusY (half the height)
-        Ellipse ellipse = new Ellipse(5, 5, 5, 5);
-        ellipse.setStroke(Color.BLACK);
-        ellipse.setFill(Color.WHITE); // Default fill color
-        return ellipse;
+    private Polygon createCellShape() {
+        Polygon polygon = new Polygon();
+        // Example points for a trapezoidal shape:
+        // Top edge shorter than bottom:
+        //   (5,0) [top left], (35,0) [top right], (40,40) [bottom right], (0,40) [bottom left]
+        polygon.getPoints().addAll(new Double[]{
+            5.0, 0.0,
+            35.0, 0.0,
+            40.0, 40.0,
+            0.0, 40.0
+        });
+        polygon.setStroke(Color.BLACK);
+        polygon.setFill(Color.WHITE); // Default fill color
+        return polygon;
     }
-
     
     /**
      * Update the visual appearance of the cell view based on its state in the model.

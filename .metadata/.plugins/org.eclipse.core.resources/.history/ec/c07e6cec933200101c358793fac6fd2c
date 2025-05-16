@@ -46,7 +46,7 @@ public class MainGameController {
 	@FXML
 	public void initialize() {
 		// Dynamically get all 100 panes by ID
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 95; i++) {
 			Pane pane = (Pane) boardTrackPane.lookup("#cellPane_" + i);
 			if (pane != null) {
 				trackPanes.add(pane);
@@ -59,7 +59,7 @@ public class MainGameController {
 	public void initializeBoard() {
 		List<Cell> cells = game.getBoard().getTrack(); // Assuming 100 cells
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 95; i++) {
 			CellView cellView = new CellView(cells.get(i));
 			Pane cellPane = trackPanes.get(i);
 			cellPane.getChildren().clear();

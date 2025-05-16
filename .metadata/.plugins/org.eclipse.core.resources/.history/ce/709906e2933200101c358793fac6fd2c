@@ -112,7 +112,6 @@
 <Pane fx:id="cellPane_96" layoutX="20" layoutY="96.5" prefHeight="23.5" prefWidth="31.2" style="-fx-border-color: black;" />
 <Pane fx:id="cellPane_97" layoutX="20" layoutY="71.0" prefHeight="23.5" prefWidth="31.2" style="-fx-border-color: black;" />
 <Pane fx:id="cellPane_98" layoutX="20" layoutY="45.5" prefHeight="23.5" prefWidth="31.2" style="-fx-border-color: black;" />
-<Pane fx:id="cellPane_99" layoutX="20" layoutY="20" prefHeight="23.5" prefWidth="31.2" style="-fx-border-color: black;" />
             <VBox id="vbox1" layoutX="285.0" layoutY="461.0" prefHeight="60.0" prefWidth="10.0" spacing="1.0">
                <children>
       

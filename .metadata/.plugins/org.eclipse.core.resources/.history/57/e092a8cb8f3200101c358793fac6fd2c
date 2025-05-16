@@ -3,7 +3,6 @@ package view;
 import engine.board.Cell;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polygon;
 
 /**
@@ -12,7 +11,7 @@ import javafx.scene.shape.Polygon;
  */
 public class CellView extends Pane {
     private Cell cell;         // Reference to the model cell
-    private Ellipse cellShape; // The custom shape representing the cell
+    private Polygon cellShape; // The custom shape representing the cell
 
     public CellView(Cell cell) {
         this.cell = cell;
@@ -33,7 +32,7 @@ public class CellView extends Pane {
         // Create an ellipse to represent an oval.
         // The constructor parameters are:
         // centerX, centerY, radiusX (half the width) and radiusY (half the height)
-        Ellipse ellipse = new Ellipse(5, 5, 5, 5);
+        Ellipse ellipse = new Ellipse(20, 20, 20, 30);
         ellipse.setStroke(Color.BLACK);
         ellipse.setFill(Color.WHITE); // Default fill color
         return ellipse;

@@ -20,7 +20,17 @@ public class MainGameController {
 
 	@FXML private Pane boardPane;
 
-
+	// 10 manually defined cell panes (from FXML)
+	@FXML private Pane cellPane_0;
+	@FXML private Pane cellPane_1;
+	@FXML private Pane cellPane_2;
+	@FXML private Pane cellPane_3;
+	@FXML private Pane cellPane_4;
+	@FXML private Pane cellPane_5;
+	@FXML private Pane cellPane_6;
+	@FXML private Pane cellPane_7;
+	@FXML private Pane cellPane_8;
+	@FXML private Pane cellPane_9;
 
 	private Game game;
 

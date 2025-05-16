@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="controller.MainGameController" prefHeight="700.0" prefWidth="1000.0">
+
+    <children>
+
+        <!-- Board Layout with Firepit and Track -->
+        <Pane fx:id="boardTrackPane" layoutX="50.0" layoutY="50.0" prefHeight="650.0" prefWidth="900.0"
+              style="-fx-background-color: lightgray; -fx-border-color: black;">
+            <children>
+                <!-- Firepit Centered -->
+                <Pane fx:id="firePitArea" layoutX="425.0" layoutY="300.0" prefHeight="50.0" prefWidth="50.0"
+                      style="-fx-background-color: darkgray; -fx-border-color: black;">
+                    <children>
+                        <Label layoutX="5" layoutY="15" style="-fx-font-size: 10;" text="Firepit"/>
+                    </children>
+                </Pane>
+
+                <!-- 100 Track Cells -->
+                <Pane fx:id="cellPane_0" layoutX="10" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_1" layoutX="45" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_2" layoutX="80" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_3" layoutX="115" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_4" layoutX="150" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_5" layoutX="185" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_6" layoutX="220" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_7" layoutX="255" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_8" layoutX="290" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_9" layoutX="325" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_10" layoutX="360" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_11" layoutX="395" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_12" layoutX="430" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_13" layoutX="465" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_14" layoutX="500" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_15" layoutX="535" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_16" layoutX="570" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_17" layoutX="605" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_18" layoutX="640" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_19" layoutX="675" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_20" layoutX="710" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_21" layoutX="745" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_22" layoutX="780" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_23" layoutX="815" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_24" layoutX="850" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_25" layoutX="850" layoutY="45" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_26" layoutX="850" layoutY="80" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_27" layoutX="850" layoutY="115" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_28" layoutX="850" layoutY="150" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_29" layoutX="850" layoutY="185" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_30" layoutX="850" layoutY="220" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_31" layoutX="850" layoutY="255" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_32" layoutX="850" layoutY="290" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_33" layoutX="850" layoutY="325" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_34" layoutX="850" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_35" layoutX="850" layoutY="395" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_36" layoutX="850" layoutY="430" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_37" layoutX="850" layoutY="465" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_38" layoutX="850" layoutY="500" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_39" layoutX="850" layoutY="535" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_40" layoutX="850" layoutY="570" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_41" layoutX="850" layoutY="605" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_42" layoutX="850" layoutY="640" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_43" layoutX="850" layoutY="675" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_44" layoutX="850" layoutY="710" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_45" layoutX="850" layoutY="745" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_46" layoutX="850" layoutY="780" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_47" layoutX="850" layoutY="815" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_48" layoutX="850" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_49" layoutX="850" layoutY="885" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_50" layoutX="850" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_51" layoutX="815" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_52" layoutX="780" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_53" layoutX="745" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_54" layoutX="710" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_55" layoutX="675" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_56" layoutX="640" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_57" layoutX="605" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_58" layoutX="570" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_59" layoutX="535" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_60" layoutX="500" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_61" layoutX="465" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_62" layoutX="430" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_63" layoutX="395" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_64" layoutX="360" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_65" layoutX="325" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_66" layoutX="290" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_67" layoutX="255" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_68" layoutX="220" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_69" layoutX="185" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_70" layoutX="150" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_71" layoutX="115" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_72" layoutX="80" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_73" layoutX="45" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_74" layoutX="10" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_75" layoutX="10" layoutY="850" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_76" layoutX="10" layoutY="815" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_77" layoutX="10" layoutY="780" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_78" layoutX="10" layoutY="745" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_79" layoutX="10" layoutY="710" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_80" layoutX="10" layoutY="675" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_81" layoutX="10" layoutY="640" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_82" layoutX="10" layoutY="605" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_83" layoutX="10" layoutY="570" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_84" layoutX="10" layoutY="535" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_85" layoutX="10" layoutY="500" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_86" layoutX="10" layoutY="465" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_87" layoutX="10" layoutY="430" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_88" layoutX="10" layoutY="395" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_89" layoutX="10" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_90" layoutX="10" layoutY="325" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_91" layoutX="10" layoutY="290" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_92" layoutX="10" layoutY="255" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_93" layoutX="10" layoutY="220" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_94" layoutX="10" layoutY="185" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_95" layoutX="10" layoutY="150" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_96" layoutX="10" layoutY="115" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_97" layoutX="10" layoutY="80" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_98" layoutX="10" layoutY="45" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+<Pane fx:id="cellPane_99" layoutX="10" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+
+            </children>
+        </Pane>
+
+        <!-- Player Labels -->
+        <Label fx:id="nameLabel3" layoutX="470.0" layoutY="10.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+        <Label fx:id="nameLabel2" layoutX="930.0" layoutY="330.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+        <Label fx:id="nameLabel1" layoutX="470.0" layoutY="670.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+        <Label fx:id="nameLabel4" layoutX="10.0" layoutY="330.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+
+    </children>
+</AnchorPane>

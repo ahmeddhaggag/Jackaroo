@@ -33,7 +33,7 @@ public class CellView extends Pane {
         // Create an ellipse to represent an oval.
         // The constructor parameters are:
         // centerX, centerY, radiusX (half the width) and radiusY (half the height)
-        Ellipse ellipse = new Ellipse(5, 5, 5, 5);
+        Ellipse ellipse = new Ellipse(20, 20, 20, 30);
         ellipse.setStroke(Color.BLACK);
         ellipse.setFill(Color.WHITE); // Default fill color
         return ellipse;
