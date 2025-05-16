@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainGameController">
+   <children>
+      <!-- Board Layout: The main track area with a firepit. -->
+      <!-- Positioned within the central portion of the AnchorPane -->
+      <Pane fx:id="boardTrackPane" layoutX="100.0" layoutY="50.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: lightgray; -fx-border-color: black;">
+         <children>
+            <!-- Firepit inside the boardTrackPane -->
+            <!-- Centering a 50x50 pane inside a 400x300 pane: top-left = (200-25,150-25) = (175,125) -->
+            <Pane fx:id="firePitArea" layoutX="175.0" layoutY="125.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;">
+               <children>
+                  <Label layoutX="5" layoutY="15" style="-fx-font-size: 10;" text="Firepit" />
+               </children>
+            </Pane>
+            <Pane fx:id="cellView1" layoutX="-46.0" prefHeight="38.0" prefWidth="28.0" />
+         </children>
+      </Pane>
+
+      <!-- Existing name labels (kept as they were) -->
+      
+      <!-- Top edge: nameLabel3 -->
+      <Label fx:id="nameLabel3" prefHeight="26.0" prefWidth="56.0" text="" AnchorPane.leftAnchor="272.0" AnchorPane.topAnchor="10.0" />
+      
+      <!-- Right edge: nameLabel2 -->
+      <Label fx:id="nameLabel2" prefHeight="26.0" prefWidth="45.0" text="" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="187.0" />
+      
+      <!-- Bottom edge: nameLabel1 -->
+      <Label fx:id="nameLabel1" prefHeight="32.0" prefWidth="45.0" text="" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="277.5" />
+      
+      <!-- Left edge: nameLabel4 -->
+      <Label fx:id="nameLabel4" prefHeight="32.0" prefWidth="45.0" text="" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="184.0" />
+   </children>
+</AnchorPane>

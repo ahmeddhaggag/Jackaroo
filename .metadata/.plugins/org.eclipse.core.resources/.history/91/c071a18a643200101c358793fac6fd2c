@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import view.CellView?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainGameController">
+   <children>
+      <!-- Board Layout: This AnchorPane represents the board track area -->
+      <AnchorPane fx:id="boardTrackPane" layoutX="100.0" layoutY="50.0" prefWidth="400.0" prefHeight="300.0"
+                  style="-fx-background-color: lightgray; -fx-border-color: black;">
+         <children>
+            <!-- 100 CellView objects arranged in a circle.
+                 The positions are computed by:
+                 layoutX = 200 + 140*cos(angle) - 20
+                 layoutY = 150 + 140*sin(angle) - 20
+                 with angle = 2*PI*(index-1)/100 -->
+            
+            <!-- Cell 1 -->
+            <CellView fx:id="cellView1" layoutX="320.0" layoutY="130.0" />
+            <!-- Cell 2 -->
+            <CellView fx:id="cellView2" layoutX="319.70" layoutY="138.80" />
+            <!-- Cell 3 -->
+            <CellView fx:id="cellView3" layoutX="318.90" layoutY="147.54" />
+            <!-- Cell 4 -->
+            <CellView fx:id="cellView4" layoutX="317.60" layoutY="156.23" />
+            <!-- Cell 5 -->
+            <CellView fx:id="cellView5" layoutX="315.80" layoutY="164.80" />
+            
+            <!-- ... continue for cells 6 through 95 following the same pattern ... -->
+            
+            <!-- For example, one in the middle: Cell 50 -->
+            <CellView fx:id="cellView50" layoutX="40.0" layoutY="130.0" />
+            
+            <!-- ... more cells ... -->
+            
+            <!-- Final cells -->
+            <!-- Cell 99 -->
+            <CellView fx:id="cellView99" layoutX="321.20" layoutY="122.00" />
+            <!-- Cell 100 -->
+            <CellView fx:id="cellView100" layoutX="320.80" layoutY="121.50" />
+         </children>
+      </AnchorPane>
+      
+      <!-- Existing name labels remain unchanged -->
+      
+      <!-- Top edge: nameLabel3 -->
+      <Label fx:id="nameLabel3" text=""
+             prefHeight="26.0" prefWidth="56.0"
+             AnchorPane.topAnchor="10.0"
+             AnchorPane.leftAnchor="272.0" />
+      
+      <!-- Right edge: nameLabel2 -->
+      <Label fx:id="nameLabel2" text=""
+             prefHeight="26.0" prefWidth="45.0"
+             AnchorPane.rightAnchor="10.0"
+             AnchorPane.topAnchor="187.0" />
+      
+      <!-- Bottom edge: nameLabel1 -->
+      <Label fx:id="nameLabel1" text=""
+             prefHeight="32.0" prefWidth="45.0"
+             AnchorPane.bottomAnchor="10.0"
+             AnchorPane.leftAnchor="277.5" />
+      
+      <!-- Left edge: nameLabel4 -->
+      <Label fx:id="nameLabel4" text=""
+             prefHeight="32.0" prefWidth="45.0"
+             AnchorPane.leftAnchor="10.0"
+             AnchorPane.topAnchor="184.0" />
+   </children>
+</AnchorPane>

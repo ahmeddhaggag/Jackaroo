@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainGameController">
+   <children>
+      <!-- Board Layout: Container for the track area -->
+      <Pane fx:id="boardTrackPane"
+            layoutX="100.0" layoutY="50.0"
+            prefWidth="400.0" prefHeight="300.0"
+            style="-fx-background-color: lightgray; -fx-border-color: black;">
+         
+         <!-- GridPane representing the track cells (10x10) -->
+         <children>
+            <GridPane fx:id="cellGrid" layoutX="0" layoutY="0"
+                      prefWidth="400.0" prefHeight="300.0"
+                      gridLinesVisible="true">
+               <columnConstraints>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+                  <ColumnConstraints percentWidth="10"/>
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+                  <RowConstraints percentHeight="10"/>
+               </rowConstraints>
+               <!-- Optionally, you could add empty Panes in each cell if you want individual cell nodes -->
+            </GridPane>
+            
+            <!-- Firepit area (displayed on top of the grid) -->
+            <!-- Centering a 50x50 pane within the 400x300 board:
+                 horizontal: (400-50)/2 = 175.0, vertical: (300-50)/2 = 125.0 -->
+            <Pane fx:id="firePitArea"
+                  layoutX="175.0" layoutY="125.0"
+                  prefWidth="50.0" prefHeight="50.0"
+                  style="-fx-background-color: darkgray; -fx-border-color: black;">
+               <children>
+                  <Label text="Firepit"
+                         layoutX="5" layoutY="15"
+                         style="-fx-font-size: 10;"/>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+
+      <!-- Original name labels remain unchanged -->
+      
+      <!-- Top edge: nameLabel3 -->
+      <Label fx:id="nameLabel3" text=""
+             prefHeight="26.0" prefWidth="56.0"
+             AnchorPane.topAnchor="10.0"
+             AnchorPane.leftAnchor="272.0" />
+      
+      <!-- Right edge: nameLabel2 -->
+      <Label fx:id="nameLabel2" text=""
+             pref

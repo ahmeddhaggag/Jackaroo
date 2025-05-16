@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controller.MainGameController">
+
+    <!-- Top: Game Title/Header -->
+    <top>
+        <HBox spacing="10" alignment="CENTER" BorderPane.alignment="CENTER">
+            <Label text="Jackaroo: Strategic Board Game" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+    
+    <!-- Center: Game Board -->
+    <center>
+        <!-- The board container; adjust prefWidth/prefHeight as needed -->
+        <AnchorPane fx:id="boardPane" prefWidth="600" prefHeight="600" style="-fx-background-color: transparent;">
+            <!-- Main track area represented as a panel (this could be enhanced by further subdividing cells dynamically) -->
+            <Pane fx:id="trackPane" layoutX="100" layoutY="100" prefWidth="400" prefHeight="400" 
+                  style="-fx-background-color: lightgray; -fx-border-color: black;"/>
+                  
+            <!-- Firepit area inside or adjacent to the track -->
+            <Pane fx:id="firePitPane" layoutX="275" layoutY="275" prefWidth="50" prefHeight="50" 
+                  style="-fx-background-color: darkgray; -fx-border-color: black;">
+                <children>
+                    <Label text="Firepit" layoutX="5" layoutY="15" style="-fx-font-size: 10;"/>
+                </children>
+            </Pane>
+            
+            <!-- Players' zones labeled with your original IDs -->
+            
+            <!-- Top edge: nameLabel3 (e.g., CPU2) -->
+            <Label fx:id="nameLabel3" text="CPU2"  
+                   layoutX="272" layoutY="20" 
+                   prefWidth="56" prefHeight="26"
+                   style="-fx-background-color: beige; -fx-border-color: black; -fx-alignment: CENTER;"/>
+            
+            <!-- Right edge: nameLabel2 (e.g., CPU3) -->
+            <Label fx:id="nameLabel2" text="CPU3"  
+                   layoutX="545" layoutY="187" 
+                   prefWidth="45" prefHeight="26"
+                   style="-fx-background-color: beige; -fx-border-color: black; -fx-alignment: CENTER;"/>
+            
+            <!-- Bottom edge: nameLabel1 (e.g., Your Name) -->
+            <Label fx:id="nameLabel1" text="Your Name"  
+                   layoutX="277.5" layoutY="550" 
+                   prefWidth="45" prefHeight="32"
+                   style="-fx-background-color: beige; -fx-border-color: black; -fx-alignment: CENTER;"/>
+            
+            <!-- Left edge: nameLabel4 (e.g., CPU1) -->
+            <Label fx:id="nameLabel4" text="CPU1"  
+                   layoutX="10" layoutY="184" 
+                   prefWidth="45" prefHeight="32"
+                   style="-fx-background-color: beige; -fx-border-color: black; -fx-alignment: CENTER;"/>
+        </AnchorPane>
+    </center>
+    
+    <!-- Bottom: Game Controls -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" BorderPane.alignment="CENTER" padding="10">
+            <Button text="End Turn" fx:id="endTurnButton"/>
+            <Button text="Restart Game" fx:id="restartGameButton"/>
+        </HBox>
+    </bottom>
+    
+    <!-- Optional: Left/Right panels can show additional game info -->
+</BorderPane>

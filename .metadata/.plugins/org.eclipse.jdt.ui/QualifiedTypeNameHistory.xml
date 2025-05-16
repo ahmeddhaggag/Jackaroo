@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="engine.board.SafeZone"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="model.card.Card"/>
-<fullyQualifiedTypeName name="model.player.Player"/>
 <fullyQualifiedTypeName name="engine.board.Board"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="model.player.CPU"/>
@@ -52,4 +51,8 @@
 <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
 <fullyQualifiedTypeName name="javafx.scene.text.Text"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
+<fullyQualifiedTypeName name="model.player.Player"/>
+<fullyQualifiedTypeName name="engine.Game"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Alert"/>
 </qualifiedTypeNameHistroy>

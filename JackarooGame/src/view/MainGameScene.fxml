@@ -2,34 +2,60 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MainGameController">
-   <children>
-      <!-- Top edge: nameLabel3 -->
-      <Label fx:id="nameLabel3" text=""
-             prefHeight="26.0" prefWidth="56.0"
-             AnchorPane.topAnchor="10.0"
-             AnchorPane.leftAnchor="272.0" />
-      
-      <!-- Right edge: nameLabel2 -->
-      <Label fx:id="nameLabel2" text=""
-             prefHeight="26.0" prefWidth="45.0"
-             AnchorPane.rightAnchor="10.0"
-             AnchorPane.topAnchor="187.0" />
-      
-      <!-- Bottom edge: nameLabel1 -->
-      <Label fx:id="nameLabel1" text=""
-             prefHeight="32.0" prefWidth="45.0"
-             AnchorPane.bottomAnchor="10.0"
-             AnchorPane.leftAnchor="277.5" />
-      
-      <!-- Left edge: nameLabel4 -->
-      <Label fx:id="nameLabel4" text=""
-             prefHeight="32.0" prefWidth="45.0"
-             AnchorPane.leftAnchor="10.0"
-             AnchorPane.topAnchor="184.0" />
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="controller.MainGameController" prefHeight="600.0" prefWidth="800.0">
+
+    <children>
+
+        <!-- Track Container with Firepit in Center -->
+        <Pane fx:id="boardTrackPane" layoutX="150.0" layoutY="100.0" prefHeight="400.0" prefWidth="500.0"
+              style="-fx-background-color: lightgray; -fx-border-color: black;">
+            <children>
+
+                <!-- Firepit in the center -->
+                <Pane fx:id="firePitArea" layoutX="225.0" layoutY="175.0" prefHeight="50.0" prefWidth="50.0"
+                      style="-fx-background-color: darkgray; -fx-border-color: black;">
+                    <children>
+                        <Label layoutX="5" layoutY="15" style="-fx-font-size: 10;" text="Firepit"/>
+                    </children>
+                </Pane>
+
+                <!-- Top Row of Track -->
+                <Pane fx:id="cellPane_0" layoutX="50" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_1" layoutX="90" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_2" layoutX="130" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_3" layoutX="170" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_4" layoutX="210" layoutY="10" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+
+                <!-- Right Side Track -->
+                <Pane fx:id="cellPane_5" layoutX="460" layoutY="50" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_6" layoutX="460" layoutY="90" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_7" layoutX="460" layoutY="130" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+
+                <!-- Bottom Row -->
+                <Pane fx:id="cellPane_8" layoutX="410" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_9" layoutX="370" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_10" layoutX="330" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_11" layoutX="290" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_12" layoutX="250" layoutY="360" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+
+                <!-- Left Side Track -->
+                <Pane fx:id="cellPane_13" layoutX="10" layoutY="310" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_14" layoutX="10" layoutY="270" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+                <Pane fx:id="cellPane_15" layoutX="10" layoutY="230" prefWidth="30" prefHeight="30" style="-fx-border-color: black;"/>
+
+                <!-- Corners and Zones could be added here later -->
+
+            </children>
+        </Pane>
+
+        <!-- Player Labels: Fixed layout -->
+        <Label fx:id="nameLabel3" layoutX="370.0" layoutY="10.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+        <Label fx:id="nameLabel2" layoutX="675.0" layoutY="280.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+        <Label fx:id="nameLabel1" layoutX="375.0" layoutY="560.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+        <Label fx:id="nameLabel4" layoutX="10.0" layoutY="280.0" text="" prefHeight="26.0" prefWidth="56.0"/>
+
+    </children>
 </AnchorPane>
