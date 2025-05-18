@@ -28,16 +28,7 @@ public class MainGameController {
 
 	@FXML private Pane boardPane;
 
-	@FXML private Pane boardTrackPane;
-	@FXML private HBox playerBox;
-	@FXML private VBox CPU1Box;
-	@FXML private HBox CPU2Box;
-	@FXML private VBox CPU3Box;
 
-	private List<Pane> trackPanes = new ArrayList<>();
-
-	
-	private StackPane cards=new StackPane();
 
 	private Game game;
 
@@ -50,22 +41,16 @@ public class MainGameController {
 		displayName(nameLabel4, "CPU3");
 
 		initializeBoard();
-		
 		displayCards();
-//		while(game.checkWin() != null){
-//		displayCards();
-//		
-//		
-//		
-//		
-//		}
-		
-		
 	}
 
 	private void displayName(Label label, String name) {
 		label.setText(name);
 	}
+
+	@FXML private Pane boardTrackPane;
+
+	private List<Pane> trackPanes = new ArrayList<>();
 
 	@FXML
 	public void initialize() {
@@ -90,37 +75,32 @@ public class MainGameController {
 			cellPane.getChildren().add(cellView);
 		}
 	}
-	
+	private StackPane cards=new StackPane();
 	public void displayCards(){
-
-
-		for(Card card : this.game.getPlayers().get(0).getHand() ){
-			CardView cardView = new CardView(card);
-			playerBox.getChildren().add(cardView);
+		HBox playerbox=new HBox();
+		HBox CPU2box  =new HBox();
+		VBox CPU1box  =new VBox();
+		VBox CPU3box  =new VBox();
+		for(int i=0;i<=3;i++)
+		{
+			Card playerCard=this.game.getPlayers().get(0).getHand().get(i);
+			CardView p=new CardView(playerCard);
+			Card cpu1=this.game.getPlayers().get(1).getHand().get(i);
+			SideCardView c1=new SideCardView(cpu1);
+			Card cpu2=this.game.getPlayers().get(2).getHand().get(i);
+			TopCardView c2=new TopCardView(cpu2);
+			Card cpu3=this.game.getPlayers().get(3).getHand().get(i);
+			SideCardView c3=new SideCardView(cpu3);
+			playerbox.getChildren().add(p);
+			CPU1box.getChildren().add(c1);
+			CPU2box.getChildren().add(c2);
+			CPU3box.getChildren().add(c3);
 		}
-		for(Card card : this.game.getPlayers().get(1).getHand() ){
-			CardView cardView = new CardView(card);
-			cardView.setRotate(270);
-			CPU1Box.getChildren().add(cardView);
-		}
-		for(Card card : this.game.getPlayers().get(2).getHand() ){
-			CardView cardView = new CardView(card);
-			cardView.setRotate(180);
-			CPU2Box.getChildren().add(cardView);
-		}
-		for(Card card : this.game.getPlayers().get(3).getHand() ){
-			CardView cardView = new CardView(card);
-			cardView.setRotate(90);
-			CPU3Box.getChildren().add(cardView);
-		}
-		playerBox.setSpacing(10);
-		CPU2Box.setSpacing(10);
-
-		StackPane.setAlignment(playerBox, javafx.geometry.Pos.BOTTOM_CENTER);
-		StackPane.setAlignment(CPU1Box, javafx.geometry.Pos.CENTER_RIGHT);
-		StackPane.setAlignment(CPU2Box, javafx.geometry.Pos.TOP_CENTER);
-		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
-
+		StackPane.setAlignment(playerbox, javafx.geometry.Pos.BOTTOM_CENTER);
+		StackPane.setAlignment(CPU1box, javafx.geometry.Pos.CENTER_RIGHT);
+		StackPane.setAlignment(CPU2box, javafx.geometry.Pos.TOP_CENTER);
+		StackPane.setAlignment(CPU3box, javafx.geometry.Pos.CENTER_LEFT);
+		
 	}
 
 }

@@ -23,16 +23,17 @@ public class CardView extends Button{
 
 	    Image image = new Image("/view/Q3.jpeg"); // Make sure path is correct
 	    ImageView imageView = new ImageView(image);
-	    imageView.setFitHeight(500);
-	    imageView.setFitWidth(200);
+	    imageView.setFitHeight(90);
+	    imageView.setFitWidth(60);
 
 	    // Optionally, add a background rectangle for styling
 	    Rectangle background = new Rectangle(60, 90);
 	    background.setArcWidth(10);
 	    background.setArcHeight(10);
-	    background.setFill(Color.GREEN);
+	    background.setFill(Color.WHITE);
 	    background.setStroke(Color.BLACK);
 
+	    // Add elements to this StackPane (CardView)
 	    this.getChildren().addAll(background, imageView);
 	}
 

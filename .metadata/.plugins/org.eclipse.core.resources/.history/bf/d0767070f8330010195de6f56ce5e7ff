@@ -113,8 +113,7 @@ public class MainGameController {
 			cardView.setRotate(90);
 			CPU3Box.getChildren().add(cardView);
 		}
-		playerBox.setSpacing(10);
-		CPU2Box.setSpacing(10);
+		playerBox.setSpacing(15);
 
 		StackPane.setAlignment(playerBox, javafx.geometry.Pos.BOTTOM_CENTER);
 		StackPane.setAlignment(CPU1Box, javafx.geometry.Pos.CENTER_RIGHT);

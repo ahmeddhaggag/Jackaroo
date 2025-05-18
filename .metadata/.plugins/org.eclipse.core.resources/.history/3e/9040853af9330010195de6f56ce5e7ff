@@ -1,0 +1,19 @@
+package view;
+
+import model.card.Card;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+public class CardView extends Button{
+	private Card card;
+	public CardView(Card card){
+		this.card=card;
+		Image image=new Image("/view/Q3.jpeg"); //image is needed
+		ImageView imageview= new ImageView(image);
+		imageview.setFitHeight(90); 
+		imageview.setFitWidth(60); // height and width to be declared
+		this.getChildren().addAll(background, imageView);
+		
+	}
+}

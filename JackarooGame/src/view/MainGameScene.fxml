@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -124,6 +125,10 @@
       <Pane fx:id="cellPane_4" prefHeight="23.5" prefWidth="31.2" style="-fx-border-color: black;" />
                </children>
             </VBox>
+            <VBox fx:id="CPU3Box" layoutX="70.0" layoutY="199.0" prefHeight="200.0" prefWidth="100.0" />
+            <VBox fx:id="CPU1Box" layoutX="598.0" layoutY="199.0" prefHeight="200.0" prefWidth="100.0" />
+            <HBox fx:id="playerBox" layoutX="333.0" layoutY="492.0" prefHeight="100.0" prefWidth="200.0" />
+            <HBox fx:id="CPU2Box" layoutX="316.0" layoutY="47.0" prefHeight="100.0" prefWidth="200.0" />
            
 
             </children>

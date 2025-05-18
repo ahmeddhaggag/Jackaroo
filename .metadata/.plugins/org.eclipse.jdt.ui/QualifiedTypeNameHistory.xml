@@ -18,11 +18,9 @@
 <fullyQualifiedTypeName name="engine.GameManager"/>
 <fullyQualifiedTypeName name="engine.board.BoardManager"/>
 <fullyQualifiedTypeName name="model.card.standard.Marble"/>
-<fullyQualifiedTypeName name="engine.board.Cell"/>
 <fullyQualifiedTypeName name="exception.IllegalSwapException"/>
 <fullyQualifiedTypeName name="model.card.standard.Jack"/>
 <fullyQualifiedTypeName name="model.card.standard.Standard"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="model.player.Marble"/>
 <fullyQualifiedTypeName name="model.Colour"/>
 <fullyQualifiedTypeName name="model.card.standard.Seven"/>
@@ -55,4 +53,9 @@
 <fullyQualifiedTypeName name="model.player.Player"/>
 <fullyQualifiedTypeName name="engine.Game"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Alert"/>
+<fullyQualifiedTypeName name="engine.board.Cell"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
+<fullyQualifiedTypeName name="view.CellView"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javafx.scene.shape.Ellipse"/>
 </qualifiedTypeNameHistroy>
