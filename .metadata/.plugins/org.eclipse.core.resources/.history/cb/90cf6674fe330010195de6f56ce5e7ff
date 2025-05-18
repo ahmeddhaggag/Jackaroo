@@ -52,7 +52,13 @@ public class MainGameController {
 		initializeBoard();
 		
 		displayCards();
-
+//		while(game.checkWin() != null){
+//		displayCards();
+//		
+//		
+//		
+//		
+//		}
 		
 		
 	}

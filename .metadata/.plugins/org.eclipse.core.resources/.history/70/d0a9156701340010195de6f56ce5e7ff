@@ -9,8 +9,8 @@ import javafx.scene.shape.Rectangle;
 
 public class CardView extends Button{
 	private Card card;
-	int height=80;
-	int width=60;
+	int height=60;
+	int width=50;
 //	public CardView(Card card){
 //		this.card=card;
 //		Image image=new Image("/view/Q3.jpeg"); //image is needed
@@ -37,11 +37,6 @@ public class CardView extends Button{
 
 	    this.setGraphic(imageView);
 	    this.setPrefSize(width, height);
-	    prefWidthProperty().bind(imageView.fitWidthProperty());
-	    prefHeightProperty().bind(imageView.fitHeightProperty());
-	    imageView.setPreserveRatio(true);
-
-
 
 	}
 

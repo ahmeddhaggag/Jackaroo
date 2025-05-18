@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 
 public class CardView extends Button{
 	private Card card;
-	int height=80;
+	int height=90;
 	int width=60;
 //	public CardView(Card card){
 //		this.card=card;
@@ -23,7 +23,7 @@ public class CardView extends Button{
 	public CardView(Card card) {
 	    this.card = card;
 
-	    Image image = new Image("/view/Q3.jpeg"); // Make sure path is correct
+	    Image image = new Image("view/Q3.jpeg"); // Make sure path is correct
 	    ImageView imageView = new ImageView(image);
 	    imageView.setFitHeight(height);
 	    imageView.setFitWidth(width);
@@ -35,14 +35,7 @@ public class CardView extends Button{
 	    background.setFill(Color.GREEN);
 	    background.setStroke(Color.BLACK);
 
-	    this.setGraphic(imageView);
-	    this.setPrefSize(width, height);
-	    prefWidthProperty().bind(imageView.fitWidthProperty());
-	    prefHeightProperty().bind(imageView.fitHeightProperty());
-	    imageView.setPreserveRatio(true);
-
-
-
+	    this.getChildren().addAll(background, imageView);
 	}
 
 }

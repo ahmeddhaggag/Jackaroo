@@ -52,7 +52,13 @@ public class MainGameController {
 		initializeBoard();
 		
 		displayCards();
-
+//		while(game.checkWin() != null){
+//		displayCards();
+//		
+//		
+//		
+//		
+//		}
 		
 		
 	}
@@ -109,7 +115,8 @@ public class MainGameController {
 		}
 		playerBox.setSpacing(10);
 		CPU2Box.setSpacing(10);
-
+		playerBox.setPrefHeight(100);
+		playerBox.setPrefWidth(100);
 
 		StackPane.setAlignment(playerBox, javafx.geometry.Pos.BOTTOM_CENTER);
 		StackPane.setAlignment(CPU1Box, javafx.geometry.Pos.CENTER_RIGHT);
