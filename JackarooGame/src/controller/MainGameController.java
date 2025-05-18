@@ -4,12 +4,20 @@ import engine.Game;
 import engine.board.Cell;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import view.CardView;
 import view.CellView;
+import view.SideCardView;
+import view.TopCardView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.card.Card;
 
 public class MainGameController {
 
@@ -65,6 +73,33 @@ public class MainGameController {
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
+	}
+	private StackPane cards=new StackPane();
+	public void displayCards(){
+		HBox playerbox=new HBox();
+		HBox CPU2box  =new HBox();
+		VBox CPU1box  =new VBox();
+		VBox CPU3box  =new VBox();
+		for(int i=0;i<=3;i++)
+		{
+			Card playerCard=this.game.getPlayers().get(0).getHand().get(i);
+			CardView p=new CardView(playerCard);
+			Card cpu1=this.game.getPlayers().get(1).getHand().get(i);
+			SideCardView c1=new SideCardView(cpu1);
+			Card cpu2=this.game.getPlayers().get(2).getHand().get(i);
+			TopCardView c2=new TopCardView(cpu2);
+			Card cpu3=this.game.getPlayers().get(3).getHand().get(i);
+			SideCardView c3=new SideCardView(cpu3);
+			playerbox.getChildren().add(p);
+			CPU1box.getChildren().add(c1);
+			CPU2box.getChildren().add(c2);
+			CPU3box.getChildren().add(c3);
+		}
+		StackPane.setAlignment(playerbox, javafx.geometry.Pos.BOTTOM_CENTER);
+		StackPane.setAlignment(CPU1box, javafx.geometry.Pos.CENTER_RIGHT);
+		StackPane.setAlignment(CPU2box, javafx.geometry.Pos.TOP_CENTER);
+		StackPane.setAlignment(CPU3box, javafx.geometry.Pos.CENTER_LEFT);
+		
 	}
 
 }
