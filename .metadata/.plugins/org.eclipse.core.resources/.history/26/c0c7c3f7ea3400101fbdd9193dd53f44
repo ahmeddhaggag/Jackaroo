@@ -99,11 +99,11 @@ public class MainGameController {
 
 
 		for(Card card : this.game.getPlayers().get(0).getHand() ){
-			CardView cardView = new CardView(card , true);
+			CardView cardView = new CardView(card , 1);
 			playerBox.getChildren().add(cardView);
 		}
 		for(Card card : this.game.getPlayers().get(1).getHand() ){
-			CardView cardView = new CardView(card , false);
+			CardView cardView = new CardView(card , 2);
 			cardView.setRotate(270);
 			CPU1Box.getChildren().add(cardView);
 		}

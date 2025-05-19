@@ -32,7 +32,7 @@ public class CardView extends Button{
 	ImageView imageView;
 	boolean isHuman;
 	
-	public CardView(Card card, boolean isHuman) {
+	public CardView(Card card, int playerNumber) {
 		this.card = card;
 		this.isHuman = isHuman;
 		String path = "";
