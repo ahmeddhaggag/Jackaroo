@@ -110,6 +110,12 @@ public class CardView extends Button{
 		imageView.setFitHeight(height);
 		imageView.setFitWidth(width);
 
+		// Optionally, add a background rectangle for styling
+//		Rectangle background = new Rectangle(60, 90);
+//		background.setArcWidth(10);
+//		background.setArcHeight(10);
+//		background.setFill(Color.GREEN);
+//		background.setStroke(Color.BLACK);
 
 		this.setGraphic(imageView);
 		this.setPrefSize(width, height);

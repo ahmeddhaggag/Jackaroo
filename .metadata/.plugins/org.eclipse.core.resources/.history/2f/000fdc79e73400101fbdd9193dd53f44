@@ -86,7 +86,6 @@ public class CardView extends Button{
 				break;
 			default:
 				suitStr = "unknown";
-				System.out.println(path);
 				break;
 			}
 
@@ -98,11 +97,10 @@ public class CardView extends Button{
 		}else if(card instanceof Saver){
 			path = "Saver.png";
 		}else{
-			path = "red_joker.png";
-			System.out.println(path);
+			path = "unknown.png";
 		}
 
-		
+		System.out.println(path);
 
 		path = "/view/PNG-cards-1.3/" + path;
 		image = new Image(path);
@@ -110,6 +108,12 @@ public class CardView extends Button{
 		imageView.setFitHeight(height);
 		imageView.setFitWidth(width);
 
+		// Optionally, add a background rectangle for styling
+//		Rectangle background = new Rectangle(60, 90);
+//		background.setArcWidth(10);
+//		background.setArcHeight(10);
+//		background.setFill(Color.GREEN);
+//		background.setStroke(Color.BLACK);
 
 		this.setGraphic(imageView);
 		this.setPrefSize(width, height);

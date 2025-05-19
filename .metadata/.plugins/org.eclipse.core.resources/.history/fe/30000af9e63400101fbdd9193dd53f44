@@ -27,10 +27,7 @@ public class MainGameController {
 	@FXML private Label nameLabel3;
 	@FXML private Label nameLabel4;
 	
-	@FXML private Pane PlayerPane1;
-	@FXML private Pane PlayerPane2;
 	@FXML private Pane PlayerPane3;
-	@FXML private Pane PlayerPane4;
 
 	@FXML private Pane boardPane;
 
@@ -55,10 +52,10 @@ public class MainGameController {
 		displayName(nameLabel3, "CPU2");
 		displayName(nameLabel4, "CPU3");
 		
-		PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
-		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
-		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
-		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+		PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
+		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
+		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(4).getColour().name().toLowerCase() +";");
 
 
 		initializeBoard();
@@ -75,6 +72,7 @@ public class MainGameController {
 
 	@FXML
 	public void initialize() {
+		// Dynamically get all 100 panes by ID
 		for (int i = 0; i < 100; i++) {
 			Pane pane = (Pane) boardTrackPane.lookup("#cellPane_" + i);
 			if (pane != null) {
