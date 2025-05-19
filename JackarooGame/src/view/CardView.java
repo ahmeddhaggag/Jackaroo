@@ -1,9 +1,26 @@
 package view;
 
 import model.card.Card;
+import model.card.standard.Ace;
+import model.card.standard.Five;
+import model.card.standard.Four;
+import model.card.standard.Jack;
+import model.card.standard.King;
+import model.card.standard.Queen;
+import model.card.standard.Seven;
+import model.card.standard.Standard;
+import model.card.standard.Suit;
+import model.card.standard.Ten;
+import model.card.wild.Burner;
+import model.card.wild.Saver;
+import model.card.wild.Wild;
+
+import java.io.IOException;
+
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -11,35 +28,99 @@ public class CardView extends Button{
 	private Card card;
 	int height=80;
 	int width=60;
-//	public CardView(Card card){
-//		this.card=card;
-//		Image image=new Image("/view/Q3.jpeg"); //image is needed
-//		ImageView imageView= new ImageView(image);
-//		imageView.setFitHeight(90); 
-//		imageView.setFitWidth(60); // height and width to be declared
-//		this.getChildren().addAll(imageView);
-//		
-//	}
+	Image image;
+	ImageView imageView;
+	//	public CardView(Card card){
+	//		this.card=card;
+	//		Image image=new Image("/view/Q3.jpeg"); //image is needed
+	//		ImageView imageView= new ImageView(image);
+	//		imageView.setFitHeight(90); 
+	//		imageView.setFitWidth(60); // height and width to be declared
+	//		this.getChildren().addAll(imageView);
+	//		
+	//	}
 	public CardView(Card card) {
-	    this.card = card;
+		this.card = card;
 
-	    Image image = new Image("/view/Q3.jpeg"); // Make sure path is correct
-	    ImageView imageView = new ImageView(image);
-	    imageView.setFitHeight(height);
-	    imageView.setFitWidth(width);
+		String path = "";
+		
 
-	    // Optionally, add a background rectangle for styling
-	    Rectangle background = new Rectangle(60, 90);
-	    background.setArcWidth(10);
-	    background.setArcHeight(10);
-	    background.setFill(Color.GREEN);
-	    background.setStroke(Color.BLACK);
 
-	    this.setGraphic(imageView);
-	    this.setPrefSize(width, height);
-	    prefWidthProperty().bind(imageView.fitWidthProperty());
-	    prefHeightProperty().bind(imageView.fitHeightProperty());
-	    imageView.setPreserveRatio(true);
+
+		if (card instanceof Standard) {
+			int rank = ((Standard) card).getRank();
+			Suit suit = ((Standard) card).getSuit();
+
+			String rankStr;
+			switch (rank) {
+			case 1:
+				rankStr = "ace";
+				break;
+			case 11:
+				rankStr = "jack";
+				break;
+			case 12:
+				rankStr = "queen";
+				break;
+			case 13:
+				rankStr = "king";
+				break;
+			default:
+				rankStr = String.valueOf(rank);
+				break;
+			}
+
+			String suitStr;
+			switch (suit) {
+			case SPADE:
+				suitStr = "spades";
+				break;
+			case HEART:
+				suitStr = "hearts";
+				break;
+			case DIAMOND:
+				suitStr = "diamonds";
+				break;
+			case CLUB:
+				suitStr = "clubs";
+				break;
+			default:
+				suitStr = "unknown";
+				break;
+			}
+
+			path = rankStr + "_of_" + suitStr + ".png";
+		}else if(card instanceof Burner){
+			path = "Burner.png";
+
+
+		}else if(card instanceof Saver){
+			path = "Saver.png";
+		}else{
+			path = "unknown.png";
+		}
+
+		System.out.println(path);
+
+		path = "/view/PNG-cards-1.3/" + path;
+		image = new Image(path);
+		imageView = new ImageView(image);
+		imageView.setFitHeight(height);
+		imageView.setFitWidth(width);
+
+		// Optionally, add a background rectangle for styling
+//		Rectangle background = new Rectangle(60, 90);
+//		background.setArcWidth(10);
+//		background.setArcHeight(10);
+//		background.setFill(Color.GREEN);
+//		background.setStroke(Color.BLACK);
+
+		this.setGraphic(imageView);
+		this.setPrefSize(width, height);
+		prefWidthProperty().bind(imageView.fitWidthProperty());
+		prefHeightProperty().bind(imageView.fitHeightProperty());
+		imageView.setPreserveRatio(true);
+		setBackground(Background.EMPTY);
 
 
 

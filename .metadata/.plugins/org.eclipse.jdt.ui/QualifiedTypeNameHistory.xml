@@ -35,7 +35,6 @@
 <fullyQualifiedTypeName name="javafx.application.Application"/>
 <fullyQualifiedTypeName name="java.security.acl.Group"/>
 <fullyQualifiedTypeName name="javafx.scene.Group"/>
-<fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
 <fullyQualifiedTypeName name="javafx.scene.image.Image"/>
 <fullyQualifiedTypeName name="javafx.scene.text.Font"/>
 <fullyQualifiedTypeName name="javafx.scene.shape.Line"/>
@@ -58,4 +57,7 @@
 <fullyQualifiedTypeName name="view.CellView"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javafx.scene.shape.Ellipse"/>
+<fullyQualifiedTypeName name="javafx.scene.shape.Rectangle"/>
+<fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.Background"/>
 </qualifiedTypeNameHistroy>

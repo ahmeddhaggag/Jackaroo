@@ -1,0 +1,48 @@
+package view;
+
+import model.card.Card;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class CardView extends Button{
+	private Card card;
+	int height=80;
+	int width=60;
+//	public CardView(Card card){
+//		this.card=card;
+//		Image image=new Image("/view/Q3.jpeg"); //image is needed
+//		ImageView imageView= new ImageView(image);
+//		imageView.setFitHeight(90); 
+//		imageView.setFitWidth(60); // height and width to be declared
+//		this.getChildren().addAll(imageView);
+//		
+//	}
+	public CardView(Card card) {
+	    this.card = card;
+
+	    Image image = new Image("/view/Q3.jpeg"); // Make sure path is correct
+	    ImageView imageView = new ImageView(image);
+	    imageView.setFitHeight(height);
+	    imageView.setFitWidth(width);
+
+	    // Optionally, add a background rectangle for styling
+	    Rectangle background = new Rectangle(60, 90);
+	    background.setArcWidth(10);
+	    background.setArcHeight(10);
+	    background.setFill(Color.GREEN);
+	    background.setStroke(Color.BLACK);
+
+	    this.setGraphic(imageView);
+	    this.setPrefSize(width, height);
+	    prefWidthProperty().bind(imageView.fitWidthProperty());
+	    prefHeightProperty().bind(imageView.fitHeightProperty());
+	    imageView.setPreserveRatio(true);
+
+
+
+	}
+
+}
