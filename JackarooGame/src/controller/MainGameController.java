@@ -2,7 +2,10 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -19,6 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.card.Card;
+import model.card.standard.Standard;
+import model.card.standard.Suit;
+import model.card.wild.Burner;
+import model.card.wild.Saver;
+import model.player.Marble;
 
 public class MainGameController {
 
@@ -130,5 +138,173 @@ public class MainGameController {
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
+	public void displayFirePit(Card card){
+		if(card != null){
+			if(firePitArea.getChildren().size() != 0)
+			firePitArea.getChildren().clear();
+			FirePitView firepitview=new FirePitView(card);
+			firePitArea.getChildren().add(firepitview);
+			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
 
+		}
+		else{
+			FirePitView firepitview=new FirePitView();
+			firePitArea.getChildren().add(firepitview);
+			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
+		}
+	}
+	//The Actions
+	public static VBox getCardFun(Card card){
+		VBox func=new VBox();
+		if (card instanceof Standard) {
+			
+			int rank = ((Standard) card).getRank();
+			if(rank == 1 || rank== 7|| rank == 10 || rank == 11 ||
+					rank == 12){
+				Button b1=new Button("Move"+rank);
+				b1.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				        movemarble(rank);
+				    }
+				});
+				func.getChildren().add(b1);
+			}
+			switch (rank) {
+			case 13:
+				Button b7=new Button("Move 13 steps and destroy all");
+				b7.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				        moveking();
+				    }
+				});
+				func.getChildren().add(b7);
+				//no break since it share field marble with ace
+			case 1:
+				Button b2=new Button("Field a marble");
+				b2.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				        fieldmarble();
+				    }
+				});
+				func.getChildren().add(b2);
+				break;
+			case 7:
+				Button b3=new Button("Move 2 marbles 7 steps");
+				b3.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				    	movetwomarbles();
+				    }
+				});
+				func.getChildren().add(b3);
+				break;
+			case 10:
+				Button b4=new Button("Discard a card from next player");
+				b4.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				    	discardcard(false);
+				    }
+				});
+				func.getChildren().add(b4);
+				break;
+			case 11:
+				Button b5=new Button("Swap");
+				b5.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				    	swaptwomarbles();
+				    }
+				});
+				func.getChildren().add(b5);
+				break;
+			case 12:
+				Button b6=new Button("Discard a card from random player");
+				b6.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override
+				    public void handle(ActionEvent event) {
+				    	discardcard(true);
+				    }
+				});
+				func.getChildren().add(b6);
+				break;
+			default:
+				break;
+			}
+		}
+		return func;
+	}
+	public static void movemarble(int moves){
+		movemarble(marble,moves); //put the chosen marble by current player
+	}
+	public static void movemarble(Marble marble,int moves){
+		
+	}
+	public static void fieldmarble(){
+		
+	}
+	public static void movetwomarbles(){
+		
+	}
+	public static void swaptwomarbles(){
+		
+	}
+	public static void discardcard(boolean israndom){
+		//the boolean show the type af discarding
+	}
+	public static void moveking(){
+		
+	}
+	public static void movefour(){
+		
+	}
+	public static void movefive(){
+		
+	}
+	public static void burneraction(){
+		
+	}
+	public static void saveraction(){
+		
+	}
+	public static void cardaction(Card card){
+		if (card instanceof Standard) {
+			int rank = ((Standard) card).getRank();
+
+			switch (rank) {
+			case 1 :
+			case 7 :
+			case 10:
+			case 11:
+			case 12:
+			case 13:
+				VBox actions=getCardFun(card);
+				break;
+			case 2:
+			case 3:
+			case 6:
+			case 8:
+			case 9:
+				movemarble(rank);
+				break;
+			case 4:
+				movefour();
+			case 5:
+				movefive();
+			default:
+				break;
+			}
+		}
+		else if(card instanceof Burner){
+			burneraction();
+		}
+		else if(card instanceof Saver){
+			saveraction();
+		}
+		else
+			System.out.println("Null!!!");
+	}
 }
