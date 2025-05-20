@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import view.CardView;
 import view.CellView;
+import view.FirePitView;
 import view.SideCardView;
 import view.TopCardView;
 
@@ -38,6 +39,8 @@ public class MainGameController {
 	@FXML private VBox CPU1Box;
 	@FXML private HBox CPU2Box;
 	@FXML private VBox CPU3Box;
+	
+	@FXML private Pane firePitArea;
 
 	private List<Pane> trackPanes = new ArrayList<>();
 
@@ -64,7 +67,7 @@ public class MainGameController {
 		
 		displayCards();
 
-		
+		displayFirePit(game.getPlayers().get(0).getHand().get(2));
 		
 	}
 
@@ -127,5 +130,20 @@ public class MainGameController {
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
+	public void displayFirePit(Card card){
+		if(card != null){
+			if(firePitArea.getChildren().size() != 0)
+			firePitArea.getChildren().clear();
+			FirePitView firepitview=new FirePitView(card);
+			firePitArea.getChildren().add(firepitview);
+			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
+
+		}
+		else{
+			FirePitView firepitview=new FirePitView();
+			firePitArea.getChildren().add(firepitview);
+			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
+		}
+		}
 
 }

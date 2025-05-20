@@ -1,0 +1,100 @@
+package view;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import model.card.Card;
+import model.card.standard.Standard;
+import model.card.standard.Suit;
+import model.card.wild.Burner;
+import model.card.wild.Saver;
+import model.card.standard.Ace;
+import model.card.standard.Five;
+import model.card.standard.Four;
+import model.card.standard.Jack;
+import model.card.standard.King;
+import model.card.standard.Queen;
+import model.card.standard.Seven;
+import model.card.standard.Ten;
+import model.card.wild.Burner;
+import model.card.wild.Saver;
+import model.card.wild.Wild;
+
+public class FirePitView extends VBox{
+	private Card card;
+	int height=80;
+	int width=60;
+	Image image;
+	ImageView imageView;
+	public FirePitView(Card card){
+		this.card=card;
+		String path = "";
+		if (card instanceof Standard) {
+			int rank = ((Standard) card).getRank();
+			Suit suit = ((Standard) card).getSuit();
+
+			String rankStr;
+			switch (rank) {
+			case 1:
+				rankStr = "ace";
+				break;
+			case 11:
+				rankStr = "jack";
+				break;
+			case 12:
+				rankStr = "queen";
+				break;
+			case 13:
+				rankStr = "king";
+				break;
+			default:
+				rankStr = String.valueOf(rank);
+				break;
+			}
+
+			String suitStr;
+			switch (suit) {
+			case SPADE:
+				suitStr = "spades";
+				break;
+			case HEART:
+				suitStr = "hearts";
+				break;
+			case DIAMOND:
+				suitStr = "diamonds";
+				break;
+			case CLUB:
+				suitStr = "clubs";
+				break;
+			default:
+				suitStr = "unknown";
+				System.out.println(path);
+				break;
+			}
+
+			path = rankStr + "_of_" + suitStr + ".png";
+		}else if(card instanceof Burner){
+			path = "Burner.png";
+
+
+		}else if(card instanceof Saver){
+			path = "Saver.png";
+		}else{
+			path = "red_joker.png";
+			System.out.println(path);
+		}
+		path = "/view/PNG-cards-1.3/" + path;
+		image = new Image(path);
+		imageView = new ImageView(image);
+		imageView.setFitHeight(height);
+		imageView.setFitWidth(width);
+
+	}
+	public FirePitView(){
+		imageView = new ImageView(new Image("/view/BackTop.png"));
+		imageView.setFitHeight(height);
+		imageView.setFitWidth(width);
+	}
+}
