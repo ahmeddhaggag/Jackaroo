@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="model.card.standard.Ace"/>
-<fullyQualifiedTypeName name="model.card.standard.King"/>
 <fullyQualifiedTypeName name="model.card.standard.Queen"/>
-<fullyQualifiedTypeName name="model.card.wild.Burner"/>
-<fullyQualifiedTypeName name="model.card.wild.Saver"/>
 <fullyQualifiedTypeName name="engine.board.SafeZone"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="model.card.Card"/>
@@ -20,7 +15,6 @@
 <fullyQualifiedTypeName name="model.card.standard.Marble"/>
 <fullyQualifiedTypeName name="exception.IllegalSwapException"/>
 <fullyQualifiedTypeName name="model.card.standard.Jack"/>
-<fullyQualifiedTypeName name="model.card.standard.Standard"/>
 <fullyQualifiedTypeName name="model.player.Marble"/>
 <fullyQualifiedTypeName name="model.Colour"/>
 <fullyQualifiedTypeName name="model.card.standard.Seven"/>
@@ -59,5 +53,11 @@
 <fullyQualifiedTypeName name="javafx.scene.shape.Ellipse"/>
 <fullyQualifiedTypeName name="javafx.scene.shape.Rectangle"/>
 <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
+<fullyQualifiedTypeName name="model.card.standard.Standard"/>
+<fullyQualifiedTypeName name="model.card.wild.Wild"/>
+<fullyQualifiedTypeName name="model.card.standard.Suit"/>
+<fullyQualifiedTypeName name="model.card.wild.Burner"/>
+<fullyQualifiedTypeName name="model.card.wild.Saver"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.Background"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.GridPane"/>
 </qualifiedTypeNameHistroy>

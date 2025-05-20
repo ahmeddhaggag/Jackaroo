@@ -4,7 +4,6 @@ import engine.Game;
 import engine.board.Cell;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -33,8 +32,6 @@ public class MainGameController {
 	@FXML private Pane PlayerPane4;
 
 	@FXML private Pane boardPane;
-	
-	@FXML private GridPane board;
 
 	@FXML private Pane boardTrackPane;
 	@FXML private HBox playerBox;
@@ -78,7 +75,7 @@ public class MainGameController {
 	@FXML
 	public void initialize() {
 		for (int i = 0; i < 100; i++) {
-			Pane pane = (Pane) board.lookup("#cellPane_" + i);
+			Pane pane = (Pane) boardTrackPane.lookup("#cellPane_" + i);
 			if (pane != null) {
 				trackPanes.add(pane);
 			} else {
