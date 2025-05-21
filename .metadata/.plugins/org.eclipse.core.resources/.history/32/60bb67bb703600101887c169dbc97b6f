@@ -18,14 +18,12 @@ public class MarbleView extends Circle {
     }
 
     private Color convertColour(Colour colour) {
-    	Color color = Color.WHITE;
-         switch (colour) {
-            case RED : color =Color.RED;
-            case BLUE :color = Color.BLUE;
-            case GREEN : color= Color.GREEN;
-            case YELLOW : color= Color.YELLOW;
+        return switch (colour) {
+            case RED : Color.RED;
+            case BLUE : Color.BLUE;
+            case GREEN : Color.GREEN;
+            case YELLOW : Color.YELLOW;
         };
-        return color;
     }
 
     public Marble getMarble() {
