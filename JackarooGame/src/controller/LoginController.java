@@ -25,6 +25,7 @@ public class LoginController {
         String username = nameTextField.getText().trim();
 
         if (username.isEmpty()) {
+        	test
            
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid Name");
