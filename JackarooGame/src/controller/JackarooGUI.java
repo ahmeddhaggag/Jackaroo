@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class JackarooGUI extends Application {
 	
 	public static void main(String[] args){
-		launch();
+		launch(args);
 	}
 
 	@Override

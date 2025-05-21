@@ -1,13 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -25,14 +26,14 @@ public class LoginController {
         String username = nameTextField.getText().trim();
 
         if (username.isEmpty()) {
-        	test
+        	
            
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Name");
-            alert.setHeaderText(null);
-            alert.setContentText("Name cannot be empty. Please enter a valid name.");
-            alert.showAndWait();
-            return; 
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Invalid Name");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Name cannot be empty. Please enter a valid name.");
+//            alert.showAndWait();
+//            return; 
         }
         
         
