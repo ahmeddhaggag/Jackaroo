@@ -2,7 +2,6 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
-import exception.GameException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,7 +28,6 @@ import model.card.standard.Suit;
 import model.card.wild.Burner;
 import model.card.wild.Saver;
 import model.player.Marble;
-import model.player.Player;
 
 public class MainGameController {
 
@@ -62,7 +60,7 @@ public class MainGameController {
 
 	private Game game;
 
-	public void startGame(String username) throws IOException, GameException {
+	public void startGame(String username) throws IOException {
 		game = new Game(username);
 
 		displayName(nameLabel1, username);
@@ -74,21 +72,11 @@ public class MainGameController {
 		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
 		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
 		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+
+
+		initializeBoard();
 		
-
-
-		while(game.checkWin() == null){
-		updateBoard();
 		displayCards();
-		
-		if(game.canPlayTurn()){
-			game.playPlayerTurn();
-			game.endPlayerTurn();
-		}
-		
-		}
-		
-		
 
 		
 		
@@ -110,7 +98,7 @@ public class MainGameController {
 		}
 	}
 
-	public void updateBoard() {
+	public void initializeBoard() {
 		List<Cell> cells = game.getBoard().getTrack(); // Assuming 100 cells
 
 		for (int i = 0; i < 100; i++) {
@@ -180,7 +168,7 @@ public class MainGameController {
 				b1.setOnAction(new EventHandler<ActionEvent>() {
 				    @Override
 				    public void handle(ActionEvent event) {
-				 //       movemarble(rank);
+				        movemarble(rank);
 				    }
 				});
 				func.getChildren().add(b1);
@@ -252,9 +240,9 @@ public class MainGameController {
 		}
 		return func;
 	}
-//	public static void movemarble(int moves){
-//		movemarble(marble,moves); //put the chosen marble by current player
-//	}
+	public static void movemarble(int moves){
+		movemarble(marble,moves); //put the chosen marble by current player
+	}
 	public static void movemarble(Marble marble,int moves){
 		
 	}
@@ -303,7 +291,7 @@ public class MainGameController {
 			case 6:
 			case 8:
 			case 9:
-			//	movemarble(rank);
+				movemarble(rank);
 				break;
 			case 4:
 				movefour();
