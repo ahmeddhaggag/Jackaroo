@@ -17,6 +17,9 @@ import model.card.wild.Wild;
 
 import java.io.IOException;
 
+import controller.MainGameController;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -103,6 +106,14 @@ public class CardView extends Button{
 		imageView = new ImageView(image);
 		imageView.setFitHeight(height);
 		imageView.setFitWidth(width);
+		this.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				MainGameController.handleCardClick(card);
+			}
+		});
 		}else{
 			imageView = new ImageView(new Image("/view/BackTop.png"));
 			imageView.setFitHeight(height);

@@ -2,8 +2,16 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
+import exception.ActionException;
+import exception.CannotDiscardException;
+import exception.CannotFieldException;
 import exception.GameException;
+import exception.IllegalDestroyException;
+import exception.IllegalMovementException;
+import exception.IllegalSwapException;
+import exception.InvalidMarbleException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -12,14 +20,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import view.CardView;
 import view.CellView;
-import view.SideCardView;
-import view.TopCardView;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import model.card.Card;
+import model.player.Marble;
 
 public class MainGameController {
 
@@ -44,9 +50,7 @@ public class MainGameController {
 	@FXML private VBox CPU3Box;
 
 	private List<Pane> trackPanes = new ArrayList<>();
-
-	
-	private StackPane cards=new StackPane();
+	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
 
 	private Game game;
 
@@ -151,9 +155,60 @@ updateBoard();
 
 	}
 	
-	private void handleCardClick(Card card) {
+	public static void handleCardClick(Card card) {
 	    System.out.println("Card clicked: " + card);
 	    // Add logic for handling the card click event
+	    try{
+			card.act(selectedmarbles);}
+		catch(InvalidMarbleException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Marble");
+            alert.setHeaderText(null);
+            alert.setContentText("cannot select this marble!");
+            alert.showAndWait();
+		}
+		catch(IllegalMovementException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Illegal Movement!");
+            alert.showAndWait();
+		}
+		catch(IllegalSwapException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Illegal Swap!");
+            alert.showAndWait();
+		}
+		catch(IllegalDestroyException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Illegal Destroy!");
+            alert.showAndWait();
+		}
+		catch(CannotFieldException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Cannot field!");
+            alert.showAndWait();
+		}
+		catch(CannotDiscardException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Cannot discard!");
+            alert.showAndWait();
+		}
+		catch(ActionException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid action!");
+            alert.showAndWait();
+		}
 	}
 
 
