@@ -80,7 +80,7 @@ public class MainGameController {
 
 		displayCards();
 		displayFirePit(game.getPlayers().get(0).getHand().get(0));
-		displayHomeZones();
+		diplayHomeZones();
 
 		//		while(game.checkWin() == null){
 		//		updateBoard();
@@ -123,7 +123,7 @@ public class MainGameController {
 			cellPane.getChildren().add(cellView);
 		}
 	}
-	public void displayHomeZones(){
+	public void diplayHomeZones(){
 		PlayerHomeZone=new HomeZoneView(game.getPlayers().get(0));
 		CPU1HomeZone=new HomeZoneView(game.getPlayers().get(1));
 		CPU2HomeZone=new HomeZoneView(game.getPlayers().get(2));

@@ -1,7 +1,6 @@
 package view;
 
 import engine.board.Cell;
-import engine.board.CellType;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
@@ -47,10 +46,7 @@ public class CellView extends Pane {
     public void updateView() {
         if (cell.isTrap()) {
             cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
-        } else if(cell.getCellType() == CellType.ENTRY){
-        	cellShape.setFill(Color.GREEN);
-        }
-        else {
+        } else {
             cellShape.setFill(Color.WHITE);
         }
         // You can add additional visual cues here—for example, if the cell contains a marble,

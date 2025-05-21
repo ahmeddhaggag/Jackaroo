@@ -2386,3 +2386,9 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
 	at java.security.cert.CertPathBuilder.build(Unknown Source)
 	... 30 more
+
+!ENTRY org.eclipse.jface.text 2 0 2025-05-21 23:02:49.434
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2025-05-21 23:02:49.434
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
