@@ -2,7 +2,6 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
-import exception.GameException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -50,7 +49,7 @@ public class MainGameController {
 
 	private Game game;
 
-	public void startGame(String username) throws IOException, GameException {
+	public void startGame(String username) throws IOException {
 		game = new Game(username);
 
 		displayName(nameLabel1, username);
@@ -64,20 +63,16 @@ public class MainGameController {
 		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
 
 
-updateBoard();
+		while(game.checkWin() == null){
+		updateBoard();
 		
 		displayCards();
 		
-//		while(game.checkWin() == null){
-//		updateBoard();
-//		
-//		displayCards();
-//		
-//		if(game.canPlayTurn()){
-//			game.playPlayerTurn();
-//			game.endPlayerTurn();
-//		}
-//		}
+		if(game.canPlayTurn()){
+			game.playPlayerTurn();
+			game.endPlayerTurn();
+		}
+		}
 
 		
 		
@@ -113,33 +108,25 @@ updateBoard();
 	public void displayCards(){
 
 
-		for (Card card : this.game.getPlayers().get(0).getHand()) {
-		    CardView cardView = new CardView(card, true);
-		    cardView.setOnMouseClicked(event -> handleCardClick(card));
-		    playerBox.getChildren().add(cardView);
+		for(Card card : this.game.getPlayers().get(0).getHand() ){
+			CardView cardView = new CardView(card , true);
+			playerBox.getChildren().add(cardView);
 		}
-
-		for (Card card : this.game.getPlayers().get(1).getHand()) {
-		    CardView cardView = new CardView(card, false);
-		    cardView.setRotate(270);
-		    cardView.setOnMouseClicked(event -> handleCardClick(card));
-		    CPU1Box.getChildren().add(cardView);
+		for(Card card : this.game.getPlayers().get(1).getHand() ){
+			CardView cardView = new CardView(card , false);
+			cardView.setRotate(270);
+			CPU1Box.getChildren().add(cardView);
 		}
-
-		for (Card card : this.game.getPlayers().get(2).getHand()) {
-		    CardView cardView = new CardView(card, false);
-		    cardView.setRotate(180);
-		    cardView.setOnMouseClicked(event -> handleCardClick(card));
-		    CPU2Box.getChildren().add(cardView);
+		for(Card card : this.game.getPlayers().get(2).getHand() ){
+			CardView cardView = new CardView(card, false);
+			cardView.setRotate(180);
+			CPU2Box.getChildren().add(cardView);
 		}
-
-		for (Card card : this.game.getPlayers().get(3).getHand()) {
-		    CardView cardView = new CardView(card, false);
-		    cardView.setRotate(90);
-		    cardView.setOnMouseClicked(event -> handleCardClick(card));
-		    CPU3Box.getChildren().add(cardView);
+		for(Card card : this.game.getPlayers().get(3).getHand() ){
+			CardView cardView = new CardView(card, false);
+			cardView.setRotate(90);
+			CPU3Box.getChildren().add(cardView);
 		}
-
 		playerBox.setSpacing(10);
 		CPU2Box.setSpacing(10);
 
@@ -150,11 +137,5 @@ updateBoard();
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
-	
-	private void handleCardClick(Card card) {
-	    System.out.println("Card clicked: " + card);
-	    // Add logic for handling the card click event
-	}
-
 
 }
