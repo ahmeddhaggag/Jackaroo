@@ -22,7 +22,7 @@ import model.card.wild.Burner;
 import model.card.wild.Saver;
 import model.card.wild.Wild;
 
-public class FirePitView extends Pane{
+public class FirePitView extends VBox{
 	private Card card;
 	int height=80;
 	int width=60;
@@ -90,8 +90,6 @@ public class FirePitView extends Pane{
 		imageView = new ImageView(image);
 		imageView.setFitHeight(height);
 		imageView.setFitWidth(width);
-		
-		this.getChildren().add(imageView);
 
 	}
 	public FirePitView(){

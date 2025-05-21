@@ -50,7 +50,7 @@ public class MainGameController {
 	@FXML private VBox CPU1Box;
 	@FXML private HBox CPU2Box;
 	@FXML private VBox CPU3Box;
-	@FXML private Pane firePitArea;
+	@FXML private static Pane firePitArea;
 
 	private List<Pane> trackPanes = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
@@ -74,7 +74,7 @@ public class MainGameController {
 		updateBoard();
 
 		displayCards();
-		displayFirePit(game.getPlayers().get(0).getHand().get(0));
+	//	displayFirePit(game.getPlayers().get(0).getHand().get(0));
 
 		//		while(game.checkWin() == null){
 		//		updateBoard();
@@ -158,14 +158,14 @@ public class MainGameController {
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
-	public void displayFirePit(Card card){
+	public static void displayFirePit(Card card){
 		FirePitView f=new FirePitView(card);
-		this.firePitArea.getChildren().add(f);
+		firePitArea.getChildren().add(f);
 	}
-//	public static void cardAction(Card card){
-//		handleCardClick(card);
-//		displayFirePit(card);
-//	}
+	public static void cardAction(Card card){
+		handleCardClick(card);
+		displayFirePit(card);
+	}
 	public static void handleCardClick(Card card) {
 		System.out.println("Card clicked: " + card);
 		// Add logic for handling the card click event

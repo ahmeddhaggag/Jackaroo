@@ -91,7 +91,8 @@ public class FirePitView extends Pane{
 		imageView.setFitHeight(height);
 		imageView.setFitWidth(width);
 		
-		this.getChildren().add(imageView);
+		this.getChildren().add(imageView)
+;		
 
 	}
 	public FirePitView(){

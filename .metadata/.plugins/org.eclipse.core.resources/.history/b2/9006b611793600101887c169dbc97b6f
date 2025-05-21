@@ -35,14 +35,14 @@ public class MainGameController {
 	@FXML private Label nameLabel2;
 	@FXML private Label nameLabel3;
 	@FXML private Label nameLabel4;
-
+	
 	@FXML private Pane PlayerPane1;
 	@FXML private Pane PlayerPane2;
 	@FXML private Pane PlayerPane3;
 	@FXML private Pane PlayerPane4;
 
 	@FXML private Pane boardPane;
-
+	
 	@FXML private GridPane board;
 
 	@FXML private Pane boardTrackPane;
@@ -50,7 +50,7 @@ public class MainGameController {
 	@FXML private VBox CPU1Box;
 	@FXML private HBox CPU2Box;
 	@FXML private VBox CPU3Box;
-	@FXML private Pane firePitArea;
+	@FXML private static Pane firePitArea;
 
 	private List<Pane> trackPanes = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
@@ -64,31 +64,30 @@ public class MainGameController {
 		displayName(nameLabel2, "CPU1");
 		displayName(nameLabel3, "CPU2");
 		displayName(nameLabel4, "CPU3");
-
+		
 		PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
 		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
 		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
 		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
 
 
-		updateBoard();
-
+updateBoard();
+		
 		displayCards();
-		displayFirePit(game.getPlayers().get(0).getHand().get(0));
+		
+//		while(game.checkWin() == null){
+//		updateBoard();
+//		
+//		displayCards();
+//		
+//		if(game.canPlayTurn()){
+//			game.playPlayerTurn();
+//			game.endPlayerTurn();
+//		}
+//		}
 
-		//		while(game.checkWin() == null){
-		//		updateBoard();
-		//		
-		//		displayCards();
-		//		
-		//		if(game.canPlayTurn()){
-		//			game.playPlayerTurn();
-		//			game.endPlayerTurn();
-		//		}
-		//		}
-
-
-
+		
+		
 	}
 
 	private void displayName(Label label, String name) {
@@ -117,35 +116,35 @@ public class MainGameController {
 			cellPane.getChildren().add(cellView);
 		}
 	}
-
+	
 	public void displayCards(){
 
 
 		for (Card card : this.game.getPlayers().get(0).getHand()) {
-			CardView cardView = new CardView(card, true);
-			cardView.setOnMouseClicked(event -> handleCardClick(card));
-			playerBox.getChildren().add(cardView);
+		    CardView cardView = new CardView(card, true);
+		    cardView.setOnMouseClicked(event -> handleCardClick(card));
+		    playerBox.getChildren().add(cardView);
 		}
 
 		for (Card card : this.game.getPlayers().get(1).getHand()) {
-			CardView cardView = new CardView(card, false);
-			cardView.setRotate(270);
-			cardView.setOnMouseClicked(event -> handleCardClick(card));
-			CPU1Box.getChildren().add(cardView);
+		    CardView cardView = new CardView(card, false);
+		    cardView.setRotate(270);
+		    cardView.setOnMouseClicked(event -> handleCardClick(card));
+		    CPU1Box.getChildren().add(cardView);
 		}
 
 		for (Card card : this.game.getPlayers().get(2).getHand()) {
-			CardView cardView = new CardView(card, false);
-			cardView.setRotate(180);
-			cardView.setOnMouseClicked(event -> handleCardClick(card));
-			CPU2Box.getChildren().add(cardView);
+		    CardView cardView = new CardView(card, false);
+		    cardView.setRotate(180);
+		    cardView.setOnMouseClicked(event -> handleCardClick(card));
+		    CPU2Box.getChildren().add(cardView);
 		}
 
 		for (Card card : this.game.getPlayers().get(3).getHand()) {
-			CardView cardView = new CardView(card, false);
-			cardView.setRotate(90);
-			cardView.setOnMouseClicked(event -> handleCardClick(card));
-			CPU3Box.getChildren().add(cardView);
+		    CardView cardView = new CardView(card, false);
+		    cardView.setRotate(90);
+		    cardView.setOnMouseClicked(event -> handleCardClick(card));
+		    CPU3Box.getChildren().add(cardView);
 		}
 
 		playerBox.setSpacing(10);
@@ -158,67 +157,67 @@ public class MainGameController {
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
-	public void displayFirePit(Card card){
+	public static void displayFirePit(Card card){
 		FirePitView f=new FirePitView(card);
-		this.firePitArea.getChildren().add(f);
+		firePitArea.getChildren().add(f);
 	}
-//	public static void cardAction(Card card){
-//		handleCardClick(card);
-//		displayFirePit(card);
-//	}
+	public static void cardAction(Card card){
+		handleCardClick(card);
+		displayFirePit(card);
+	}
 	public static void handleCardClick(Card card) {
-		System.out.println("Card clicked: " + card);
-		// Add logic for handling the card click event
-		try{
+	    System.out.println("Card clicked: " + card);
+	    // Add logic for handling the card click event
+	    try{
 			card.act(selectedmarbles);}
 		catch(InvalidMarbleException e){
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Marble");
-			alert.setHeaderText(null);
-			alert.setContentText("cannot select this marble!");
-			alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Marble");
+            alert.setHeaderText(null);
+            alert.setContentText("cannot select this marble!");
+            alert.showAndWait();
 		}
 		catch(IllegalMovementException e){
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Action");
-			alert.setHeaderText(null);
-			alert.setContentText("Illegal Movement!");
-			alert.showAndWait();
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Illegal Movement!");
+            alert.showAndWait();
 		}
 		catch(IllegalSwapException e){
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Action");
-			alert.setHeaderText(null);
-			alert.setContentText("Illegal Swap!");
-			alert.showAndWait();
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Illegal Swap!");
+            alert.showAndWait();
 		}
 		catch(IllegalDestroyException e){
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Action");
-			alert.setHeaderText(null);
-			alert.setContentText("Illegal Destroy!");
-			alert.showAndWait();
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Illegal Destroy!");
+            alert.showAndWait();
 		}
 		catch(CannotFieldException e){
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Action");
-			alert.setHeaderText(null);
-			alert.setContentText("Cannot field!");
-			alert.showAndWait();
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Cannot field!");
+            alert.showAndWait();
 		}
 		catch(CannotDiscardException e){
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Action");
-			alert.setHeaderText(null);
-			alert.setContentText("Cannot discard!");
-			alert.showAndWait();
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Cannot discard!");
+            alert.showAndWait();
 		}
 		catch(ActionException e){
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Invalid Action");
-			alert.setHeaderText(null);
-			alert.setContentText("Invalid action!");
-			alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Action");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid action!");
+            alert.showAndWait();
 		}
 	}
 
