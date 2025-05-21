@@ -20,9 +20,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import view.CardView;
 import view.CellView;
-import view.SideCardView;
-import view.TopCardView;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +51,6 @@ public class MainGameController {
 
 	private List<Pane> trackPanes = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
-
-	
-	private StackPane cards=new StackPane();
 
 	private Game game;
 
