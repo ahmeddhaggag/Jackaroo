@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import view.CardView;
 import view.CellView;
 import view.FirePitView;
+import view.HomeZoneView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +52,10 @@ public class MainGameController {
 	@FXML private HBox CPU2Box;
 	@FXML private VBox CPU3Box;
 	@FXML private Pane firePitArea;
+	@FXML private GridPane PlayerHomeZone;
+	@FXML private GridPane CPU1HomeZone;
+	@FXML private GridPane CPU2HomeZone;
+	@FXML private GridPane CPU3HomeZone;
 
 	private List<Pane> trackPanes = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
@@ -75,6 +80,7 @@ public class MainGameController {
 
 		displayCards();
 		displayFirePit(game.getPlayers().get(0).getHand().get(0));
+		diplayHomeZones();
 
 		//		while(game.checkWin() == null){
 		//		updateBoard();
@@ -116,6 +122,12 @@ public class MainGameController {
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
+	}
+	public void diplayHomeZones(){
+		PlayerHomeZone=new HomeZoneView(game.getPlayers().get(0));
+		CPU1HomeZone=new HomeZoneView(game.getPlayers().get(1));
+		CPU2HomeZone=new HomeZoneView(game.getPlayers().get(2));
+		CPU3HomeZone=new HomeZoneView(game.getPlayers().get(3));
 	}
 
 	public void displayCards(){
