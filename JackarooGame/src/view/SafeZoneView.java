@@ -2,6 +2,7 @@ package view;
 
 import engine.board.Cell;
 import engine.board.CellType;
+import engine.board.SafeZone;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
@@ -11,12 +12,12 @@ import javafx.scene.shape.Polygon;
  * A custom view for displaying a game cell with a non-rectangular shape
  * similar to the one depicted in the PDF.
  */
-public class CellView extends Pane {
-    private Cell cell;         // Reference to the model cell
+public class SafeZoneView extends Pane {
+    private SafeZone safezone;         // Reference to the model cell
     private Ellipse cellShape; // The custom shape representing the cell
 
-    public CellView(Cell cell) {
-        this.cell = cell;
+    public SafeZoneView(SafeZone safezone) {
+        this.safezone = safezone;
         // Create a custom shape. Adjust the points to match your design.
         cellShape = createCellShape();
         getChildren().add(cellShape);
@@ -44,34 +45,24 @@ public class CellView extends Pane {
     /**
      * Update the visual appearance of the cell view based on its state in the model.
      */
-    public void updateView() {
-        if (cell.isTrap()) {
-            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
-        } else if(cell.getCellType() == CellType.ENTRY){
-        	cellShape.setFill(Color.GREEN);
-        }
-        else {
-            cellShape.setFill(Color.WHITE);
-        }
+    public void updateView() { 
+        	//cellShape.setFill(Color.BLACK);
+        
+        
         // You can add additional visual cues here—for example, if the cell contains a marble,
         // you might want to change the color or add an overlay shape.
-        if (cell.getMarble() != null) {
-            // For instance, change the fill or add a circle to indicate a marble is present.
-            // cellShape.setFill(Color.LIGHTBLUE);
-        }
     }
     
     /**
      * Returns the model cell linked to this view.
      */
-    public Cell getCell() {
-        return cell;
-    }
-    public void setCell(Cell cell) {
-        this.cell = cell;
-    }
+//    public Cell getCell() {
+//        return cell;
+//    }
+//    public void setCell(Cell cell) {
+//        this.cell = cell;
+//    }
     
     
     
 }
-

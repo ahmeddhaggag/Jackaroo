@@ -2,7 +2,6 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
-import engine.board.SafeZone;
 import exception.ActionException;
 import exception.CannotDiscardException;
 import exception.CannotFieldException;
@@ -23,7 +22,6 @@ import view.CardView;
 import view.CellView;
 import view.FirePitView;
 import view.HomeZoneView;
-import view.SafeZoneView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,8 +58,6 @@ public class MainGameController {
 	@FXML private GridPane CPU3HomeZone;
 
 	private List<Pane> trackPanes = new ArrayList<>();
-	
-	private List<Pane> safePanes = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
 
 	private Game game;
@@ -74,10 +70,10 @@ public class MainGameController {
 		displayName(nameLabel3, "CPU2");
 		displayName(nameLabel4, "CPU3");
 
-	//	PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
-		//PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
-		//PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
-		//PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+		PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
+		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
+		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
+		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
 
 
 		updateBoard();
@@ -114,46 +110,17 @@ public class MainGameController {
 			} else {
 				System.err.println("Missing: cellPane_" + i);
 			}
-			
 		}
-		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#safePane_" + i);
-			if (pane != null) {
-				safePanes.add(pane);
-			} else {
-				System.err.println("Missing: cellPane_" + i);
-			}
-			
-		}
-//		for (int i = 1; i < 6; i++) {
-//			Pane cell = new Pane();
-//			String cellId = "cellPane_" + (100 + i); // IDs beyond 0-99
-//			cell.setId(cellId);
-//			cell.setPrefSize(20, 20); // Optional: set size
-//			//cell.setStyle("-fx-border-color: black;"); // Optional: style
-//
-//			// Place it in the grid
-//			safePanes.add(cell);
-//			board.add(cell, 0+i, 2);
-//		}
 	}
 
 	public void updateBoard() {
 		List<Cell> cells = game.getBoard().getTrack(); 
-		List<SafeZone> safe1 = game.getBoard().getSafeZones();
 
 		for (int i = 0; i < 100; i++) {
 			CellView cellView = new CellView(cells.get(i));
 			Pane cellPane = trackPanes.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
-		}
-//		
-		for (int i = 0; i < 4; i++) {
-			SafeZoneView safezoneview = new SafeZoneView(safe1.get(i));
-			Pane cellPane = safePanes.get(i);
-			cellPane.getChildren().clear();
-			cellPane.getChildren().add(safezoneview);
 		}
 	}
 	public void displayHomeZones(){

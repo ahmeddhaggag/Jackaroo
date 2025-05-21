@@ -176,10 +176,6 @@
     <Pane fx:id="cellPane_97" GridPane.columnIndex="0" GridPane.rowIndex="3" />
     <Pane fx:id="cellPane_98" GridPane.columnIndex="0" GridPane.rowIndex="2" />
     <Pane fx:id="cellPane_99" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-               <Pane fx:id="safePane_0" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane_1" layoutX="33.0" layoutY="41.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane_2" layoutX="56.0" layoutY="41.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane_4" layoutX="79.0" layoutY="41.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
 </GridPane>
 
 

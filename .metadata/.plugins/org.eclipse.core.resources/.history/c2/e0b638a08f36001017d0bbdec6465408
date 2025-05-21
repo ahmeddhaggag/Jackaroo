@@ -18,62 +18,64 @@
             <children>
                 <!-- Firepit Centered -->
                 <Pane fx:id="firePitArea" layoutX="390.0" layoutY="192.0" prefHeight="73.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;" />
-    <GridPane fx:id="board" hgap="2" layoutX="115.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" vgap="2">
+    <GridPane fx:id="board" hgap="2" vgap="2"
+          prefWidth="600.0" prefHeight="400.0"
+          layoutX="0.0" layoutY="0.0">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" /> </columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/> </columnConstraints>
     <rowConstraints>
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" /> <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
-        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" /> </rowConstraints>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/> <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
+        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/> </rowConstraints>
 
-          <Pane fx:id="cellPane_0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_2" GridPane.columnIndex="2" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_3" GridPane.columnIndex="3" GridPane.rowIndex="0" />
@@ -96,11 +98,10 @@
     <Pane fx:id="cellPane_20" GridPane.columnIndex="20" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_21" GridPane.columnIndex="21" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_22" GridPane.columnIndex="22" GridPane.rowIndex="0" />
-    <Pane fx:id="cellPane_23" GridPane.columnIndex="23" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_24" GridPane.columnIndex="24" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_25" GridPane.columnIndex="25" GridPane.rowIndex="0" />
 
-          <Pane fx:id="cellPane_26" GridPane.columnIndex="25" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_26" GridPane.columnIndex="25" GridPane.rowIndex="1" />
     <Pane fx:id="cellPane_27" GridPane.columnIndex="25" GridPane.rowIndex="2" />
     <Pane fx:id="cellPane_28" GridPane.columnIndex="25" GridPane.rowIndex="3" />
     <Pane fx:id="cellPane_29" GridPane.columnIndex="25" GridPane.rowIndex="4" />
@@ -122,11 +123,10 @@
     <Pane fx:id="cellPane_45" GridPane.columnIndex="25" GridPane.rowIndex="20" />
     <Pane fx:id="cellPane_46" GridPane.columnIndex="25" GridPane.rowIndex="21" />
     <Pane fx:id="cellPane_47" GridPane.columnIndex="25" GridPane.rowIndex="22" />
-    <Pane fx:id="cellPane_48" GridPane.columnIndex="25" GridPane.rowIndex="23" />
     <Pane fx:id="cellPane_49" GridPane.columnIndex="25" GridPane.rowIndex="24" />
     <Pane fx:id="cellPane_50" GridPane.columnIndex="25" GridPane.rowIndex="25" />
 
-          <Pane fx:id="cellPane_51" GridPane.columnIndex="24" GridPane.rowIndex="25" />
+    <Pane fx:id="cellPane_51" GridPane.columnIndex="24" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_52" GridPane.columnIndex="23" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_53" GridPane.columnIndex="22" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_54" GridPane.columnIndex="21" GridPane.rowIndex="25" />
@@ -148,11 +148,10 @@
     <Pane fx:id="cellPane_70" GridPane.columnIndex="5" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_71" GridPane.columnIndex="4" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_72" GridPane.columnIndex="3" GridPane.rowIndex="25" />
-    <Pane fx:id="cellPane_73" GridPane.columnIndex="2" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_74" GridPane.columnIndex="1" GridPane.rowIndex="25" />
     <Pane fx:id="cellPane_75" GridPane.columnIndex="0" GridPane.rowIndex="25" />
 
-          <Pane fx:id="cellPane_76" GridPane.columnIndex="0" GridPane.rowIndex="24" />
+    <Pane fx:id="cellPane_76" GridPane.columnIndex="0" GridPane.rowIndex="24" />
     <Pane fx:id="cellPane_77" GridPane.columnIndex="0" GridPane.rowIndex="23" />
     <Pane fx:id="cellPane_78" GridPane.columnIndex="0" GridPane.rowIndex="22" />
     <Pane fx:id="cellPane_79" GridPane.columnIndex="0" GridPane.rowIndex="21" />
@@ -174,13 +173,9 @@
     <Pane fx:id="cellPane_95" GridPane.columnIndex="0" GridPane.rowIndex="5" />
     <Pane fx:id="cellPane_96" GridPane.columnIndex="0" GridPane.rowIndex="4" />
     <Pane fx:id="cellPane_97" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-    <Pane fx:id="cellPane_98" GridPane.columnIndex="0" GridPane.rowIndex="2" />
     <Pane fx:id="cellPane_99" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-               <Pane fx:id="safePane_0" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane_1" layoutX="33.0" layoutY="41.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane_2" layoutX="56.0" layoutY="41.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane_4" layoutX="79.0" layoutY="41.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-</GridPane>
+
+    <Pane fx:id="cellPane_98" GridPane.columnIndex="1" GridPane.rowIndex="2" />   <Pane fx:id="cellPane_23" GridPane.columnIndex="23" GridPane.rowIndex="1" />  <Pane fx:id="cellPane_48" GridPane.columnIndex="24" GridPane.rowIndex="23" /> <Pane fx:id="cellPane_73" GridPane.columnIndex="2" GridPane.rowIndex="24" />  </GridPane>
 
 
            
