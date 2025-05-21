@@ -17,9 +17,8 @@
         <Pane fx:id="boardTrackPane" layoutY="31.0" prefHeight="448.0" prefWidth="762.0" style="-fx-background-color: lightgray; -fx-border-color: black;">
             <children>
                 <!-- Firepit Centered -->
-                <Pane fx:id="firePitArea" layoutX="390.0" layoutY="192.0" prefHeight="73.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;" />
-    <GridPane fx:id="board" hgap="2" vgap="2"
-          prefWidth="600.0" prefHeight="400.0"
+               <GridPane fx:id="board" hgap="2" vgap="2"
+          prefWidth="400.0" prefHeight="600.0"
           layoutX="0.0" layoutY="0.0">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>

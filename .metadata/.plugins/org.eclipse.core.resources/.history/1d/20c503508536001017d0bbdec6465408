@@ -18,62 +18,60 @@
             <children>
                 <!-- Firepit Centered -->
                 <Pane fx:id="firePitArea" layoutX="390.0" layoutY="192.0" prefHeight="73.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;" />
-    <GridPane fx:id="board" hgap="2" vgap="2"
-          prefWidth="600.0" prefHeight="400.0"
-          layoutX="0.0" layoutY="0.0">
+     <GridPane fx:id="board" hgap="2" layoutX="124.0" layoutY="51.0" prefHeight="400" prefWidth="600" vgap="2">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846"/> </columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="3.846153846153846" /> </columnConstraints>
     <rowConstraints>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/> <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/>
-        <RowConstraints vgrow="ALWAYS" percentHeight="3.846153846153846"/> </rowConstraints>
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" /> <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="7.0" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="0.6923076923076916" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="3.846153846153846" vgrow="ALWAYS" /> </rowConstraints>
 
     <Pane fx:id="cellPane_0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
     <Pane fx:id="cellPane_1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
