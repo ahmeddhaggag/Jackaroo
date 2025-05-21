@@ -176,30 +176,10 @@
     <Pane fx:id="cellPane_97" GridPane.columnIndex="0" GridPane.rowIndex="3" />
     <Pane fx:id="cellPane_98" GridPane.columnIndex="0" GridPane.rowIndex="2" />
     <Pane fx:id="cellPane_99" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-               <Pane fx:id="safePane1_0" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane1_1" layoutX="33.0" layoutY="41.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane1_2" layoutX="56.0" layoutY="41.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane1_3" layoutX="79.0" layoutY="41.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-               
-               
-               
-               <Pane fx:id="safePane2_0" GridPane.columnIndex="23" GridPane.rowIndex="1" />
-               <Pane fx:id="safePane2_1" GridPane.columnIndex="23" GridPane.rowIndex="2" />
-               <Pane fx:id="safePane2_2" GridPane.columnIndex="23" GridPane.rowIndex="3" />
-               <Pane fx:id="safePane2_3" GridPane.columnIndex="23" GridPane.rowIndex="4" />
-               
-               <Pane fx:id="safePane3_0" GridPane.columnIndex="24" GridPane.rowIndex="23" />
-               <Pane fx:id="safePane3_1" GridPane.columnIndex="23" GridPane.rowIndex="23" />
-               <Pane fx:id="safePane3_2" GridPane.columnIndex="22" GridPane.rowIndex="23" />
-               <Pane fx:id="safePane3_3" GridPane.columnIndex="21" GridPane.rowIndex="23" />
-               
-               
-               <Pane fx:id="safePane4_0" GridPane.columnIndex="2" GridPane.rowIndex="25" />
-               <Pane fx:id="safePane4_1" GridPane.columnIndex="2" GridPane.rowIndex="24" />
-               <Pane fx:id="safePane4_2" GridPane.columnIndex="2" GridPane.rowIndex="23" />
-               <Pane fx:id="safePane4_3" GridPane.columnIndex="2" GridPane.rowIndex="22" />
-               
-               
+               <Pane fx:id="safePane_0" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               <Pane fx:id="safePane_1" layoutX="33.0" layoutY="41.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               <Pane fx:id="safePane_2" layoutX="56.0" layoutY="41.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+               <Pane fx:id="safePane_4" layoutX="79.0" layoutY="41.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
 </GridPane>
 
 

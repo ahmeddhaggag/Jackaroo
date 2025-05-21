@@ -60,7 +60,7 @@ public class MainGameController {
 	@FXML private GridPane CPU3HomeZone;
 
 	private List<Pane> trackPanes = new ArrayList<>();
-
+	
 	private List<Pane> safePanes1 = new ArrayList<>();
 	private List<Pane> safePanes2 = new ArrayList<>();
 	private List<Pane> safePanes3 = new ArrayList<>();
@@ -77,7 +77,7 @@ public class MainGameController {
 		displayName(nameLabel3, "CPU2");
 		displayName(nameLabel4, "CPU3");
 
-		//	PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
+	//	PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
 		//PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
 		//PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
 		//PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
@@ -117,7 +117,7 @@ public class MainGameController {
 			} else {
 				System.err.println("Missing: cellPane_" + i);
 			}
-
+			
 		}
 		for (int i = 0; i < 4; i++) {
 			Pane pane = (Pane) board.lookup("#safePane1_" + i);
@@ -126,9 +126,9 @@ public class MainGameController {
 			} else {
 				System.err.println("Missing: safePane1_" + i);
 			}
-
+			
 		}
-
+		
 		for (int i = 0; i < 4; i++) {
 			Pane pane = (Pane) board.lookup("#safePane2_" + i);
 			if (pane != null) {
@@ -136,27 +136,19 @@ public class MainGameController {
 			} else {
 				System.err.println("Missing: safePane2_" + i);
 			}
-
-
+			
 		}
-
-		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#safePane3_" + i);
-			if (pane != null) {
-				safePanes3.add(pane);
-			} else {
-				System.err.println("Missing: safePane3_" + i);
-			}
-		}
-		
-		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#safePane4_" + i);
-			if (pane != null) {
-				safePanes4.add(pane);
-			} else {
-				System.err.println("Missing: safePane4_" + i);
-			}
-		}
+//		for (int i = 1; i < 6; i++) {
+//			Pane cell = new Pane();
+//			String cellId = "cellPane_" + (100 + i); // IDs beyond 0-99
+//			cell.setId(cellId);
+//			cell.setPrefSize(20, 20); // Optional: set size
+//			//cell.setStyle("-fx-border-color: black;"); // Optional: style
+//
+//			// Place it in the grid
+//			safePanes.add(cell);
+//			board.add(cell, 0+i, 2);
+//		}
 	}
 
 	public void updateBoard() {
@@ -169,30 +161,17 @@ public class MainGameController {
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
-		//		
+//		
 		for (int i = 0; i < 4; i++) {
 			SafeZoneView safezoneview = new SafeZoneView(safe.get(0));
 			Pane cellPane = safePanes1.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(safezoneview);
 		}
-
+		
 		for (int i = 0; i < 4; i++) {
 			SafeZoneView safezoneview = new SafeZoneView(safe.get(1));
 			Pane cellPane = safePanes2.get(i);
-			cellPane.getChildren().clear();
-			cellPane.getChildren().add(safezoneview);
-		}
-		for (int i = 0; i < 4; i++) {
-			SafeZoneView safezoneview = new SafeZoneView(safe.get(2));
-			Pane cellPane = safePanes3.get(i);
-			cellPane.getChildren().clear();
-			cellPane.getChildren().add(safezoneview);
-		}
-		
-		for (int i = 0; i < 4; i++) {
-			SafeZoneView safezoneview = new SafeZoneView(safe.get(3));
-			Pane cellPane = safePanes4.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(safezoneview);
 		}
