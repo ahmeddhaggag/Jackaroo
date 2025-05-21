@@ -111,7 +111,7 @@ public class CardView extends Button{
 			@Override
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
-				MainGameController.handleCardClick(card);
+				MainGameController.cardAction(card);
 			}
 		});
 		}else{
