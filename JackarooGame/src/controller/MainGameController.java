@@ -2,15 +2,7 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
-import exception.CannotDiscardException;
-import exception.CannotFieldException;
-import exception.GameException;
-import exception.IllegalDestroyException;
-import exception.IllegalSwapException;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -19,7 +11,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import view.CardView;
 import view.CellView;
-import view.FirePitView;
 import view.SideCardView;
 import view.TopCardView;
 
@@ -28,12 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.card.Card;
-import model.card.standard.Standard;
-import model.card.standard.Suit;
-import model.card.wild.Burner;
-import model.card.wild.Saver;
-import model.player.Marble;
-import model.player.Player;
 
 public class MainGameController {
 
@@ -50,8 +35,6 @@ public class MainGameController {
 	@FXML private Pane boardPane;
 	
 	@FXML private GridPane board;
-	
-	@FXML private Pane firePitArea;
 
 	@FXML private Pane boardTrackPane;
 	@FXML private HBox playerBox;
@@ -64,9 +47,9 @@ public class MainGameController {
 	
 	private StackPane cards=new StackPane();
 
-	private static Game game;
+	private Game game;
 
-	public void startGame(String username) throws IOException, GameException {
+	public void startGame(String username) throws IOException {
 		game = new Game(username);
 
 		displayName(nameLabel1, username);
@@ -78,21 +61,11 @@ public class MainGameController {
 		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
 		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
 		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+
+
+		initializeBoard();
 		
-
-
-		while(game.checkWin() == null){
-		updateBoard();
 		displayCards();
-		
-		if(game.canPlayTurn()){
-			game.playPlayerTurn();
-			game.endPlayerTurn();
-		}
-		
-		}
-		
-		
 
 		
 		
@@ -114,7 +87,7 @@ public class MainGameController {
 		}
 	}
 
-	public void updateBoard() {
+	public void initializeBoard() {
 		List<Cell> cells = game.getBoard().getTrack(); // Assuming 100 cells
 
 		for (int i = 0; i < 100; i++) {
@@ -157,197 +130,5 @@ public class MainGameController {
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
-	public void displayFirePit(Card card){
-		if(card != null){
-			if(firePitArea.getChildren().size() != 0)
-			firePitArea.getChildren().clear();
-			FirePitView firepitview=new FirePitView(card);
-			firePitArea.getChildren().add(firepitview);
-			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
 
-		}
-		else{
-			FirePitView firepitview=new FirePitView();
-			firePitArea.getChildren().add(firepitview);
-			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
-		}
-	}
-	//The Actions
-	public static VBox getCardFun(Card card){
-		VBox func=new VBox();
-		if (card instanceof Standard) {
-			
-			int rank = ((Standard) card).getRank();
-			if(rank == 1 || rank== 7|| rank == 10 || rank == 11 ||
-					rank == 12){
-				Button b1=new Button("Move"+rank);
-				b1.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				 //       movemarble(rank);
-				    }
-				});
-				func.getChildren().add(b1);
-			}
-			switch (rank) {
-			case 13:
-				Button b7=new Button("Move 13 steps and destroy all");
-				b7.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				        moveking();
-				    }
-				});
-				func.getChildren().add(b7);
-				//no break since it share field marble with ace
-			case 1:
-				Button b2=new Button("Field a marble");
-				b2.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				        fieldmarble();
-				    }
-				});
-				func.getChildren().add(b2);
-				break;
-			case 7:
-				Button b3=new Button("Move 2 marbles 7 steps");
-				b3.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				    	movetwomarbles();
-				    }
-				});
-				func.getChildren().add(b3);
-				break;
-			case 10:
-				Button b4=new Button("Discard a card from next player");
-				b4.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				    	discardcard(false);
-				    }
-				});
-				func.getChildren().add(b4);
-				break;
-			case 11:
-				Button b5=new Button("Swap");
-				b5.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				    	swaptwomarbles();
-				    }
-				});
-				func.getChildren().add(b5);
-				break;
-			case 12:
-				Button b6=new Button("Discard a card from random player");
-				b6.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override
-				    public void handle(ActionEvent event) {
-				    	discardcard(true);
-				    }
-				});
-				func.getChildren().add(b6);
-				break;
-			default:
-				break;
-			}
-		}
-		return func;
-	}
-//	public static void movemarble(int moves){
-//		movemarble(marble,moves); //put the chosen marble by current player
-//	}
-	public static void movemarble(Marble marble,int moves){
-		
-	}
-	public static void fieldmarble(){
-		try{
-		game.fieldMarble();}
-		catch(CannotFieldException e){
-			
-		}
-		catch(IllegalDestroyException e){
-			
-		}
-	}
-	public static void movetwomarbles(){
-		
-	}
-	public static void swaptwomarbles(){
-/*/		try{
-			game.getBoard().swap;
-		}
-		catch(IllegalSwapException e){
-			
-		}
-		catch(NullPointerException e){
-			
-		}*/
-	}
-	public static void discardcard(boolean israndom){
-		//the boolean show the type af discarding
-		try{
-			if(israndom)
-				game.discardCard();
-			else
-				game.discardCard(game.getNextPlayerColour());
-		}
-		catch(CannotDiscardException e){
-			
-		}
-	}
-	public static void moveking(){
-		
-	}
-	public static void movefour(){
-		
-	}
-	public static void movefive(){
-		
-	}
-	public static void burneraction(){
-		
-	}
-	public static void saveraction(){
-		
-	}
-	public static void cardaction(Card card){
-		if (card instanceof Standard) {
-			int rank = ((Standard) card).getRank();
-
-			switch (rank) {
-			case 1 :
-			case 7 :
-			case 10:
-			case 11:
-			case 12:
-			case 13:
-				VBox actions=getCardFun(card);
-				break;
-			case 2:
-			case 3:
-			case 6:
-			case 8:
-			case 9:
-			//	movemarble(rank);
-				break;
-			case 4:
-				movefour();
-			case 5:
-				movefive();
-			default:
-				break;
-			}
-		}
-		else if(card instanceof Burner){
-			burneraction();
-		}
-		else if(card instanceof Saver){
-			saveraction();
-		}
-		else
-			System.out.println("Null!!!");
-	}
 }
