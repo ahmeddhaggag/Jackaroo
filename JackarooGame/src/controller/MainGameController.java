@@ -2,7 +2,11 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
+import exception.CannotDiscardException;
+import exception.CannotFieldException;
 import exception.GameException;
+import exception.IllegalDestroyException;
+import exception.IllegalSwapException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -60,7 +64,7 @@ public class MainGameController {
 	
 	private StackPane cards=new StackPane();
 
-	private Game game;
+	private static Game game;
 
 	public void startGame(String username) throws IOException, GameException {
 		game = new Game(username);
@@ -259,16 +263,40 @@ public class MainGameController {
 		
 	}
 	public static void fieldmarble(){
-		
+		try{
+		game.fieldMarble();}
+		catch(CannotFieldException e){
+			
+		}
+		catch(IllegalDestroyException e){
+			
+		}
 	}
 	public static void movetwomarbles(){
 		
 	}
 	public static void swaptwomarbles(){
-		
+/*/		try{
+			game.getBoard().swap;
+		}
+		catch(IllegalSwapException e){
+			
+		}
+		catch(NullPointerException e){
+			
+		}*/
 	}
 	public static void discardcard(boolean israndom){
 		//the boolean show the type af discarding
+		try{
+			if(israndom)
+				game.discardCard();
+			else
+				game.discardCard(game.getNextPlayerColour());
+		}
+		catch(CannotDiscardException e){
+			
+		}
 	}
 	public static void moveking(){
 		

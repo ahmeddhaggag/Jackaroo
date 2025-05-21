@@ -2,12 +2,14 @@ package controller;
 
 import java.io.IOException;
 
+import exception.GameException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 //import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,18 +24,18 @@ public class LoginController {
     private Parent root;
 
     @FXML
-    public void login(ActionEvent event) throws IOException {
+    public void login(ActionEvent event) throws IOException, GameException {
         String username = nameTextField.getText().trim();
 
         if (username.isEmpty()) {
         	
            
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Invalid Name");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Name cannot be empty. Please enter a valid name.");
-//            alert.showAndWait();
-//            return; 
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Name");
+            alert.setHeaderText(null);
+            alert.setContentText("Name cannot be empty. Please enter a valid name.");
+            alert.showAndWait();
+            return; 
         }
         
         
