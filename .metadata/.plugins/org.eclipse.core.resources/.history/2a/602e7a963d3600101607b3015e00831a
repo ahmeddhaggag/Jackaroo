@@ -145,7 +145,7 @@ public class MainGameController {
 		if(card != null){
 			if(firePitArea.getChildren().size() != 0)
 			firePitArea.getChildren().clear();
-			FirePitView firepitview=new FirePitView(card);
+			firePitView firepitview=new FirePitView(card);
 			firePitArea.getChildren().add(firepitview);
 			StackPane.setAlignment(firepitview, javafx.geometry.Pos.CENTER);
 

@@ -14,7 +14,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import view.CardView;
 import view.CellView;
-import view.FirePitView;
 import view.SideCardView;
 import view.TopCardView;
 
@@ -44,8 +43,6 @@ public class MainGameController {
 	@FXML private Pane boardPane;
 	
 	@FXML private GridPane board;
-	
-	@FXML private Pane firePitArea;
 
 	@FXML private Pane boardTrackPane;
 	@FXML private HBox playerBox;

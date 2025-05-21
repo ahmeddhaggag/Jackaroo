@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainGameController">
+<AnchorPane prefHeight="849.0" prefWidth="1016.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainGameController">
 
     <children>
 
         <!-- Board Layout with Firepit and Track -->
-        <Pane fx:id="boardTrackPane" layoutX="219.0" layoutY="89.0" prefHeight="448.0" prefWidth="762.0" style="-fx-background-color: lightgray; -fx-border-color: black;">
+        <Pane fx:id="boardTrackPane" layoutX="298.0" layoutY="293.0" prefHeight="448.0" prefWidth="762.0" style="-fx-background-color: lightgray; -fx-border-color: black;">
             <children>
                 <!-- Firepit Centered -->
                 <Pane fx:id="firePitArea" layoutX="390.0" layoutY="192.0" prefHeight="73.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;">
@@ -188,7 +188,7 @@
               <Label fx:id="nameLabel3" layoutX="51.0" layoutY="30.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="PlayerPane1" layoutX="600.0" layoutY="887.0" prefHeight="85.0" prefWidth="158.0">
+      <Pane fx:id="PlayerPane1" layoutX="577.0" layoutY="928.0" prefHeight="85.0" prefWidth="158.0">
          <children>
               <Label fx:id="nameLabel1" layoutX="51.0" layoutY="30.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
@@ -204,7 +204,7 @@
          </children>
       </Pane>
       <VBox fx:id="CPU3Box" layoutX="116.0" layoutY="411.0" prefHeight="200.0" prefWidth="100.0" />
-      <HBox fx:id="playerBox" layoutX="615.0" layoutY="756.0" prefHeight="100.0" prefWidth="200.0" />
+      <HBox fx:id="playerBox" layoutX="568.0" layoutY="836.0" prefHeight="100.0" prefWidth="200.0" />
       <HBox fx:id="CPU2Box" layoutX="580.0" layoutY="89.0" prefHeight="100.0" prefWidth="200.0" />
       <VBox fx:id="CPU1Box" layoutX="1121.0" layoutY="426.0" prefHeight="200.0" prefWidth="100.0" />
 
