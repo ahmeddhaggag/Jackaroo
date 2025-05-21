@@ -14,212 +14,165 @@
     <children>
 
         <!-- Board Layout with Firepit and Track -->
-        <Pane fx:id="boardTrackPane" layoutX="100.0" layoutY="76.0" prefHeight="448.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: black;">
+        <Pane fx:id="boardTrackPane" layoutY="31.0" prefHeight="448.0" prefWidth="762.0" style="-fx-background-color: lightgray; -fx-border-color: black;">
             <children>
                 <!-- Firepit Centered -->
-                <Pane fx:id="firePitArea" layoutX="275.0" layoutY="188.0" prefHeight="73.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;" />
-                  <Label layoutX="286.0" layoutY="218.0" style="-fx-font-size: 10;" text="Firepit" />
-     <GridPane fx:id="board" prefWidth="600" prefHeight="400" hgap="2" vgap="2" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+                <Pane fx:id="firePitArea" layoutX="390.0" layoutY="192.0" prefHeight="73.0" prefWidth="50.0" style="-fx-background-color: darkgray; -fx-border-color: black;" />
+      <GridPane fx:id="board" hgap="2" layoutX="257.0" layoutY="55.0" prefHeight="310.0" prefWidth="317.0" vgap="2">
+                                  
+    <!-- Top row: cellPane_0 to cellPane_11 -->
+    <Pane fx:id="cellPane_0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_1" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_2" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_3" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_4" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_5" GridPane.columnIndex="8" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_6" GridPane.columnIndex="9" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_7" GridPane.columnIndex="10" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_8" GridPane.columnIndex="11" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_9" GridPane.columnIndex="12" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_10" GridPane.columnIndex="13" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_11" GridPane.columnIndex="14" GridPane.rowIndex="0" />
 
-    <!-- Column Constraints (25 columns) -->
-    <columnConstraints>
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-        <ColumnConstraints percentWidth="4" />
-    </columnConstraints>
+    <!-- Right column: cellPane_12 to cellPane_24 -->
+    <Pane fx:id="cellPane_12" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_13" GridPane.columnIndex="14" GridPane.rowIndex="2" />
+    <Pane fx:id="cellPane_14" GridPane.columnIndex="14" GridPane.rowIndex="3" />
+    <Pane fx:id="cellPane_15" GridPane.columnIndex="14" GridPane.rowIndex="4" />
+    <Pane fx:id="cellPane_16" GridPane.columnIndex="14" GridPane.rowIndex="5" />
+    <Pane fx:id="cellPane_17" GridPane.columnIndex="14" GridPane.rowIndex="6" />
+    <Pane fx:id="cellPane_18" GridPane.columnIndex="14" GridPane.rowIndex="7" />
+    <Pane fx:id="cellPane_19" GridPane.columnIndex="14" GridPane.rowIndex="8" />
+    <Pane fx:id="cellPane_20" GridPane.columnIndex="14" GridPane.rowIndex="9" />
+    <Pane fx:id="cellPane_21" GridPane.columnIndex="14" GridPane.rowIndex="10" />
+    <Pane fx:id="cellPane_22" GridPane.columnIndex="14" GridPane.rowIndex="11" />
+    <Pane fx:id="cellPane_23" GridPane.columnIndex="14" GridPane.rowIndex="12" />
+    <Pane fx:id="cellPane_24" GridPane.columnIndex="14" GridPane.rowIndex="13" />
 
-    <!-- Row Constraints (25 rows) -->
-    <rowConstraints>
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-        <RowConstraints percentHeight="4" />
-    </rowConstraints>
+    <!-- Bottom row: cellPane_25 to cellPane_36 -->
+    <Pane fx:id="cellPane_25" GridPane.columnIndex="14" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_26" GridPane.columnIndex="13" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_27" GridPane.columnIndex="12" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_28" GridPane.columnIndex="11" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_29" GridPane.columnIndex="10" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_30" GridPane.columnIndex="9" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_31" GridPane.columnIndex="8" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_32" GridPane.columnIndex="7" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_33" GridPane.columnIndex="6" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_34" GridPane.columnIndex="5" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_35" GridPane.columnIndex="4" GridPane.rowIndex="14" />
+    <Pane fx:id="cellPane_36" GridPane.columnIndex="3" GridPane.rowIndex="14" />
 
-    <!-- Top edge: 0–24 -->
-    <!-- row = 0, columns 0–24 -->
-    <!-- 25 Panes -->
-    <!-- Right edge: 25–49 -->
-    <!-- column = 24, rows 1–24 -->
-    <!-- 24 Panes -->
-    <!-- Bottom edge: 50–74 -->
-    <!-- row = 24, columns 23–0 -->
-    <!-- 25 Panes -->
-    <!-- Left edge: 75–99 -->
-    <!-- column = 0, rows 23–1 -->
-    <!-- 24 Panes -->
+    <!-- Left column: cellPane_37 to cellPane_49 -->
+    <Pane fx:id="cellPane_37" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_38" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+    <Pane fx:id="cellPane_39" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+    <Pane fx:id="cellPane_40" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+    <Pane fx:id="cellPane_41" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+    <Pane fx:id="cellPane_42" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+    <Pane fx:id="cellPane_43" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+    <Pane fx:id="cellPane_44" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+    <Pane fx:id="cellPane_45" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+    <Pane fx:id="cellPane_46" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+    <Pane fx:id="cellPane_47" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+    <Pane fx:id="cellPane_48" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <Pane fx:id="cellPane_49" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
-    <!-- Top Row -->
-    <!-- 0 to 24 -->
-    <!-- row = 0 -->
-    <!-- columns 0 to 24 -->
-    <!-- Right Column -->
-    <!-- 25 to 49 -->
-    <!-- column = 24 -->
-    <!-- rows 1 to 24 -->
-    <!-- Bottom Row -->
-    <!-- 50 to 74 -->
-    <!-- row = 24 -->
-    <!-- columns 23 to 0 -->
-    <!-- Left Column -->
-    <!-- 75 to 99 -->
-    <!-- column = 0 -->
-    <!-- rows 23 to 1 -->
-    
-    <!-- Generate 100 Pane nodes -->
-    <!-- This is auto-generated for clarity -->
-        <!-- Top Row -->
-    <Pane fx:id="cellPane_0" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_1" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-    <Pane fx:id="cellPane_2" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-    <Pane fx:id="cellPane_3" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
-    <Pane fx:id="cellPane_4" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
-    <Pane fx:id="cellPane_5" GridPane.rowIndex="0" GridPane.columnIndex="5"/>
-    <Pane fx:id="cellPane_6" GridPane.rowIndex="0" GridPane.columnIndex="6"/>
-    <Pane fx:id="cellPane_7" GridPane.rowIndex="0" GridPane.columnIndex="7"/>
-    <Pane fx:id="cellPane_8" GridPane.rowIndex="0" GridPane.columnIndex="8"/>
-    <Pane fx:id="cellPane_9" GridPane.rowIndex="0" GridPane.columnIndex="9"/>
-    <Pane fx:id="cellPane_10" GridPane.rowIndex="0" GridPane.columnIndex="10"/>
-    <Pane fx:id="cellPane_11" GridPane.rowIndex="0" GridPane.columnIndex="11"/>
-    <Pane fx:id="cellPane_12" GridPane.rowIndex="0" GridPane.columnIndex="12"/>
-    <Pane fx:id="cellPane_13" GridPane.rowIndex="0" GridPane.columnIndex="13"/>
-    <Pane fx:id="cellPane_14" GridPane.rowIndex="0" GridPane.columnIndex="14"/>
-    <Pane fx:id="cellPane_15" GridPane.rowIndex="0" GridPane.columnIndex="15"/>
-    <Pane fx:id="cellPane_16" GridPane.rowIndex="0" GridPane.columnIndex="16"/>
-    <Pane fx:id="cellPane_17" GridPane.rowIndex="0" GridPane.columnIndex="17"/>
-    <Pane fx:id="cellPane_18" GridPane.rowIndex="0" GridPane.columnIndex="18"/>
-    <Pane fx:id="cellPane_19" GridPane.rowIndex="0" GridPane.columnIndex="19"/>
-    <Pane fx:id="cellPane_20" GridPane.rowIndex="0" GridPane.columnIndex="20"/>
-    <Pane fx:id="cellPane_21" GridPane.rowIndex="0" GridPane.columnIndex="21"/>
-    <Pane fx:id="cellPane_22" GridPane.rowIndex="0" GridPane.columnIndex="22"/>
-    <Pane fx:id="cellPane_23" GridPane.rowIndex="0" GridPane.columnIndex="23"/>
-    <Pane fx:id="cellPane_24" GridPane.rowIndex="0" GridPane.columnIndex="24"/>
+    <!-- Inner top row: cellPane_50 to cellPane_61 -->
+    <Pane fx:id="cellPane_50" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_51" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_52" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_53" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_54" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_55" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_56" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_57" GridPane.columnIndex="11" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_58" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_59" GridPane.columnIndex="13" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_60" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_61" GridPane.columnIndex="15" GridPane.rowIndex="1" />
 
-    <!-- Right Column -->
-    <Pane fx:id="cellPane_25" GridPane.rowIndex="1" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_26" GridPane.rowIndex="2" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_27" GridPane.rowIndex="3" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_28" GridPane.rowIndex="4" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_29" GridPane.rowIndex="5" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_30" GridPane.rowIndex="6" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_31" GridPane.rowIndex="7" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_32" GridPane.rowIndex="8" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_33" GridPane.rowIndex="9" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_34" GridPane.rowIndex="10" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_35" GridPane.rowIndex="11" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_36" GridPane.rowIndex="12" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_37" GridPane.rowIndex="13" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_38" GridPane.rowIndex="14" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_39" GridPane.rowIndex="15" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_40" GridPane.rowIndex="16" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_41" GridPane.rowIndex="17" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_42" GridPane.rowIndex="18" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_43" GridPane.rowIndex="19" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_44" GridPane.rowIndex="20" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_45" GridPane.rowIndex="21" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_46" GridPane.rowIndex="22" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_47" GridPane.rowIndex="23" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_48" GridPane.rowIndex="24" GridPane.columnIndex="24"/>
-    <Pane fx:id="cellPane_49" GridPane.rowIndex="24" GridPane.columnIndex="24"/>
+    <!-- Inner right column: cellPane_62 to cellPane_73 -->
+    <Pane fx:id="cellPane_62" GridPane.columnIndex="13" GridPane.rowIndex="2" />
+    <Pane fx:id="cellPane_63" GridPane.columnIndex="13" GridPane.rowIndex="3" />
+    <Pane fx:id="cellPane_64" GridPane.columnIndex="13" GridPane.rowIndex="4" />
+    <Pane fx:id="cellPane_65" GridPane.columnIndex="13" GridPane.rowIndex="5" />
+    <Pane fx:id="cellPane_66" GridPane.columnIndex="13" GridPane.rowIndex="6" />
+    <Pane fx:id="cellPane_67" GridPane.columnIndex="13" GridPane.rowIndex="7" />
+    <Pane fx:id="cellPane_68" GridPane.columnIndex="13" GridPane.rowIndex="8" />
+    <Pane fx:id="cellPane_69" GridPane.columnIndex="13" GridPane.rowIndex="9" />
+    <Pane fx:id="cellPane_70" GridPane.columnIndex="13" GridPane.rowIndex="10" />
+    <Pane fx:id="cellPane_71" GridPane.columnIndex="13" GridPane.rowIndex="11" />
+    <Pane fx:id="cellPane_72" GridPane.columnIndex="13" GridPane.rowIndex="12" />
+    <Pane fx:id="cellPane_73" GridPane.columnIndex="13" GridPane.rowIndex="13" />
 
-    <!-- Bottom Row (Right to Left) -->
-    <Pane fx:id="cellPane_50" GridPane.rowIndex="24" GridPane.columnIndex="23"/>
-    <Pane fx:id="cellPane_51" GridPane.rowIndex="24" GridPane.columnIndex="22"/>
-    <Pane fx:id="cellPane_52" GridPane.rowIndex="24" GridPane.columnIndex="21"/>
-    <Pane fx:id="cellPane_53" GridPane.rowIndex="24" GridPane.columnIndex="20"/>
-    <Pane fx:id="cellPane_54" GridPane.rowIndex="24" GridPane.columnIndex="19"/>
-    <Pane fx:id="cellPane_55" GridPane.rowIndex="24" GridPane.columnIndex="18"/>
-    <Pane fx:id="cellPane_56" GridPane.rowIndex="24" GridPane.columnIndex="17"/>
-    <Pane fx:id="cellPane_57" GridPane.rowIndex="24" GridPane.columnIndex="16"/>
-    <Pane fx:id="cellPane_58" GridPane.rowIndex="24" GridPane.columnIndex="15"/>
-    <Pane fx:id="cellPane_59" GridPane.rowIndex="24" GridPane.columnIndex="14"/>
-    <Pane fx:id="cellPane_60" GridPane.rowIndex="24" GridPane.columnIndex="13"/>
-    <Pane fx:id="cellPane_61" GridPane.rowIndex="24" GridPane.columnIndex="12"/>
-    <Pane fx:id="cellPane_62" GridPane.rowIndex="24" GridPane.columnIndex="11"/>
-    <Pane fx:id="cellPane_63" GridPane.rowIndex="24" GridPane.columnIndex="10"/>
-    <Pane fx:id="cellPane_64" GridPane.rowIndex="24" GridPane.columnIndex="9"/>
-    <Pane fx:id="cellPane_65" GridPane.rowIndex="24" GridPane.columnIndex="8"/>
-    <Pane fx:id="cellPane_66" GridPane.rowIndex="24" GridPane.columnIndex="7"/>
-    <Pane fx:id="cellPane_67" GridPane.rowIndex="24" GridPane.columnIndex="6"/>
-    <Pane fx:id="cellPane_68" GridPane.rowIndex="24" GridPane.columnIndex="5"/>
-    <Pane fx:id="cellPane_69" GridPane.rowIndex="24" GridPane.columnIndex="4"/>
-    <Pane fx:id="cellPane_70" GridPane.rowIndex="24" GridPane.columnIndex="3"/>
-    <Pane fx:id="cellPane_71" GridPane.rowIndex="24" GridPane.columnIndex="2"/>
-    <Pane fx:id="cellPane_72" GridPane.rowIndex="24" GridPane.columnIndex="1"/>
-    <Pane fx:id="cellPane_73" GridPane.rowIndex="24" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_74" GridPane.rowIndex="24" GridPane.columnIndex="0"/>
+    <!-- Inner bottom row: cellPane_74 to cellPane_85 -->
+    <Pane fx:id="cellPane_74" GridPane.columnIndex="12" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_75" GridPane.columnIndex="11" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_76" GridPane.columnIndex="10" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_77" GridPane.columnIndex="9" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_78" GridPane.columnIndex="8" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_79" GridPane.columnIndex="7" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_80" GridPane.columnIndex="6" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_81" GridPane.columnIndex="5" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_82" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_83" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_84" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+    <Pane fx:id="cellPane_85" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
-    <!-- Left Column (Bottom to Top) -->
-    <Pane fx:id="cellPane_75" GridPane.rowIndex="23" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_76" GridPane.rowIndex="22" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_77" GridPane.rowIndex="21" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_78" GridPane.rowIndex="20" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_79" GridPane.rowIndex="19" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_80" GridPane.rowIndex="18" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_81" GridPane.rowIndex="17" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_82" GridPane.rowIndex="16" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_83" GridPane.rowIndex="15" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_84" GridPane.rowIndex="14" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_85" GridPane.rowIndex="13" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_86" GridPane.rowIndex="12" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_87" GridPane.rowIndex="11" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_88" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_89" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_90" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_91" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_92" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_93" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_94" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_95" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_96" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_97" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_98" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <Pane fx:id="cellPane_99" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <!-- Inner left column: cellPane_86 to cellPane_99 -->
+    <Pane fx:id="cellPane_86" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+    <Pane fx:id="cellPane_87" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+    <Pane fx:id="cellPane_88" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+    <Pane fx:id="cellPane_89" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+    <Pane fx:id="cellPane_90" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+    <Pane fx:id="cellPane_91" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+    <Pane fx:id="cellPane_92" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+    <Pane fx:id="cellPane_93" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+    <Pane fx:id="cellPane_94" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+    <Pane fx:id="cellPane_95" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+    <Pane fx:id="cellPane_96" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+    <Pane fx:id="cellPane_97" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+    <Pane fx:id="cellPane_98" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+    <Pane fx:id="cellPane_99" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
 </GridPane>
-    
 
 
            
@@ -233,25 +186,25 @@
               <Label fx:id="nameLabel3" layoutX="51.0" layoutY="30.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="PlayerPane1" layoutX="244.0" layoutY="536.0" prefHeight="85.0" prefWidth="158.0">
+      <Pane fx:id="PlayerPane1" layoutX="265.0" layoutY="567.0" prefHeight="85.0" prefWidth="158.0">
          <children>
               <Label fx:id="nameLabel1" layoutX="51.0" layoutY="30.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="PlayerPane2" layoutX="826.0" layoutY="244.0" prefHeight="158.0" prefWidth="85.0">
+      <Pane fx:id="PlayerPane2" layoutX="855.0" layoutY="200.0" prefHeight="158.0" prefWidth="85.0">
          <children>
               <Label fx:id="nameLabel2" layoutX="15.0" layoutY="66.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="PlayerPane4" layoutX="23.0" layoutY="212.0" prefHeight="158.0" prefWidth="85.0">
+      <Pane fx:id="PlayerPane4" layoutX="8.0" layoutY="431.0" prefHeight="158.0" prefWidth="85.0">
          <children>
               <Label fx:id="nameLabel4" layoutX="15.0" layoutY="66.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
       </Pane>
-      <VBox fx:id="CPU3Box" layoutX="-17.0" layoutY="182.0" prefHeight="200.0" prefWidth="100.0" />
-      <HBox fx:id="playerBox" layoutX="400.0" layoutY="500.0" prefHeight="100.0" prefWidth="200.0" />
-      <HBox fx:id="CPU2Box" layoutX="323.0" layoutY="-62.0" prefHeight="100.0" prefWidth="200.0" />
-      <VBox fx:id="CPU1Box" layoutX="706.0" layoutY="223.0" prefHeight="200.0" prefWidth="100.0" />
+      <VBox fx:id="CPU3Box" layoutX="-75.0" layoutY="200.0" prefHeight="200.0" prefWidth="100.0" />
+      <HBox fx:id="playerBox" layoutX="282.0" layoutY="493.0" prefHeight="100.0" prefWidth="200.0" />
+      <HBox fx:id="CPU2Box" layoutX="261.0" layoutY="-41.0" prefHeight="100.0" prefWidth="200.0" />
+      <VBox fx:id="CPU1Box" layoutX="772.0" layoutY="174.0" prefHeight="200.0" prefWidth="100.0" />
 
     </children>
 </AnchorPane>

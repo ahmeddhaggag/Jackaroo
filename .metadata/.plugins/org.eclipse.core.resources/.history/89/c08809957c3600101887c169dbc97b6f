@@ -50,7 +50,7 @@ public class MainGameController {
 	@FXML private VBox CPU1Box;
 	@FXML private HBox CPU2Box;
 	@FXML private VBox CPU3Box;
-	@FXML private Pane firePitArea;
+	@FXML private static Pane firePitArea;
 
 	private List<Pane> trackPanes = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
@@ -122,27 +122,27 @@ public class MainGameController {
 
 
 		for (Card card : this.game.getPlayers().get(0).getHand()) {
-			CardView cardView = new CardView(card, true, this);
+			CardView cardView = new CardView(card, true);
 			cardView.setOnMouseClicked(event -> handleCardClick(card));
 			playerBox.getChildren().add(cardView);
 		}
 
 		for (Card card : this.game.getPlayers().get(1).getHand()) {
-			CardView cardView = new CardView(card, false, this);
+			CardView cardView = new CardView(card, false);
 			cardView.setRotate(270);
 			cardView.setOnMouseClicked(event -> handleCardClick(card));
 			CPU1Box.getChildren().add(cardView);
 		}
 
 		for (Card card : this.game.getPlayers().get(2).getHand()) {
-			CardView cardView = new CardView(card, false, this);
+			CardView cardView = new CardView(card, false);
 			cardView.setRotate(180);
 			cardView.setOnMouseClicked(event -> handleCardClick(card));
 			CPU2Box.getChildren().add(cardView);
 		}
 
 		for (Card card : this.game.getPlayers().get(3).getHand()) {
-			CardView cardView = new CardView(card, false, this);
+			CardView cardView = new CardView(card, false);
 			cardView.setRotate(90);
 			cardView.setOnMouseClicked(event -> handleCardClick(card));
 			CPU3Box.getChildren().add(cardView);
@@ -158,15 +158,15 @@ public class MainGameController {
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
 
 	}
-	public void displayFirePit(Card card){
+	public static void displayFirePit(Card card){
 		FirePitView f=new FirePitView(card);
-		this.firePitArea.getChildren().add(f);
+		firePitArea.getChildren().add(f);
 	}
-	public void cardAction(Card card){
+	public static void cardAction(Card card){
 		handleCardClick(card);
 		displayFirePit(card);
 	}
-	public void handleCardClick(Card card) {
+	public static void handleCardClick(Card card) {
 		System.out.println("Card clicked: " + card);
 		// Add logic for handling the card click event
 		try{

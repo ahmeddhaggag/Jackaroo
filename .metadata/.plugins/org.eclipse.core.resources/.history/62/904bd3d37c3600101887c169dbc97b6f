@@ -34,13 +34,11 @@ public class CardView extends Button{
 	Image image;
 	ImageView imageView;
 	boolean isHuman;
-	MainGameController engine;
 	
-	public CardView(Card card, boolean isHuman, MainGameController engine) {
+	public CardView(Card card, boolean isHuman) {
 		this.card = card;
 		this.isHuman = isHuman;
 		String path = "";
-		this.engine = engine;
 		
 
 
@@ -113,7 +111,7 @@ public class CardView extends Button{
 			@Override
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
-				engine.cardAction(card);
+				MainGameController.cardAction(card);
 			}
 		});
 		}else{
