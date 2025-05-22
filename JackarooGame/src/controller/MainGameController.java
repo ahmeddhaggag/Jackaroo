@@ -65,6 +65,10 @@ public class MainGameController {
 	private List<Pane> safePanes2 = new ArrayList<>();
 	private List<Pane> safePanes3 = new ArrayList<>();
 	private List<Pane> safePanes4 = new ArrayList<>();
+	private List<Pane> HomeZonePanes1 = new ArrayList<>();
+	private List<Pane> HomeZonePanes2 = new ArrayList<>();
+	private List<Pane> HomeZonePanes3 = new ArrayList<>();
+	private List<Pane> HomeZonePanes4 = new ArrayList<>();
 	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
 
 	private Game game;
@@ -157,12 +161,44 @@ public class MainGameController {
 				System.err.println("Missing: safePane4_" + i);
 			}
 		}
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#HomeZonePane1_" + i);
+			if (pane != null) {
+				HomeZonePanes1.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane1_" + i);
+			}
+		}
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#HomeZonePane2_" + i);
+			if (pane != null) {
+				HomeZonePanes2.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane2_" + i);
+			}
+		}
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#HomeZonePane3_" + i);
+			if (pane != null) {
+				HomeZonePanes3.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane3_" + i);
+			}
+		}
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#HomeZonePane4_" + i);
+			if (pane != null) {
+				HomeZonePanes4.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane4_" + i);
+			}
+		}
 	}
 
 	public void updateBoard() {
 		List<Cell> cells = game.getBoard().getTrack(); 
 		List<SafeZone> safe = game.getBoard().getSafeZones();
-
+		
 		for (int i = 0; i < 100; i++) {
 			CellView cellView = new CellView(cells.get(i));
 			Pane cellPane = trackPanes.get(i);
@@ -196,6 +232,33 @@ public class MainGameController {
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(safezoneview);
 		}
+		
+/*		for (int i = 0; i < 4; i++) {
+			CellView cellView = new CellView(cells.get(i));
+			Pane cellPane = trackPanes.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+
+		for (int i = 0; i < 4; i++) {
+			CellView cellView = new CellView(cells.get(i));
+			Pane cellPane = trackPanes.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+		for (int i = 0; i < 4; i++) {
+			CellView cellView = new CellView(cells.get(i));
+			Pane cellPane = trackPanes.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			CellView cellView = new CellView(cells.get(i));
+			Pane cellPane = trackPanes.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}*/
 	}
 	public void displayHomeZones(){
 		PlayerHomeZone=new HomeZoneView(game.getPlayers().get(0));
