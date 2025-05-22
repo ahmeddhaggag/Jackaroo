@@ -4,41 +4,96 @@ import engine.Game;
 import engine.board.Cell;
 import engine.board.CellType;
 import engine.board.SafeZone;
-import exception.*;
+import exception.ActionException;
+import exception.CannotDiscardException;
+import exception.CannotFieldException;
+import exception.GameException;
+import exception.IllegalDestroyException;
+import exception.IllegalMovementException;
+import exception.IllegalSwapException;
+import exception.InvalidMarbleException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import model.card.Card;
-import model.player.Marble;
-import view.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import view.CardView;
+import view.CellView;
+import view.FirePitView;
+import view.HomeZoneView;
+import view.SafeZoneView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.card.Card;
+import model.player.Marble;
+
 public class MainGameController {
 
-	@FXML private Label nameLabel1, nameLabel2, nameLabel3, nameLabel4;
-	@FXML private Pane PlayerPane1, PlayerPane2, PlayerPane3, PlayerPane4;
-	@FXML private GridPane board, PlayerHomeZone, CPU1HomeZone, CPU2HomeZone, CPU3HomeZone;
-	@FXML private Pane boardPane, boardTrackPane, firePitArea;
-	@FXML private HBox playerBox, CPU2Box;
-	@FXML private VBox CPU1Box, CPU3Box;
+	@FXML private Label nameLabel1;
+	@FXML private Label nameLabel2;
+	@FXML private Label nameLabel3;
+	@FXML private Label nameLabel4;
 
-	private final List<Pane> trackPanes = new ArrayList<>();
-	private final List<Pane> safePanes1 = new ArrayList<>();
-	private final List<Pane> safePanes2 = new ArrayList<>();
-	private final List<Pane> safePanes3 = new ArrayList<>();
-	private final List<Pane> safePanes4 = new ArrayList<>();
-	private final List<Pane> HomeZonePanes1 = new ArrayList<>();
-	private final List<Pane> HomeZonePanes2 = new ArrayList<>();
-	private final List<Pane> HomeZonePanes3 = new ArrayList<>();
-	private final List<Pane> HomeZonePanes4 = new ArrayList<>();
-	private static final ArrayList<Marble> selectedMarbles = new ArrayList<>();
+	@FXML private Pane PlayerPane1;
+	@FXML private Pane PlayerPane2;
+	@FXML private Pane PlayerPane3;
+	@FXML private Pane PlayerPane4;
+
+	@FXML private Pane boardPane;
+
+	@FXML private GridPane board;
+
+	@FXML private Pane boardTrackPane;
+	@FXML private HBox playerBox;
+	@FXML private VBox CPU1Box;
+	@FXML private HBox CPU2Box;
+	@FXML private VBox CPU3Box;
+	@FXML private Pane firePitArea;
+	@FXML private GridPane PlayerHomeZone;
+	@FXML private GridPane CPU1HomeZone;
+	@FXML private GridPane CPU2HomeZone;
+	@FXML private GridPane CPU3HomeZone;
+	
+	@FXML private Pane HomeZonePane1_1;
+	@FXML private Pane HomeZonePane1_2;
+	@FXML private Pane HomeZonePane1_3;
+	@FXML private Pane HomeZonePane1_4;
+
+	@FXML private Pane HomeZonePane2_1;
+	@FXML private Pane HomeZonePane2_2;
+	@FXML private Pane HomeZonePane2_3;
+	@FXML private Pane HomeZonePane2_4;
+
+	@FXML private Pane HomeZonePane3_1;
+	@FXML private Pane HomeZonePane3_2;
+	@FXML private Pane HomeZonePane3_3;
+	@FXML private Pane HomeZonePane3_4;
+
+	@FXML private Pane HomeZonePane4_1;
+	@FXML private Pane HomeZonePane4_2;
+	@FXML private Pane HomeZonePane4_3;
+	@FXML private Pane HomeZonePane4_4;
+
+
+	private List<Pane> trackPanes = new ArrayList<>();
+
+	private List<Pane> safePanes1 = new ArrayList<>();
+	private List<Pane> safePanes2 = new ArrayList<>();
+	private List<Pane> safePanes3 = new ArrayList<>();
+	private List<Pane> safePanes4 = new ArrayList<>();
+	private List<Pane> HomeZonePanes1 = new ArrayList<>();
+	private List<Pane> HomeZonePanes2 = new ArrayList<>();
+	private List<Pane> HomeZonePanes3 = new ArrayList<>();
+	private List<Pane> HomeZonePanes4 = new ArrayList<>();
+	private static ArrayList<Marble> selectedmarbles= new ArrayList<>();
 
 	private Game game;
-	private Card selectedCard;
 
 	public void startGame(String username) throws IOException, GameException {
 		game = new Game(username);
@@ -48,27 +103,32 @@ public class MainGameController {
 		displayName(nameLabel3, "CPU2");
 		displayName(nameLabel4, "CPU3");
 
-		PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() + ";");
-		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() + ";");
-		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() + ";");
-		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() + ";");
+			PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
+		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
+		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
+		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+
+		//up
 
 		updateBoard();
+
 		displayCards();
+		displayFirePit(game.getPlayers().get(0).getHand().get(0));
 		displayHomeZones();
 
-		while(game.checkWin()!= null){
-			if(game.getActivePlayerColour() == game.getPlayers().get(0).getColour()){
-				while(selectedCard == null);
-			}
-			if(game.canPlayTurn()){
-				game.playPlayerTurn();
-				game.endPlayerTurn();
-			}
-			selectedCard = null;
+		//		while(game.checkWin() == null){
+		//		updateBoard();
+		//		
+		//		displayCards();
+		//		
+		//		if(game.canPlayTurn()){
+		//			game.playPlayerTurn();
+		//			game.endPlayerTurn();
+		//		}
+		//		}
 
 
-		}
+
 	}
 
 	private void displayName(Label label, String name) {
@@ -77,125 +137,283 @@ public class MainGameController {
 
 	@FXML
 	public void initialize() {
-		for (int i = 0; i < 100; i++) addPaneToList(board, trackPanes, "#cellPane_" + i);
-		for (int i = 0; i < 4; i++) {
-			addPaneToList(board, safePanes1, "#safePane1_" + i);
-			addPaneToList(board, safePanes2, "#safePane2_" + i);
-			addPaneToList(board, safePanes3, "#safePane3_" + i);
-			addPaneToList(board, safePanes4, "#safePane4_" + i);
-		}
-		for (int i = 1; i <= 4; i++) {
-			addPaneToList(PlayerHomeZone, HomeZonePanes1, "#HomeZonePane1_" + i);
-			addPaneToList(CPU1HomeZone, HomeZonePanes2, "#HomeZonePane2_" + i);
-			addPaneToList(CPU2HomeZone, HomeZonePanes3, "#HomeZonePane3_" + i);
-			addPaneToList(CPU3HomeZone, HomeZonePanes4, "#HomeZonePane4_" + i);
-		}
-	}
+		for (int i = 0; i < 100; i++) {
+			Pane pane = (Pane) board.lookup("#cellPane_" + i);
+			if (pane != null) {
+				trackPanes.add(pane);
+			} else {
+				System.err.println("Missing: cellPane_" + i);
+			}
 
-	private void addPaneToList(GridPane grid, List<Pane> list, String id) {
-		Pane pane = (Pane) grid.lookup(id);
-		if (pane != null) list.add(pane);
-		else System.err.println("Missing: " + id);
+		}
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#safePane1_" + i);
+			if (pane != null) {
+				safePanes1.add(pane);
+			} else {
+				System.err.println("Missing: safePane1_" + i);
+			}
+
+		}
+
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#safePane2_" + i);
+			if (pane != null) {
+				safePanes2.add(pane);
+			} else {
+				System.err.println("Missing: safePane2_" + i);
+			}
+
+
+		}
+
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#safePane3_" + i);
+			if (pane != null) {
+				safePanes3.add(pane);
+			} else {
+				System.err.println("Missing: safePane3_" + i);
+			}
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			Pane pane = (Pane) board.lookup("#safePane4_" + i);
+			if (pane != null) {
+				safePanes4.add(pane);
+			} else {
+				System.err.println("Missing: safePane4_" + i);
+			}
+		}
+		for (int i = 1; i < 5; i++) {
+			Pane pane = (Pane) PlayerHomeZone.lookup("#HomeZonePane1_" + i);
+			if (pane != null) {
+				HomeZonePanes1.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane1_" + i);
+			}
+		}
+		for (int i = 1; i < 5; i++) {
+			Pane pane = (Pane) CPU1HomeZone.lookup("#HomeZonePane2_" + i);
+			if (pane != null) {
+				HomeZonePanes2.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane2_" + i);
+			}
+		}
+		for (int i = 1; i < 5; i++) {
+			Pane pane = (Pane) CPU2HomeZone.lookup("#HomeZonePane3_" + i);
+			if (pane != null) {
+				HomeZonePanes3.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane3_" + i);
+			}
+		}
+		for (int i = 1; i < 5; i++) {
+			Pane pane = (Pane) CPU3HomeZone.lookup("#HomeZonePane4_" + i);
+			if (pane != null) {
+				HomeZonePanes4.add(pane);
+			} else {
+				System.err.println("Missing: HomeZonePane4_" + i);
+			}
+		}
 	}
 
 	public void updateBoard() {
-		List<Cell> cells = game.getBoard().getTrack();
+		List<Cell> cells = game.getBoard().getTrack(); 
 		List<SafeZone> safe = game.getBoard().getSafeZones();
-
-		for (int i = 0; i < 100; i++) updateCellView(trackPanes.get(i), new CellView(cells.get(i)));
+		
+		for (int i = 0; i < 100; i++) {
+			CellView cellView = new CellView(cells.get(i));
+			Pane cellPane = trackPanes.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+		//		
 		for (int i = 0; i < 4; i++) {
-			updateCellView(safePanes1.get(i), new SafeZoneView(safe.get(0)));
-			updateCellView(safePanes2.get(i), new SafeZoneView(safe.get(1)));
-			updateCellView(safePanes3.get(i), new SafeZoneView(safe.get(2)));
-			updateCellView(safePanes4.get(i), new SafeZoneView(safe.get(3)));
+			SafeZoneView safezoneview = new SafeZoneView(safe.get(0));
+			Pane cellPane = safePanes1.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(safezoneview);
 		}
 
-		updateHomeZone(HomeZonePanes1, 0);
-		updateHomeZone(HomeZonePanes2, 1);
-		updateHomeZone(HomeZonePanes3, 2);
-		updateHomeZone(HomeZonePanes4, 3);
-	}
-
-	private void updateCellView(Pane pane, Region view) {
-		pane.getChildren().clear();
-		pane.getChildren().add(view);
-	}
-
-	private void updateHomeZone(List<Pane> panes, int playerIndex) {
+		for (int i = 0; i < 4; i++) {
+			SafeZoneView safezoneview = new SafeZoneView(safe.get(1));
+			Pane cellPane = safePanes2.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(safezoneview);
+		}
+		for (int i = 0; i < 4; i++) {
+			SafeZoneView safezoneview = new SafeZoneView(safe.get(2));
+			Pane cellPane = safePanes3.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(safezoneview);
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			SafeZoneView safezoneview = new SafeZoneView(safe.get(3));
+			Pane cellPane = safePanes4.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(safezoneview);
+		}
+		
 		for (int i = 0; i < 4; i++) {
 			Cell cell = new Cell(CellType.NORMAL);
-			if (i < game.getPlayers().get(playerIndex).getMarbles().size()) {
-				cell.setMarble(game.getPlayers().get(playerIndex).getMarbles().get(i));
+			if(i < game.getPlayers().get(0).getMarbles().size()){
+			cell.setMarble(game.getPlayers().get(0).getMarbles().get(i));
 			}
 			CellView cellView = new CellView(cell);
-			updateCellView(panes.get(i), cellView);
+			cellView.updateView();
+			
+			Pane cellPane = HomeZonePanes1.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+
+		for (int i = 0; i < 4; i++) {
+			Cell cell = new Cell(CellType.NORMAL);
+			if(i < game.getPlayers().get(1).getMarbles().size()){
+			cell.setMarble(game.getPlayers().get(1).getMarbles().get(i));
+			}
+			CellView cellView = new CellView(cell);
+			cellView.updateView();
+			Pane cellPane = HomeZonePanes2.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+		for (int i = 0; i < 4; i++) {
+			Cell cell = new Cell(CellType.NORMAL);
+			if(i < game.getPlayers().get(2).getMarbles().size()){
+			cell.setMarble(game.getPlayers().get(2).getMarbles().get(i));
+			}
+			CellView cellView = new CellView(cell);
+			Pane cellPane = HomeZonePanes3.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			Cell cell = new Cell(CellType.NORMAL);
+			if(i < game.getPlayers().get(0).getMarbles().size()){
+			cell.setMarble(game.getPlayers().get(3).getMarbles().get(i));
+			}
+			CellView cellView = new CellView(cell);
+			Pane cellPane = HomeZonePanes4.get(i);
+			cellPane.getChildren().clear();
+			cellPane.getChildren().add(cellView);
 		}
 	}
-
-	public void displayHomeZones() {
-		PlayerHomeZone = new HomeZoneView(game.getPlayers().get(0));
-		CPU1HomeZone = new HomeZoneView(game.getPlayers().get(1));
-		CPU2HomeZone = new HomeZoneView(game.getPlayers().get(2));
-		CPU3HomeZone = new HomeZoneView(game.getPlayers().get(3));
+	public void displayHomeZones(){
+		PlayerHomeZone=new HomeZoneView(game.getPlayers().get(0));
+		CPU1HomeZone=new HomeZoneView(game.getPlayers().get(1));
+		CPU2HomeZone=new HomeZoneView(game.getPlayers().get(2));
+		CPU3HomeZone=new HomeZoneView(game.getPlayers().get(3));
 	}
 
-	public void displayCards() {
-		playerBox.getChildren().clear();
-		CPU1Box.getChildren().clear();
-		CPU2Box.getChildren().clear();
-		CPU3Box.getChildren().clear();
+	public void displayCards(){
 
-		displayPlayerCards(game.getPlayers().get(0).getHand(), playerBox, 0);
-		displayPlayerCards(game.getPlayers().get(1).getHand(), CPU1Box, 270);
-		displayPlayerCards(game.getPlayers().get(2).getHand(), CPU2Box, 180);
-		displayPlayerCards(game.getPlayers().get(3).getHand(), CPU3Box, 90);
+
+		for (Card card : this.game.getPlayers().get(0).getHand()) {
+			CardView cardView = new CardView(card, true, this);
+			cardView.setOnMouseClicked(event -> handleCardClick(card));
+			playerBox.getChildren().add(cardView);
+		}
+
+		for (Card card : this.game.getPlayers().get(1).getHand()) {
+			CardView cardView = new CardView(card, false, this);
+			cardView.setRotate(270);
+			cardView.setOnMouseClicked(event -> handleCardClick(card));
+			CPU1Box.getChildren().add(cardView);
+		}
+
+		for (Card card : this.game.getPlayers().get(2).getHand()) {
+			CardView cardView = new CardView(card, false, this);
+			cardView.setRotate(180);
+			cardView.setOnMouseClicked(event -> handleCardClick(card));
+			CPU2Box.getChildren().add(cardView);
+		}
+
+		for (Card card : this.game.getPlayers().get(3).getHand()) {
+			CardView cardView = new CardView(card, false, this);
+			cardView.setRotate(90);
+			cardView.setOnMouseClicked(event -> handleCardClick(card));
+			CPU3Box.getChildren().add(cardView);
+		}
 
 		playerBox.setSpacing(10);
 		CPU2Box.setSpacing(10);
+
 
 		StackPane.setAlignment(playerBox, javafx.geometry.Pos.BOTTOM_CENTER);
 		StackPane.setAlignment(CPU1Box, javafx.geometry.Pos.CENTER_RIGHT);
 		StackPane.setAlignment(CPU2Box, javafx.geometry.Pos.TOP_CENTER);
 		StackPane.setAlignment(CPU3Box, javafx.geometry.Pos.CENTER_LEFT);
-	}
 
-	private void displayPlayerCards(List<Card> cards, Pane box, int rotation) {
-		for (Card card : cards) {
-			CardView cardView = new CardView(card, rotation == 0, this);
-			cardView.setRotate(rotation);
-			cardView.setOnMouseClicked(event -> handleCardClick(card));
-			box.getChildren().add(cardView);
-		}
 	}
-
-	public void displayFirePit(Card card) {
-		firePitArea.getChildren().clear();
-		firePitArea.getChildren().add(new FirePitView(card));
+	public void displayFirePit(Card card){
+		FirePitView f=new FirePitView(card);
+		this.firePitArea.getChildren().add(f);
 	}
-
-	public void cardAction(Card card) {
-		selectedCard = card;
+	public void cardAction(Card card){
 		handleCardClick(card);
 		displayFirePit(card);
 	}
-
 	public void handleCardClick(Card card) {
-		try {
-			card.act(selectedMarbles);
-		} catch (GameException e) {
-			showAlert("Invalid Action", e.getMessage());
+		System.out.println("Card clicked: " + card);
+		// Add logic for handling the card click event
+		try{
+			card.act(selectedmarbles);}
+		catch(InvalidMarbleException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Marble");
+			alert.setHeaderText(null);
+			alert.setContentText("cannot select this marble!");
+			alert.showAndWait();
+		}
+		catch(IllegalMovementException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Action");
+			alert.setHeaderText(null);
+			alert.setContentText("Illegal Movement!");
+			alert.showAndWait();
+		}
+		catch(IllegalSwapException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Action");
+			alert.setHeaderText(null);
+			alert.setContentText("Illegal Swap!");
+			alert.showAndWait();
+		}
+		catch(IllegalDestroyException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Action");
+			alert.setHeaderText(null);
+			alert.setContentText("Illegal Destroy!");
+			alert.showAndWait();
+		}
+		catch(CannotFieldException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Action");
+			alert.setHeaderText(null);
+			alert.setContentText("Cannot field!");
+			alert.showAndWait();
+		}
+		catch(CannotDiscardException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Action");
+			alert.setHeaderText(null);
+			alert.setContentText("Cannot discard!");
+			alert.showAndWait();
+		}
+		catch(ActionException e){
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Invalid Action");
+			alert.setHeaderText(null);
+			alert.setContentText("Invalid action!");
+			alert.showAndWait();
 		}
 	}
-
-	private void showAlert(String title, String content) {
-		Alert alert = new Alert(Alert.AlertType.ERROR);
-		alert.setTitle(title);
-		alert.setHeaderText(null);
-		alert.setContentText(content);
-		alert.showAndWait();
+	public static void addmarble(Marble marble){
+		selectedmarbles.add(marble);
 	}
 
-	public static void addMarble(Marble marble) {
-		selectedMarbles.add(marble);
-	}
 }

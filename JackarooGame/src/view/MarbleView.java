@@ -1,9 +1,11 @@
 package view;
 
 import controller.MainGameController;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 import model.Colour;
 import model.player.Marble;
 
@@ -12,43 +14,31 @@ public class MarbleView extends Circle {
     private final Marble marble;
 
     public MarbleView(Marble marble) {
-       // super(15); // radius of the marble
+        super(15); // radius of marble circle
         this.marble = marble;
-
-        createMarbleShape();
-        
-
-        // Use lambda for cleaner event handler
-        this.setOnMouseClicked(event -> MainGameController.addMarble(marble));
+        this.setFill(convertColour(marble.getColour()));
+        this.setStroke(Color.BLACK);
+        this.setStrokeWidth(2);
+        this.setOnMouseClicked(new EventHandler<Event>(){
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				MainGameController.addmarble(marble);
+			}
+		});
     }
 
     private Color convertColour(Colour colour) {
-        switch (colour) {
-            case RED:
-                return Color.RED;
-            case BLUE:
-                return Color.BLUE;
-            case GREEN:
-                return Color.GREEN;
-            case YELLOW:
-                return Color.YELLOW;
-            default:
-                return Color.WHITE;
-        }
+    	Color color = Color.WHITE;
+         switch (colour) {
+            case RED : color =Color.RED;
+            case BLUE :color = Color.BLUE;
+            case GREEN : color= Color.GREEN;
+            case YELLOW : color= Color.YELLOW;
+        };
+        return color;
     }
 
-    public Ellipse createMarbleShape(){
-    	 Ellipse marbleEllipse = new Ellipse(5, 5, 3, 3); // smaller ellipse
-//       marble.setFill(convertColour(cell.getMarble().getColour()));
-//       System.out.println(cell.getMarble().getColour());
-       switch(marble.getColour()) {
-       case RED: marbleEllipse.setFill(Color.RED); break;
-       case BLUE: marbleEllipse.setFill(Color.BLUE); break;
-       case GREEN: marbleEllipse.setFill(Color.GREEN); break;
-       case YELLOW: marbleEllipse.setFill(Color.YELLOW); break;
-       }
-       return marbleEllipse;
-    }
     public Marble getMarble() {
         return marble;
     }
