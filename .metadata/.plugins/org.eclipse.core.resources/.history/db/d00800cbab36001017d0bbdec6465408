@@ -275,7 +275,6 @@ public class MainGameController {
 			cell.setMarble(game.getPlayers().get(1).getMarbles().get(i));
 			}
 			CellView cellView = new CellView(cell);
-			cellView.updateView();
 			Pane cellPane = HomeZonePanes2.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
