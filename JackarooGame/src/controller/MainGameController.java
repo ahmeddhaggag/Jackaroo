@@ -108,7 +108,7 @@ public class MainGameController {
 		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
 		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
 
-		//up
+		//upd
 
 		updateBoard();
 
