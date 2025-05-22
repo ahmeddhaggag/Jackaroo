@@ -244,10 +244,10 @@
           <RowConstraints maxHeight="39.999990844726554" minHeight="10.0" prefHeight="22.599990844726562" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="HomeZonePane_3_1" prefHeight="20.0" prefWidth="20.0" />
-            <Pane fx:id="HomeZonePane_3_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
-            <Pane fx:id="HomeZonePane_3_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
-            <Pane fx:id="HomeZonePane_3_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane3_1" prefHeight="20.0" prefWidth="20.0" />
+            <Pane fx:id="HomeZonePane3_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
+            <Pane fx:id="HomeZonePane3_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane3_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <GridPane fx:id="CPU3HomeZone" layoutX="68.0" layoutY="127.0" prefHeight="50.0" prefWidth="50.0">
@@ -261,10 +261,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="HomeZonePane_4_1" prefHeight="20.0" prefWidth="20.0" />
-            <Pane fx:id="HomeZonePane_4_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
-            <Pane fx:id="HomeZonePane_4_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
-            <Pane fx:id="HomeZonePane_4_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane4_1" prefHeight="20.0" prefWidth="20.0" />
+            <Pane fx:id="HomeZonePane4_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
+            <Pane fx:id="HomeZonePane4_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane4_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <GridPane fx:id="PlayerHomeZone" layoutX="119.0" layoutY="574.0" prefHeight="50.0" prefWidth="50.0">
@@ -278,10 +278,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="HomeZonePane_1_1" prefHeight="20.0" prefWidth="20.0" />
-            <Pane fx:id="HomeZonePane_1_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
-            <Pane fx:id="HomeZonePane_1_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
-            <Pane fx:id="HomeZonePane_1_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane1_1" prefHeight="20.0" prefWidth="20.0" />
+            <Pane fx:id="HomeZonePane1_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
+            <Pane fx:id="HomeZonePane1_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane1_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <GridPane fx:id="CPU1HomeZone" layoutX="888.0" layoutY="446.0" prefHeight="50.0" prefWidth="50.0">
@@ -295,10 +295,10 @@
           <RowConstraints maxHeight="34.8" minHeight="10.0" prefHeight="22.200024414062497" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="HomeZonePane_2_1" prefHeight="20.0" prefWidth="20.0" />
-            <Pane fx:id="HomeZonePane_2_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
-            <Pane fx:id="HomeZonePane_2_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
-            <Pane fx:id="HomeZonePane_2_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane2_1" prefHeight="20.0" prefWidth="20.0" />
+            <Pane fx:id="HomeZonePane2_2" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" />
+            <Pane fx:id="HomeZonePane2_3" prefHeight="20.0" prefWidth="20.0" GridPane.rowIndex="2" />
+            <Pane fx:id="HomeZonePane2_4" prefHeight="20.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
 
