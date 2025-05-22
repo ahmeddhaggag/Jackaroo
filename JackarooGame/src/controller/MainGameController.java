@@ -163,7 +163,7 @@ public class MainGameController {
 			}
 		}
 		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#HomeZonePane1_" + i);
+			Pane pane = (Pane) PlayerHomeZone.lookup("#HomeZonePane1_" + i);
 			if (pane != null) {
 				HomeZonePanes1.add(pane);
 			} else {
@@ -171,7 +171,7 @@ public class MainGameController {
 			}
 		}
 		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#HomeZonePane2_" + i);
+			Pane pane = (Pane) CPU1HomeZone.lookup("#HomeZonePane2_" + i);
 			if (pane != null) {
 				HomeZonePanes2.add(pane);
 			} else {
@@ -179,7 +179,7 @@ public class MainGameController {
 			}
 		}
 		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#HomeZonePane3_" + i);
+			Pane pane = (Pane) CPU2HomeZone.lookup("#HomeZonePane3_" + i);
 			if (pane != null) {
 				HomeZonePanes3.add(pane);
 			} else {
@@ -187,7 +187,7 @@ public class MainGameController {
 			}
 		}
 		for (int i = 0; i < 4; i++) {
-			Pane pane = (Pane) board.lookup("#HomeZonePane4_" + i);
+			Pane pane = (Pane) CPU3HomeZone.lookup("#HomeZonePane4_" + i);
 			if (pane != null) {
 				HomeZonePanes4.add(pane);
 			} else {
