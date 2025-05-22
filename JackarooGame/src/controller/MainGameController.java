@@ -2,6 +2,7 @@ package controller;
 
 import engine.Game;
 import engine.board.Cell;
+import engine.board.CellType;
 import engine.board.SafeZone;
 import exception.ActionException;
 import exception.CannotDiscardException;
@@ -255,32 +256,32 @@ public class MainGameController {
 			cellPane.getChildren().add(safezoneview);
 		}
 		
-/*		for (int i = 0; i < 4; i++) {
-			CellView cellView = new CellView(cells.get(i));
-			Pane cellPane = trackPanes.get(i);
+		for (int i = 0; i < 4; i++) {
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
+			Pane cellPane = HomeZonePanes1.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
 
 		for (int i = 0; i < 4; i++) {
-			CellView cellView = new CellView(cells.get(i));
-			Pane cellPane = trackPanes.get(i);
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
+			Pane cellPane = HomeZonePanes2.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
 		for (int i = 0; i < 4; i++) {
-			CellView cellView = new CellView(cells.get(i));
-			Pane cellPane = trackPanes.get(i);
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
+			Pane cellPane = HomeZonePanes3.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			CellView cellView = new CellView(cells.get(i));
-			Pane cellPane = trackPanes.get(i);
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
+			Pane cellPane = HomeZonePanes4.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
-		}*/
+		}
 	}
 	public void displayHomeZones(){
 		PlayerHomeZone=new HomeZoneView(game.getPlayers().get(0));
