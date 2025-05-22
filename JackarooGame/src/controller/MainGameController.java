@@ -412,6 +412,8 @@ public class MainGameController {
 			alert.showAndWait();
 		}
 	}
-
+	public static void addmarble(Marble marble){
+		selectedmarbles.add(marble);
+	}
 
 }

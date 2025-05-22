@@ -1,5 +1,9 @@
 package view;
 
+import controller.MainGameController;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import model.Colour;
@@ -15,6 +19,13 @@ public class MarbleView extends Circle {
         this.setFill(convertColour(marble.getColour()));
         this.setStroke(Color.BLACK);
         this.setStrokeWidth(2);
+        this.setOnMouseClicked(new EventHandler<Event>(){
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				MainGameController.addmarble(marble);
+			}
+		});
     }
 
     private Color convertColour(Colour colour) {
