@@ -102,10 +102,10 @@ public class MainGameController {
 		displayName(nameLabel3, "CPU2");
 		displayName(nameLabel4, "CPU3");
 
-			PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
-		PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
-		PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
-		PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
+		//	PlayerPane1.setStyle("-fx-background-color: " + game.getPlayers().get(0).getColour().name().toLowerCase() +";");
+		//PlayerPane2.setStyle("-fx-background-color: " + game.getPlayers().get(1).getColour().name().toLowerCase() +";");
+		//PlayerPane3.setStyle("-fx-background-color: " + game.getPlayers().get(2).getColour().name().toLowerCase() +";");
+		//PlayerPane4.setStyle("-fx-background-color: " + game.getPlayers().get(3).getColour().name().toLowerCase() +";");
 
 		//up
 
@@ -183,7 +183,7 @@ public class MainGameController {
 				System.err.println("Missing: safePane4_" + i);
 			}
 		}
-		for (int i = 1; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			Pane pane = (Pane) PlayerHomeZone.lookup("#HomeZonePane1_" + i);
 			if (pane != null) {
 				HomeZonePanes1.add(pane);
@@ -191,7 +191,7 @@ public class MainGameController {
 				System.err.println("Missing: HomeZonePane1_" + i);
 			}
 		}
-		for (int i = 1; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			Pane pane = (Pane) CPU1HomeZone.lookup("#HomeZonePane2_" + i);
 			if (pane != null) {
 				HomeZonePanes2.add(pane);
@@ -199,7 +199,7 @@ public class MainGameController {
 				System.err.println("Missing: HomeZonePane2_" + i);
 			}
 		}
-		for (int i = 1; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			Pane pane = (Pane) CPU2HomeZone.lookup("#HomeZonePane3_" + i);
 			if (pane != null) {
 				HomeZonePanes3.add(pane);
@@ -207,7 +207,7 @@ public class MainGameController {
 				System.err.println("Missing: HomeZonePane3_" + i);
 			}
 		}
-		for (int i = 1; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			Pane pane = (Pane) CPU3HomeZone.lookup("#HomeZonePane4_" + i);
 			if (pane != null) {
 				HomeZonePanes4.add(pane);
@@ -215,6 +215,10 @@ public class MainGameController {
 				System.err.println("Missing: HomeZonePane4_" + i);
 			}
 		}
+		 System.out.println("HomeZonePane1_1: " + HomeZonePane1_1);
+		    System.out.println("HomeZonePane2_1: " + HomeZonePane2_1);
+		    System.out.println("HomeZonePane3_1: " + HomeZonePane3_1);
+		    System.out.println("HomeZonePane4_1: " + HomeZonePane4_1);
 	}
 
 	public void updateBoard() {
