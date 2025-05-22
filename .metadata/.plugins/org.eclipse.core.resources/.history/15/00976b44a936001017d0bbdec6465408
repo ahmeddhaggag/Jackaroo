@@ -57,29 +57,23 @@ public class CellView extends Pane {
      * Update the visual appearance of the cell view based on its state in the model.
      */
     public void updateView() {
-//        if (cell.isTrap()) {
-//            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
-//        } else if(cell.getCellType() == CellType.ENTRY){
-//        	cellShape.setFill(Color.GREEN);
-//        }
-//        else {
-//            cellShape.setFill(Color.WHITE);
-//        }
-    	
-    	cellShape.setFill(Color.WHITE);
+        if (cell.isTrap()) {
+            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
+        } else if(cell.getCellType() == CellType.ENTRY){
+        	cellShape.setFill(Color.GREEN);
+        }
+        else {
+            cellShape.setFill(Color.WHITE);
+        }
         if (getChildren().size() > 1) {
             getChildren().remove(1); // remove old marble
         }
 
         // Add a new marble if present
         if (cell.getMarble() != null) {
-            Ellipse marble = new Ellipse(5, 5, 3, 3); // smaller ellipse
+            Ellipse marble = new Ellipse(3, 3, 3, 3); // smaller ellipse
             marble.setFill(convertColour(cell.getMarble().getColour()));
-            System.out.println(cell.getMarble().getColour());
             marble.setStroke(Color.BLACK);
-         // Centralize the marble inside this CellView (assumes 20x20 size)
-//            marble.setLayoutX(3 );
-//            marble.setLayoutY(3 );
             getChildren().add(marble);
         }
     }

@@ -257,44 +257,27 @@ public class MainGameController {
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			Cell cell = new Cell(CellType.NORMAL);
-			if(i < game.getPlayers().get(0).getMarbles().size()){
-			cell.setMarble(game.getPlayers().get(0).getMarbles().get(i));
-			}
-			CellView cellView = new CellView(cell);
-			
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
 			Pane cellPane = HomeZonePanes1.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
 
 		for (int i = 0; i < 4; i++) {
-			Cell cell = new Cell(CellType.NORMAL);
-			if(i < game.getPlayers().get(1).getMarbles().size()){
-			cell.setMarble(game.getPlayers().get(1).getMarbles().get(i));
-			}
-			CellView cellView = new CellView(cell);
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
 			Pane cellPane = HomeZonePanes2.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
 		for (int i = 0; i < 4; i++) {
-			Cell cell = new Cell(CellType.NORMAL);
-			if(i < game.getPlayers().get(2).getMarbles().size()){
-			cell.setMarble(game.getPlayers().get(2).getMarbles().get(i));
-			}
-			CellView cellView = new CellView(cell);
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
 			Pane cellPane = HomeZonePanes3.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			Cell cell = new Cell(CellType.NORMAL);
-			if(i < game.getPlayers().get(0).getMarbles().size()){
-			cell.setMarble(game.getPlayers().get(3).getMarbles().get(i));
-			}
-			CellView cellView = new CellView(cell);
+			CellView cellView = new CellView(new Cell(CellType.NORMAL));
 			Pane cellPane = HomeZonePanes4.get(i);
 			cellPane.getChildren().clear();
 			cellPane.getChildren().add(cellView);

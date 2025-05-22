@@ -6,7 +6,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polygon;
-import model.Colour;
 
 /**
  * A custom view for displaying a game cell with a non-rectangular shape
@@ -19,7 +18,7 @@ public class CellView extends Pane {
     public CellView(Cell cell) {
         this.cell = cell;
         // Create a custom shape. Adjust the points to match your design.
-        cellShape = createCellShape(5);
+        cellShape = createCellShape();
         getChildren().add(cellShape);
         // Set a preferred size (you may adjust as necessary)
         setPrefSize(20, 20);
@@ -31,22 +30,11 @@ public class CellView extends Pane {
      * Create a polygon shape representing the cell.
      * In this example, we create a trapezoid-like shape.
      */
-    
-    private Color convertColour(Colour colour) {
-    	Color color = Color.WHITE;
-         switch (colour) {
-            case RED : color =Color.RED;
-            case BLUE :color = Color.BLUE;
-            case GREEN : color= Color.GREEN;
-            case YELLOW : color= Color.YELLOW;
-        };
-        return color;
-    }
-    private Ellipse createCellShape(int size) {
+    private Ellipse createCellShape() {
         // Create an ellipse to represent an oval.
         // The constructor parameters are:
         // centerX, centerY, radiusX (half the width) and radiusY (half the height)
-        Ellipse ellipse = new Ellipse(size, size, size, size);
+        Ellipse ellipse = new Ellipse(5, 5, 5, 5);
         ellipse.setStroke(Color.BLACK);
         ellipse.setFill(Color.WHITE); // Default fill color
         return ellipse;
@@ -57,30 +45,19 @@ public class CellView extends Pane {
      * Update the visual appearance of the cell view based on its state in the model.
      */
     public void updateView() {
-//        if (cell.isTrap()) {
-//            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
-//        } else if(cell.getCellType() == CellType.ENTRY){
-//        	cellShape.setFill(Color.GREEN);
-//        }
-//        else {
-//            cellShape.setFill(Color.WHITE);
-//        }
-    	
-    	cellShape.setFill(Color.WHITE);
-        if (getChildren().size() > 1) {
-            getChildren().remove(1); // remove old marble
+        if (cell.isTrap()) {
+            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
+        } else if(cell.getCellType() == CellType.ENTRY){
+        	cellShape.setFill(Color.GREEN);
         }
-
-        // Add a new marble if present
+        else {
+            cellShape.setFill(Color.WHITE);
+        }
+        // You can add additional visual cues here—for example, if the cell contains a marble,
+        // you might want to change the color or add an overlay shape.
         if (cell.getMarble() != null) {
-            Ellipse marble = new Ellipse(5, 5, 3, 3); // smaller ellipse
-            marble.setFill(convertColour(cell.getMarble().getColour()));
-            System.out.println(cell.getMarble().getColour());
-            marble.setStroke(Color.BLACK);
-         // Centralize the marble inside this CellView (assumes 20x20 size)
-//            marble.setLayoutX(3 );
-//            marble.setLayoutY(3 );
-            getChildren().add(marble);
+            // For instance, change the fill or add a circle to indicate a marble is present.
+            // cellShape.setFill(Color.LIGHTBLUE);
         }
     }
     

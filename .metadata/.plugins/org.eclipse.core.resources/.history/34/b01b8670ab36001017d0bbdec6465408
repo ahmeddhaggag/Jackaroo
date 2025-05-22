@@ -57,16 +57,14 @@ public class CellView extends Pane {
      * Update the visual appearance of the cell view based on its state in the model.
      */
     public void updateView() {
-//        if (cell.isTrap()) {
-//            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
-//        } else if(cell.getCellType() == CellType.ENTRY){
-//        	cellShape.setFill(Color.GREEN);
-//        }
-//        else {
-//            cellShape.setFill(Color.WHITE);
-//        }
-    	
-    	cellShape.setFill(Color.WHITE);
+        if (cell.isTrap()) {
+            cellShape.setFill(Color.LIGHTCORAL);  // Mark trap cells differently
+        } else if(cell.getCellType() == CellType.ENTRY){
+        	cellShape.setFill(Color.GREEN);
+        }
+        else {
+            cellShape.setFill(Color.WHITE);
+        }
         if (getChildren().size() > 1) {
             getChildren().remove(1); // remove old marble
         }
