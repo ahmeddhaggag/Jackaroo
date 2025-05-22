@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainGameController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainGameController">
 
     <children>
 
@@ -229,7 +229,7 @@
               <Label fx:id="nameLabel4" layoutX="15.0" layoutY="66.0" prefHeight="26.0" prefWidth="56.0" text="" />
          </children>
       </Pane>
-      <VBox fx:id="CPU3Box" layoutX="-75.0" layoutY="200.0" prefHeight="200.0" prefWidth="100.0" />
+      <VBox fx:id="CPU3Box" layoutX="14.0" layoutY="300.0" prefHeight="200.0" prefWidth="100.0" />
       <HBox fx:id="playerBox" layoutX="451.0" layoutY="524.0" prefHeight="100.0" prefWidth="200.0" />
       <HBox fx:id="CPU2Box" layoutX="430.0" layoutY="2.0" prefHeight="100.0" prefWidth="200.0" />
       <VBox fx:id="CPU1Box" layoutX="855.0" layoutY="258.0" prefHeight="200.0" prefWidth="100.0" />
