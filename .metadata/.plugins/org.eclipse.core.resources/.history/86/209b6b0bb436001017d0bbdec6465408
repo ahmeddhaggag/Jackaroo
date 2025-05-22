@@ -16,7 +16,6 @@ public class CellView extends Pane {
     private Cell cell;         // Reference to the model cell
     private Ellipse cellShape; // The custom shape representing the cell
 
-    private MarbleView marbleView;
     public CellView(Cell cell) {
         this.cell = cell;
         // Create a custom shape. Adjust the points to match your design.
@@ -74,15 +73,24 @@ public class CellView extends Pane {
 
         // Add a new marble if present
         if (cell.getMarble() != null) {
-        	marbleView = new MarbleView(cell.getMarble());
-            getChildren().add(marbleView);
-            
+            Ellipse marble = new Ellipse(5, 5, 3, 3); // smaller ellipse
+//            marble.setFill(convertColour(cell.getMarble().getColour()));
+//            System.out.println(cell.getMarble().getColour());
+            switch(cell.getMarble().getColour()) {
+            case RED: marble.setFill(Color.RED); break;
+            case BLUE: marble.setFill(Color.BLUE); break;
+            case GREEN: marble.setFill(Color.GREEN); break;
+            case YELLOW: marble.setFill(Color.YELLOW); break;
             // etc.
         }
 
-      
+            marble.setStroke(Color.BLACK);
+         // Centralize the marble inside this CellView (assumes 20x20 size)
+//            marble.setLayoutX(3 );
+//            marble.setLayoutY(3 );
+            getChildren().add(marble);
         }
-   
+    }
     
     /**
      * Returns the model cell linked to this view.

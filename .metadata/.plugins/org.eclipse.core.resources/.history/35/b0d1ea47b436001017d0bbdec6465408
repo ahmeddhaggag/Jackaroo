@@ -76,13 +76,12 @@ public class CellView extends Pane {
         if (cell.getMarble() != null) {
         	marbleView = new MarbleView(cell.getMarble());
             getChildren().add(marbleView);
-            
             // etc.
         }
 
       
         }
-   
+    }
     
     /**
      * Returns the model cell linked to this view.

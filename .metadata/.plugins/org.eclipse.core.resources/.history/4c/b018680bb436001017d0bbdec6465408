@@ -3,7 +3,6 @@ package view;
 import controller.MainGameController;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 import model.Colour;
 import model.player.Marble;
 
@@ -12,11 +11,12 @@ public class MarbleView extends Circle {
     private final Marble marble;
 
     public MarbleView(Marble marble) {
-       // super(15); // radius of the marble
+        super(15); // radius of the marble
         this.marble = marble;
 
-        createMarbleShape();
-        
+        this.setFill(convertColour(marble.getColour()));
+        this.setStroke(Color.BLACK);
+        this.setStrokeWidth(2);
 
         // Use lambda for cleaner event handler
         this.setOnMouseClicked(event -> MainGameController.addMarble(marble));
@@ -37,18 +37,6 @@ public class MarbleView extends Circle {
         }
     }
 
-    public Ellipse createMarbleShape(){
-    	 Ellipse marbleEllipse = new Ellipse(5, 5, 3, 3); // smaller ellipse
-//       marble.setFill(convertColour(cell.getMarble().getColour()));
-//       System.out.println(cell.getMarble().getColour());
-       switch(marble.getColour()) {
-       case RED: marbleEllipse.setFill(Color.RED); break;
-       case BLUE: marbleEllipse.setFill(Color.BLUE); break;
-       case GREEN: marbleEllipse.setFill(Color.GREEN); break;
-       case YELLOW: marbleEllipse.setFill(Color.YELLOW); break;
-       }
-       return marbleEllipse;
-    }
     public Marble getMarble() {
         return marble;
     }

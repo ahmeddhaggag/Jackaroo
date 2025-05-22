@@ -38,16 +38,16 @@ public class MarbleView extends Circle {
     }
 
     public Ellipse createMarbleShape(){
-    	 Ellipse marbleEllipse = new Ellipse(5, 5, 3, 3); // smaller ellipse
+    	 Ellipse marble = new Ellipse(5, 5, 3, 3); // smaller ellipse
 //       marble.setFill(convertColour(cell.getMarble().getColour()));
 //       System.out.println(cell.getMarble().getColour());
-       switch(marble.getColour()) {
-       case RED: marbleEllipse.setFill(Color.RED); break;
-       case BLUE: marbleEllipse.setFill(Color.BLUE); break;
-       case GREEN: marbleEllipse.setFill(Color.GREEN); break;
-       case YELLOW: marbleEllipse.setFill(Color.YELLOW); break;
+       switch(cell.getMarble().getColour()) {
+       case RED: marble.setFill(Color.RED); break;
+       case BLUE: marble.setFill(Color.BLUE); break;
+       case GREEN: marble.setFill(Color.GREEN); break;
+       case YELLOW: marble.setFill(Color.YELLOW); break;
        }
-       return marbleEllipse;
+       return marble;
     }
     public Marble getMarble() {
         return marble;
